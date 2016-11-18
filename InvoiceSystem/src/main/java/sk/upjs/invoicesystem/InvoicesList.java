@@ -13,4 +13,5 @@ public class InvoicesList implements InvoicesDAO {
     public void AddInvoice(Invoice invoice) {
         invoices.add(invoice);
     }
+   
 }
