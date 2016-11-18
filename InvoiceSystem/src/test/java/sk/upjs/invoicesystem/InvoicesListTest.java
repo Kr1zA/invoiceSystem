@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sk.upjs.invoicesystem;
 
 import java.util.Calendar;
@@ -11,10 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author kriza
- */
 public class InvoicesListTest {
 
     public InvoicesListTest() {
@@ -30,6 +21,7 @@ public class InvoicesListTest {
         int invoicesCount = invoices.getInvoices().size();
         invoices.AddInvoice(invoice);
         Assert.assertEquals(invoicesCount + 1, invoices.getInvoices().size());
+        Assert.assertEquals(2, invoices.getInvoices().get(0).getItems().size());
     }
 
 }

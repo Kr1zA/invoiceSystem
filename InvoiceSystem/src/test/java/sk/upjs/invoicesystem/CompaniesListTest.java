@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sk.upjs.invoicesystem;
 
 import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author kriza
- */
 public class CompaniesListTest {
 
     public CompaniesListTest() {
@@ -26,7 +17,5 @@ public class CompaniesListTest {
         companiesList.AddCompany(company);
         Assert.assertEquals(companiesCount + 1, companiesList.getCompanies().size());
     }
-    
-   
 
 }

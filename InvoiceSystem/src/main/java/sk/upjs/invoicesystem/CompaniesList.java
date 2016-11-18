@@ -2,7 +2,7 @@ package sk.upjs.invoicesystem;
 
 import java.util.*;
 
-public class CompaniesList {
+public class CompaniesList implements CompaniesDAO  {
 
     private List<Company> companies = new ArrayList<Company>();
 
