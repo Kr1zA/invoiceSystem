@@ -33,7 +33,7 @@ public class InvoicesForm extends javax.swing.JFrame {
         createInvoiceButton = new javax.swing.JButton();
         panelInvoices = new javax.swing.JScrollPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Invoices");
 
         deleteInvoicesButton.setText("Delete invoices");
         deleteInvoicesButton.addActionListener(new java.awt.event.ActionListener() {

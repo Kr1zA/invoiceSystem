@@ -53,8 +53,7 @@ public class CreateCompanyForm extends javax.swing.JFrame {
         IBANField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
         telephoneNumberField = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        createCompanyButton = new javax.swing.JButton();
 
         jLabel1.setText("Company name");
 
@@ -81,6 +80,8 @@ public class CreateCompanyForm extends javax.swing.JFrame {
         jLabel12.setText("IBAN");
 
         jLabel13.setText("Telephone number");
+
+        createCompanyButton.setText("Create!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,6 +149,10 @@ public class CreateCompanyForm extends javax.swing.JFrame {
                                     .addComponent(emailField)
                                     .addComponent(IBANField))))
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(createCompanyButton)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +209,9 @@ public class CreateCompanyForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(createCompanyButton)
+                .addContainerGap())
         );
 
         pack();
@@ -256,6 +263,7 @@ public class CreateCompanyForm extends javax.swing.JFrame {
     private javax.swing.JTextField cityField;
     private javax.swing.JTextField companyNameField;
     private javax.swing.JTextField countryField;
+    private javax.swing.JButton createCompanyButton;
     private javax.swing.JTextField emailField;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel jLabel1;

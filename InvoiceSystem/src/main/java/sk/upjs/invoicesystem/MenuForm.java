@@ -11,6 +11,8 @@ package sk.upjs.invoicesystem;
  */
 public class MenuForm extends javax.swing.JFrame {
 
+    private InvoicesForm invoicesForm = new InvoicesForm();
+
     /**
      * Creates new form Menu
      */
@@ -36,6 +38,11 @@ public class MenuForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         showCompanies.setText("Show all companies");
+        showCompanies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showCompaniesActionPerformed(evt);
+            }
+        });
 
         showAllInvoices.setText("Show all invoices");
         showAllInvoices.addActionListener(new java.awt.event.ActionListener() {
@@ -101,12 +108,16 @@ public class MenuForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void showAllInvoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAllInvoicesActionPerformed
-        // TODO add your handling code here:
+        invoicesForm.setVisible(true);
     }//GEN-LAST:event_showAllInvoicesActionPerformed
 
     private void createInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_createInvoiceActionPerformed
+
+    private void showCompaniesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCompaniesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showCompaniesActionPerformed
 
     /**
      * @param args the command line arguments
