@@ -12,7 +12,7 @@ public class InvoiceFactory {
    private DB db;
    
    
-   public CompaniesDAO getCompanyDao(){
+   public CompaniesDao getCompanyDao(){
        MongoClient mongoClient = new MongoClient( "localhost" , 27017 );    //pripoji sa na databazu	
        mongoClient.getDB( databaseName );
        return new MongoCompaniesDao(db.getCollection("companies"));         //vrati companies collection

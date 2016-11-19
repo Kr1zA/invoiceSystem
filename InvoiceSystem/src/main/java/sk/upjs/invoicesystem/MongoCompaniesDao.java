@@ -3,7 +3,7 @@ package sk.upjs.invoicesystem;
 import com.mongodb.DBCollection;
 import java.util.List;
 
-public class MongoCompaniesDao implements CompaniesDAO {
+public class MongoCompaniesDao implements CompaniesDao {
 
     private DBCollection mongo;
     public MongoCompaniesDao(DBCollection mongo) {
