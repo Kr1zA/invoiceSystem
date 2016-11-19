@@ -15,4 +15,5 @@ public enum InvoicesList implements InvoicesDao {
     public void AddInvoice(Invoice invoice) {
         invoices.add(invoice);
     }
+   
 }
