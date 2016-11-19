@@ -2,7 +2,7 @@ package sk.upjs.invoicesystem;
 
 import java.util.List;
 
-public interface CompaniesDAO {
+public interface CompaniesDao {
 
     public void AddCompany(Company company);
 

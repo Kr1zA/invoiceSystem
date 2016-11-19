@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.upjs.invoicesystem;
+package sk.upjs.invoicesystem.forms;
+
+import sk.upjs.invoicesystem.CompaniesList;
 
 /**
  *
@@ -11,11 +13,17 @@ package sk.upjs.invoicesystem;
  */
 public class CreateCompanyForm extends javax.swing.JFrame {
 
+    CompaniesList companiesList = CompaniesList.INSTANCE;
+    CreateInvoiceForm createInvoiceForm;
     /**
      * Creates new form CreateInvoiceForm
      */
     public CreateCompanyForm() {
         initComponents();
+    }
+    public CreateCompanyForm(CreateInvoiceForm cIF) {
+        initComponents();
+        createInvoiceForm = cIF;
     }
 
     /**
@@ -54,6 +62,9 @@ public class CreateCompanyForm extends javax.swing.JFrame {
         emailField = new javax.swing.JTextField();
         telephoneNumberField = new javax.swing.JTextField();
         createCompanyButton = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Create company");
 
         jLabel1.setText("Company name");
 

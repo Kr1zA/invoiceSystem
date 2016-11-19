@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.upjs.invoicesystem;
+package sk.upjs.invoicesystem.forms;
 
 /**
  *
  * @author kriza
  */
-public class InvoicesForm extends javax.swing.JFrame {
-
-    InvoicesDAO invoicesDAO = new InvoicesList();
+public class LogInForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form InvoicesForm
+     * Creates new form LogInForm
      */
-    public InvoicesForm() {
+    public LogInForm() {
         initComponents();
     }
 
@@ -29,23 +27,27 @@ public class InvoicesForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        deleteInvoicesButton = new javax.swing.JButton();
-        createInvoiceButton = new javax.swing.JButton();
-        panelInvoices = new javax.swing.JScrollPane();
+        jLabel1 = new javax.swing.JLabel();
+        okButton = new javax.swing.JButton();
+        passwordField = new javax.swing.JTextField();
 
-        setTitle("Invoices");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Welcome! Login");
+        setMinimumSize(new java.awt.Dimension(300, 100));
+        setSize(new java.awt.Dimension(300, 100));
 
-        deleteInvoicesButton.setText("Delete invoices");
-        deleteInvoicesButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Password");
+
+        okButton.setText("Ok");
+        okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteInvoicesButtonActionPerformed(evt);
+                okButtonActionPerformed(evt);
             }
         });
 
-        createInvoiceButton.setText("Create invoice");
-        createInvoiceButton.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createInvoiceButtonActionPerformed(evt);
+                passwordFieldActionPerformed(evt);
             }
         });
 
@@ -56,13 +58,13 @@ public class InvoicesForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(deleteInvoicesButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
-                        .addComponent(createInvoiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(panelInvoices, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(okButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -70,22 +72,26 @@ public class InvoicesForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteInvoicesButton)
-                    .addComponent(createInvoiceButton))
-                .addGap(28, 28, 28)
-                .addComponent(panelInvoices, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(okButton)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
-    }//GEN-LAST:event_createInvoiceButtonActionPerformed
-
-    private void deleteInvoicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInvoicesButtonActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteInvoicesButtonActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+        if (passwordField.getText().equals("nasrac")) {
+            this.setVisible(false);
+            new MenuForm().setVisible(true);
+        }
+    }//GEN-LAST:event_okButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,27 +110,27 @@ public class InvoicesForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InvoicesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InvoicesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InvoicesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InvoicesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InvoicesForm().setVisible(true);
+                new LogInForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createInvoiceButton;
-    private javax.swing.JButton deleteInvoicesButton;
-    private javax.swing.JScrollPane panelInvoices;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton okButton;
+    private javax.swing.JTextField passwordField;
     // End of variables declaration//GEN-END:variables
 }

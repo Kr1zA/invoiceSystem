@@ -2,7 +2,7 @@ package sk.upjs.invoicesystem;
 
 import java.util.List;
 
-public interface InvoicesDAO {
+public interface InvoicesDao {
 
     public List<Invoice> getInvoices();
 

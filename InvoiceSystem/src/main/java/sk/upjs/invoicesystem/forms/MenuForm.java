@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.upjs.invoicesystem;
+package sk.upjs.invoicesystem.forms;
+
+import sk.upjs.invoicesystem.CompaniesDao;
+import sk.upjs.invoicesystem.CompaniesList;
 
 /**
  *
@@ -11,7 +14,8 @@ package sk.upjs.invoicesystem;
  */
 public class MenuForm extends javax.swing.JFrame {
 
-    private InvoicesForm invoicesForm = new InvoicesForm();
+    
+    private CompaniesDao companiesList = CompaniesList.INSTANCE;
 
     /**
      * Creates new form Menu
@@ -36,6 +40,7 @@ public class MenuForm extends javax.swing.JFrame {
         lastFacturesTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Invoice System");
 
         showCompanies.setText("Show all companies");
         showCompanies.addActionListener(new java.awt.event.ActionListener() {
@@ -108,15 +113,15 @@ public class MenuForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void showAllInvoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAllInvoicesActionPerformed
-        invoicesForm.setVisible(true);
+        new InvoicesForm().setVisible(true);
     }//GEN-LAST:event_showAllInvoicesActionPerformed
 
     private void createInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceActionPerformed
-        // TODO add your handling code here:
+        new CreateInvoiceForm(this).setVisible(true);
     }//GEN-LAST:event_createInvoiceActionPerformed
 
     private void showCompaniesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCompaniesActionPerformed
-        // TODO add your handling code here:
+        new CompaniesForm().setVisible(true);
     }//GEN-LAST:event_showCompaniesActionPerformed
 
     /**

@@ -13,7 +13,7 @@ public class InvoicesListTest {
 
     @Test
     public void testAddingInvoice() {
-        InvoicesList invoices = new InvoicesList();
+        InvoicesList invoices = InvoicesList.INSTANCE;
         Invoice invoice = new Invoice(231, 323, 323, new Date(2016 - 1999, Calendar.SEPTEMBER, 28), new Date(2016 - 1999, Calendar.SEPTEMBER, 28), new Date(2016 - 1999, Calendar.SEPTEMBER, 28), "€", "jak pridze", null, "me");
         invoice.addItem("vsetko", 9, 300);
         invoice.addItem("vsetko", 9, 300);
