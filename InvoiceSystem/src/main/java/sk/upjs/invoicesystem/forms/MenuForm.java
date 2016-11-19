@@ -5,7 +5,7 @@
  */
 package sk.upjs.invoicesystem.forms;
 
-import sk.upjs.invoicesystem.InvoiceTableModel;
+import sk.upjs.invoicesystem.InvoiceSmallTableModel;
 import sk.upjs.invoicesystem.InvoicesDao;
 import sk.upjs.invoicesystem.InvoicesList;
 
@@ -27,7 +27,7 @@ public class MenuForm extends javax.swing.JFrame {
     }
 
     private void refreshMenuForm() {
-        InvoiceTableModel model = (InvoiceTableModel) lastInvoicesTable.getModel();
+        InvoiceSmallTableModel model = (InvoiceSmallTableModel) lastInvoicesTable.getModel();
         model.refresh();
 
     }
@@ -71,7 +71,7 @@ public class MenuForm extends javax.swing.JFrame {
             }
         });
 
-        lastInvoicesTable.setModel(new InvoiceTableModel());
+        lastInvoicesTable.setModel(new sk.upjs.invoicesystem.InvoiceSmallTableModel());
         jScrollPane2.setViewportView(lastInvoicesTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,6 +106,7 @@ public class MenuForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void showAllInvoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAllInvoicesActionPerformed

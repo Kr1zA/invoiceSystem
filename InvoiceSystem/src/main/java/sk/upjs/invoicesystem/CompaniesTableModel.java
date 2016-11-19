@@ -3,17 +3,17 @@ package sk.upjs.invoicesystem;
 import java.util.Date;
 import javax.swing.table.AbstractTableModel;
 
-public class InvoiceTableModel extends AbstractTableModel {
+public class CompaniesTableModel extends AbstractTableModel {
 
-    private InvoicesDao invoicesDao = InvoicesList.INSTANCE;
+    private CompaniesDao companies = CompaniesList.INSTANCE;
 
-    private static final String[] COLUMNS_NAMES = {"Supplier", "Customer", "Exposure date"};
+    private static final String[] COLUMNS_NAMES = {"Company name", "Firstname", "Surname", "City",};
 
     private static final int COLUMNS_COUNT = COLUMNS_NAMES.length;
 
     @Override
     public int getRowCount() {
-        return invoicesDao.getInvoices().size();
+        return companies.getCompanies().size();
     }
 
     @Override
@@ -23,20 +23,29 @@ public class InvoiceTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Invoice invoice = invoicesDao.getInvoices().get(rowIndex);
+        Company company = companies.getCompanies().get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return invoice.getSupplier().getCompanyName();
+                if (company.getCompanyName() == null) {
+                    return "-";
+                } else {
+                    return company.getCompanyName();
+                }
 
             case 1:
-                return invoice.getCustomer().getCompanyName();
-            case 2:
-                Date exposureDate = invoice.getExposureDate();
-                if (exposureDate == null) {
-                    return "null";
+                if (company.getFirstName() == null) {
+                    return "-";
                 } else {
-                    return exposureDate;
+                    return company.getFirstName();
                 }
+            case 2:
+                if (company.getSurName() == null) {
+                    return "-";
+                } else {
+                    return company.getSurName();
+                }
+            case 3:
+                return company.getCity();
             default:
                 return "???";
         }

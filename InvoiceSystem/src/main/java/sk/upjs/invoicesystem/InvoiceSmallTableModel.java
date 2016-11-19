@@ -3,7 +3,7 @@ package sk.upjs.invoicesystem;
 import java.util.Date;
 import javax.swing.table.AbstractTableModel;
 
-public class InvoiceTableModel extends AbstractTableModel {
+public class InvoiceSmallTableModel extends AbstractTableModel {
 
     private InvoicesDao invoicesDao = InvoicesList.INSTANCE;
 
@@ -13,7 +13,7 @@ public class InvoiceTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return invoicesDao.getInvoices().size();
+        return invoicesDao.get5LastInvoices().size();
     }
 
     @Override
@@ -23,7 +23,7 @@ public class InvoiceTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Invoice invoice = invoicesDao.getInvoices().get(rowIndex);
+        Invoice invoice = invoicesDao.get5LastInvoices().get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return invoice.getSupplier().getCompanyName();

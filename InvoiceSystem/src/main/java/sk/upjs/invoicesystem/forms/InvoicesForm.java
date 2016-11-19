@@ -5,6 +5,7 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import sk.upjs.invoicesystem.InvoiceTableModel;
 import sk.upjs.invoicesystem.InvoicesList;
 import sk.upjs.invoicesystem.InvoicesDao;
 
@@ -21,6 +22,12 @@ public class InvoicesForm extends javax.swing.JFrame {
      */
     public InvoicesForm() {
         initComponents();
+        refreshInvoiceForm();
+    }
+
+    private void refreshInvoiceForm() {
+        InvoiceTableModel model = (InvoiceTableModel) invoiceFormTable.getModel();
+        model.refresh();
     }
 
     /**
@@ -34,7 +41,9 @@ public class InvoicesForm extends javax.swing.JFrame {
 
         deleteInvoicesButton = new javax.swing.JButton();
         createInvoiceButton = new javax.swing.JButton();
-        panelInvoices = new javax.swing.JScrollPane();
+        updateInvoiceButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        invoiceFormTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Invoices");
@@ -53,6 +62,11 @@ public class InvoicesForm extends javax.swing.JFrame {
             }
         });
 
+        updateInvoiceButton.setText("Update invoice");
+
+        invoiceFormTable.setModel(new InvoiceTableModel());
+        jScrollPane1.setViewportView(invoiceFormTable);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,13 +74,13 @@ public class InvoicesForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(deleteInvoicesButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
-                        .addComponent(createInvoiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(panelInvoices, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateInvoiceButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(createInvoiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -75,17 +89,18 @@ public class InvoicesForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteInvoicesButton)
-                    .addComponent(createInvoiceButton))
-                .addGap(28, 28, 28)
-                .addComponent(panelInvoices, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(createInvoiceButton)
+                    .addComponent(updateInvoiceButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
-        
+
     }//GEN-LAST:event_createInvoiceButtonActionPerformed
 
     private void deleteInvoicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInvoicesButtonActionPerformed
@@ -130,6 +145,8 @@ public class InvoicesForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createInvoiceButton;
     private javax.swing.JButton deleteInvoicesButton;
-    private javax.swing.JScrollPane panelInvoices;
+    private javax.swing.JTable invoiceFormTable;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton updateInvoiceButton;
     // End of variables declaration//GEN-END:variables
 }

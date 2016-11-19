@@ -5,6 +5,8 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import sk.upjs.invoicesystem.CompaniesTableModel;
+
 /**
  *
  * @author kriza
@@ -16,6 +18,12 @@ public class CompaniesForm extends javax.swing.JFrame {
      */
     public CompaniesForm() {
         initComponents();
+        refreshCompaniesForm();
+    }
+
+    private void refreshCompaniesForm() {
+        CompaniesTableModel model = (CompaniesTableModel) companiesTable.getModel();
+        model.refresh();
     }
 
     /**
@@ -31,6 +39,7 @@ public class CompaniesForm extends javax.swing.JFrame {
         createCompanyButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         companiesTable = new javax.swing.JTable();
+        updateCompanyButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Companies");
@@ -49,18 +58,10 @@ public class CompaniesForm extends javax.swing.JFrame {
             }
         });
 
-        companiesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
+        companiesTable.setModel(new CompaniesTableModel());
         jScrollPane1.setViewportView(companiesTable);
+
+        updateCompanyButton.setText("Update company");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,6 +74,8 @@ public class CompaniesForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(deleteCompaniesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateCompanyButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(createCompanyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -82,7 +85,8 @@ public class CompaniesForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createCompanyButton)
-                    .addComponent(deleteCompaniesButton))
+                    .addComponent(deleteCompaniesButton)
+                    .addComponent(updateCompanyButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -139,5 +143,6 @@ public class CompaniesForm extends javax.swing.JFrame {
     private javax.swing.JButton createCompanyButton;
     private javax.swing.JButton deleteCompaniesButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton updateCompanyButton;
     // End of variables declaration//GEN-END:variables
 }
