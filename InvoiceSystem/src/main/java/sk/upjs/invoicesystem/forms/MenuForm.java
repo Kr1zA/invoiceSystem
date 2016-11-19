@@ -5,8 +5,9 @@
  */
 package sk.upjs.invoicesystem.forms;
 
-import sk.upjs.invoicesystem.CompaniesDao;
-import sk.upjs.invoicesystem.CompaniesList;
+import sk.upjs.invoicesystem.InvoiceTableModel;
+import sk.upjs.invoicesystem.InvoicesDao;
+import sk.upjs.invoicesystem.InvoicesList;
 
 /**
  *
@@ -14,14 +15,21 @@ import sk.upjs.invoicesystem.CompaniesList;
  */
 public class MenuForm extends javax.swing.JFrame {
 
-    
-    private CompaniesDao companiesList = CompaniesList.INSTANCE;
+    private InvoicesDao invoicesDAO = InvoicesList.INSTANCE;
 
     /**
      * Creates new form Menu
      */
     public MenuForm() {
         initComponents();
+
+        refreshMenuForm();
+    }
+
+    private void refreshMenuForm() {
+        InvoiceTableModel model = (InvoiceTableModel) lastInvoicesTable.getModel();
+        model.refresh();
+
     }
 
     /**
@@ -36,8 +44,8 @@ public class MenuForm extends javax.swing.JFrame {
         showCompanies = new javax.swing.JButton();
         showAllInvoices = new javax.swing.JButton();
         createInvoice = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lastFacturesTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lastInvoicesTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Invoice System");
@@ -63,18 +71,8 @@ public class MenuForm extends javax.swing.JFrame {
             }
         });
 
-        lastFacturesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(lastFacturesTable);
+        lastInvoicesTable.setModel(new InvoiceTableModel());
+        jScrollPane2.setViewportView(lastInvoicesTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,9 +81,7 @@ public class MenuForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(showCompanies)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -104,9 +100,9 @@ public class MenuForm extends javax.swing.JFrame {
                     .addComponent(showAllInvoices))
                 .addGap(18, 18, 18)
                 .addComponent(createInvoice)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
 
         pack();
@@ -162,8 +158,8 @@ public class MenuForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createInvoice;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable lastFacturesTable;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable lastInvoicesTable;
     private javax.swing.JButton showAllInvoices;
     private javax.swing.JButton showCompanies;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,9 @@ import java.util.*;
 
 public class Invoice {
 
+    private Company supplier;
+    private Company customer;
+
     private int invoiceNumber;
     private int variableSymbol;
     private int constantSymbol;
@@ -105,7 +108,33 @@ public class Invoice {
         return items;
     }
 
-    public Invoice(int invoiceNumber, int variableSymbol, int constantSymbol, Date exposureDate, Date deliveryDate, Date paymentDueDate, String currency, String formOfPayments, String note, String drewUpBy) {
+    public void setSupplier(Company supplier) {
+        this.supplier = supplier;
+    }
+
+    public void setCustomer(Company customer) {
+        this.customer = customer;
+    }
+
+    public void setPaymentsForm(String paymentsForm) {
+        this.paymentsForm = paymentsForm;
+    }
+
+    public Company getSupplier() {
+        return supplier;
+    }
+
+    public Company getCustomer() {
+        return customer;
+    }
+
+    public String getPaymentsForm() {
+        return paymentsForm;
+    }
+
+    public Invoice(Company supplier, Company customer, int invoiceNumber, int variableSymbol, int constantSymbol, Date exposureDate, Date deliveryDate, Date paymentDueDate, String currency, String paymentsForm, String note, String drewUpBy) {
+        this.supplier = supplier;
+        this.customer = customer;
         this.invoiceNumber = invoiceNumber;
         this.variableSymbol = variableSymbol;
         this.constantSymbol = constantSymbol;
@@ -113,10 +142,13 @@ public class Invoice {
         this.deliveryDate = deliveryDate;
         this.paymentDueDate = paymentDueDate;
         this.currency = currency;
-        this.paymentsForm = formOfPayments;
+        this.paymentsForm = paymentsForm;
         this.note = note;
         this.drewUpBy = drewUpBy;
     }
+
+   
+    
 
     private class Item {
 

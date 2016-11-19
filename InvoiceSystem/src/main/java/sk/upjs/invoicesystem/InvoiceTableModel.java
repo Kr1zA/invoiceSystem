@@ -1,0 +1,60 @@
+package sk.upjs.invoicesystem;
+
+import java.util.Date;
+import javax.swing.table.AbstractTableModel;
+
+public class InvoiceTableModel extends AbstractTableModel {
+
+    private InvoicesDao invoicesDao = InvoicesList.INSTANCE;
+
+    private static final String[] COLUMNS_NAMES = {"Supplier", "Customer", "Exposure date"};
+
+    private static final int COLUMNS_COUNT = COLUMNS_NAMES.length;
+
+    @Override
+    public int getRowCount() {
+        return invoicesDao.get5LastInvoices().size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return COLUMNS_COUNT;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        Invoice invoice = invoicesDao.get5LastInvoices().get(rowIndex);
+        switch (columnIndex) {
+            case 0:
+                return invoice.getSupplier().getCompanyName();
+
+            case 1:
+                return invoice.getCustomer().getCompanyName();
+            case 2:
+                Date exposureDate = invoice.getExposureDate();
+                if (exposureDate == null) {
+                    return "null";
+                } else {
+                    return exposureDate;
+                }
+            default:
+                return "???";
+        }
+    }
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+
+        return super.getColumnClass(columnIndex);
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {
+        return COLUMNS_NAMES[columnIndex];
+    }
+
+    public void refresh() {
+        fireTableDataChanged();
+    }
+
+}

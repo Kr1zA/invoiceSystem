@@ -6,5 +6,7 @@ public interface InvoicesDao {
 
     public List<Invoice> getInvoices();
 
-    public void AddInvoice(Invoice invoice);
+    public void addInvoice(Invoice invoice);
+    
+    public List<Invoice> get5LastInvoices();
 }

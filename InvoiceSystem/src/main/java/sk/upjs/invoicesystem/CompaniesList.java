@@ -7,8 +7,10 @@ public enum CompaniesList implements CompaniesDao {
     INSTANCE;
 
     private List<Company> companies = new ArrayList<Company>();
+    
+    
 
-    public void AddCompany(Company company) {
+    public void addCompany(Company company) {
         companies.add(company);
     }
 
@@ -16,4 +18,5 @@ public enum CompaniesList implements CompaniesDao {
         return companies;
     }
 
+   
 }

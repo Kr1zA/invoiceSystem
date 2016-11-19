@@ -11,7 +11,7 @@ public class MongoCompaniesDao implements CompaniesDao {
     }
 
     @Override
-    public void AddCompany(Company company) {
+    public void addCompany(Company company) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
