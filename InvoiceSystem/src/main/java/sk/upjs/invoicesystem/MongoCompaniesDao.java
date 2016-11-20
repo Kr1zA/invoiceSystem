@@ -19,5 +19,15 @@ public class MongoCompaniesDao implements CompaniesDao {
     public List<Company> getCompanies() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public Company searchCompany(String companyName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Company searchCompany(String surName, String firstName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

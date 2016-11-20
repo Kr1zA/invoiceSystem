@@ -120,21 +120,8 @@ public class Company {
         return IBAN;
     }
 
-    public Company(String companyName, String street, String city, int PSC, String country, Long ICO, Long DIC, boolean DPHPayer, String telephoneNumber, String email, String IBAN) {
+    public Company(String companyName, String firstName, String surName, String street, String city, int PSC, String country, Long ICO, Long DIC, boolean DPHPayer, String telephoneNumber, String email, String IBAN) {
         this.companyName = companyName;
-        this.street = street;
-        this.city = city;
-        this.ZIP = PSC;
-        this.country = country;
-        this.ICO = ICO;
-        this.DIC = DIC;
-        this.DPHPayer = DPHPayer;
-        this.telephoneNumber = telephoneNumber;
-        this.email = email;
-        this.IBAN = IBAN;
-    }
-
-    public Company(String surName, String firstName, String street, String city, int PSC, String country, Long ICO, Long DIC, boolean DPHPayer, String telephoneNumber, String email, String IBAN) {
         this.surName = surName;
         this.firstName = firstName;
         this.street = street;

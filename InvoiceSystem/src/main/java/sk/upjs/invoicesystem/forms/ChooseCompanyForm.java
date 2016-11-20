@@ -109,7 +109,6 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
             if (selectedCompany.equals("supplier")) {
                 createInvoiceForm.setSupplier(company);
                 createInvoiceForm.setButtonTextChooseSupplier(companyName);
-
             } else {
                 createInvoiceForm.setCustomer(company);
                 createInvoiceForm.setButtonTextChooseCustomer(companyName);
@@ -117,12 +116,11 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
         } else {
             String firstName = (String) companiesTable.getValueAt(selectedRow, 1);
             String surName = (String) companiesTable.getValueAt(selectedRow, 2);
-            Company company = CompaniesList.INSTANCE.searchCompany(surName, firstName);
+            Company company = CompaniesList.INSTANCE.searchCompany(firstName, surName);
             if (selectedCompany.equals("supplier")) {
                 createInvoiceForm.setSupplier(company);
                 String name = firstName + " " + surName;
                 createInvoiceForm.setButtonTextChooseSupplier(name);
-
             } else {
                 createInvoiceForm.setCustomer(company);
                 String name = firstName + " " + surName;

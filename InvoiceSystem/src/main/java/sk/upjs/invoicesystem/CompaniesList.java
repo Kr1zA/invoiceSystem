@@ -9,8 +9,8 @@ public enum CompaniesList implements CompaniesDao {
     private List<Company> companies = new ArrayList<Company>();
 
     private CompaniesList() {
-        Company company = new Company("nazovfirmy", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
-        Company company1 = new Company("meno", "priezvisko", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
+        Company company = new Company("nazovfirmy", "", "", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
+        Company company1 = new Company("", "meno", "priezvisko", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
         addCompany(company);
         addCompany(company1);
     }
@@ -32,7 +32,7 @@ public enum CompaniesList implements CompaniesDao {
         return null;
     }
 
-    public Company searchCompany(String surName, String firstName) {
+    public Company searchCompany(String firstName, String surName) {
         for (int i = 0; i < companies.size(); i++) {
             if (companies.get(i).getSurName().equals(surName) && companies.get(i).getFirstName().equals(firstName)) {
                 return companies.get(i);

@@ -9,8 +9,8 @@ public enum InvoicesList implements InvoicesDao {
     private List<Invoice> invoices = new ArrayList<Invoice>();
 
     private InvoicesList() {
-        Company company = new Company("asd", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
-        Company company1 = new Company("asd", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
+        Company company = new Company("asd", "", "", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
+        Company company1 = new Company("asd", "", "", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, true, "343434", "asd@asd.sd", "34sfasfa");
 
         Invoice new1 = new Invoice(company, company1, 23, 43, 234, new Date(2016 - 1999, Calendar.SEPTEMBER, 28), new Date(2016 - 1999, Calendar.SEPTEMBER, 29), new Date(2016 - 1999, Calendar.SEPTEMBER, 30), "E", "neviem", null, "me");
         Invoice new2 = new Invoice(company, company1, 23, 43, 234, new Date(2016 - 1999, Calendar.SEPTEMBER, 22), new Date(2016 - 1999, Calendar.SEPTEMBER, 29), new Date(2016 - 1999, Calendar.SEPTEMBER, 30), "E", "neviem", null, "me");
