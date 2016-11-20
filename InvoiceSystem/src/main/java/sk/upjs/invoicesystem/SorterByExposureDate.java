@@ -11,7 +11,7 @@ import java.util.Comparator;
  *
  * @author kriza
  */
-public class sorterByExposureDate implements Comparator<Invoice> {
+public class SorterByExposureDate implements Comparator<Invoice> {
 
     @Override
     public int compare(Invoice t, Invoice t1) {

@@ -18,4 +18,9 @@ public class CompaniesListTest {
         Assert.assertEquals(companiesCount + 1, companiesList.getCompanies().size());
     }
 
+    @Test
+    public void testSearchCompany() {
+        
+    }
+
 }

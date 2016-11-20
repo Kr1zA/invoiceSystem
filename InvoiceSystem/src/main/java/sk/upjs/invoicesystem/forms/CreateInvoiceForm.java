@@ -5,6 +5,7 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import javax.swing.JButton;
 import sk.upjs.invoicesystem.CompaniesDao;
 import sk.upjs.invoicesystem.Company;
 
@@ -16,26 +17,39 @@ public class CreateInvoiceForm extends javax.swing.JFrame {
 
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this);
     private CreateCompanyForm createCustomer = new CreateCompanyForm(this);
-    private ChooseCompanyForm chooseSupplier = new ChooseCompanyForm(this);
-    private ChooseCompanyForm chooseCustomer = new ChooseCompanyForm(this);
+    private ChooseCompanyForm chooseSupplier = new ChooseCompanyForm(this, "supplier");
+    private ChooseCompanyForm chooseCustomer = new ChooseCompanyForm(this, "customer");
 
-    private Company Supplier;
-    private Company Customer;
+    private Company supplier;
+    private Company customer;
 
     public void setCustomer(Company Customer) {
-        this.Customer = Customer;
+        this.customer = Customer;
     }
 
     public void setSupplier(Company Supplier) {
-        this.Supplier = Supplier;
+        this.supplier = Supplier;
     }
-    
+
+    public void setButtonTextChooseCustomer(String name) {
+        this.chooseCustomerButton.setText(name);
+    }
+
+    public void setButtonTextChooseSupplier(String name) {
+        this.chooseSupplierButton.setText(name);
+    }
+
     /**
      * Creates new form CreateCompanyForm
      */
+    public CreateInvoiceForm() {
+        initComponents();
+    }
+
     public CreateInvoiceForm(MenuForm menuForm) {
         initComponents();
     }
+
     public CreateInvoiceForm(InvoicesForm invoicesForm) {
         initComponents();
     }
@@ -212,11 +226,11 @@ public class CreateInvoiceForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void chooseSupplierButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseSupplierButtonActionPerformed
-        // TODO add your handling code here:
+        chooseSupplier.setVisible(true);
     }//GEN-LAST:event_chooseSupplierButtonActionPerformed
 
     private void chooseCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseCustomerButtonActionPerformed
-        // TODO add your handling code here:
+        chooseCustomer.setVisible(true);
     }//GEN-LAST:event_chooseCustomerButtonActionPerformed
 
     private void createSupplierButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createSupplierButtonActionPerformed
@@ -231,40 +245,41 @@ public class CreateInvoiceForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new CreateInvoiceForm().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CreateInvoiceForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CreateInvoiceForm().setVisible(true);
+            }
+        });
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chooseCustomerButton;

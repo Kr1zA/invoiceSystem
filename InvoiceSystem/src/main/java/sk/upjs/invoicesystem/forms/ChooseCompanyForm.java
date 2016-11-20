@@ -5,6 +5,8 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import sk.upjs.invoicesystem.*;
+
 /**
  *
  * @author kriza
@@ -12,17 +14,26 @@ package sk.upjs.invoicesystem.forms;
 public class ChooseCompanyForm extends javax.swing.JFrame {
 
     private CreateInvoiceForm createInvoiceForm;
+    private String selectedCompany;
 
     /**
      * Creates new form ChooseCompanyForm
      */
     public ChooseCompanyForm() {
         initComponents();
+
     }
 
-    public ChooseCompanyForm(CreateInvoiceForm cIF) {
+    public ChooseCompanyForm(CreateInvoiceForm cIF, String company) {
         initComponents();
         createInvoiceForm = cIF;
+        selectedCompany = company;
+        refreshCompaniesForm();
+    }
+
+    private void refreshCompaniesForm() {
+        CompaniesTableModel model = (CompaniesTableModel) companiesTable.getModel();
+        model.refresh();
     }
 
     /**
@@ -34,53 +45,92 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        selectButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        searchField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        companiesTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Choose company");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        selectButton.setText("Select");
+        selectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectButtonActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Select");
+        searchButton.setText("Search");
 
-        jButton2.setText("Search");
+        companiesTable.setModel(new CompaniesTableModel());
+        jScrollPane2.setViewportView(companiesTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(searchField, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(searchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
-                .addContainerGap())
+                        .addComponent(selectButton)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(selectButton)
+                    .addComponent(searchButton)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+        int selectedRow = companiesTable.getSelectedRow();
+        if (!"-".equals((String) companiesTable.getValueAt(selectedRow, 0))) {
+            String companyName = (String) companiesTable.getValueAt(selectedRow, 0);
+            Company company = CompaniesList.INSTANCE.searchCompany(companyName);
+            if (selectedCompany.equals("supplier")) {
+                createInvoiceForm.setSupplier(company);
+                createInvoiceForm.setButtonTextChooseSupplier(companyName);
+
+            } else {
+                createInvoiceForm.setCustomer(company);
+                createInvoiceForm.setButtonTextChooseCustomer(companyName);
+            }
+        } else {
+            String firstName = (String) companiesTable.getValueAt(selectedRow, 1);
+            String surName = (String) companiesTable.getValueAt(selectedRow, 2);
+            Company company = CompaniesList.INSTANCE.searchCompany(surName, firstName);
+            if (selectedCompany.equals("supplier")) {
+                createInvoiceForm.setSupplier(company);
+                String name = firstName + " " + surName;
+                createInvoiceForm.setButtonTextChooseSupplier(name);
+
+            } else {
+                createInvoiceForm.setCustomer(company);
+                String name = firstName + " " + surName;
+                createInvoiceForm.setButtonTextChooseCustomer(name);
+            }
+        }
+
+    }//GEN-LAST:event_selectButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,10 +168,10 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable companiesTable;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JButton selectButton;
     // End of variables declaration//GEN-END:variables
 }

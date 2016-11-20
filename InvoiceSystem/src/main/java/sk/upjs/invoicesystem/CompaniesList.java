@@ -23,4 +23,22 @@ public enum CompaniesList implements CompaniesDao {
         return companies;
     }
 
+    public Company searchCompany(String companyName) {
+        for (int i = 0; i < companies.size(); i++) {
+            if (companies.get(i).getCompanyName().equals(companyName)) {
+                return companies.get(i);
+            }
+        }
+        return null;
+    }
+
+    public Company searchCompany(String surName, String firstName) {
+        for (int i = 0; i < companies.size(); i++) {
+            if (companies.get(i).getSurName().equals(surName) && companies.get(i).getFirstName().equals(firstName)) {
+                return companies.get(i);
+            }
+        }
+        return null;
+    }
+
 }

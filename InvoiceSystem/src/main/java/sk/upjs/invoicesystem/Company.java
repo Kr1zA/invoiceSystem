@@ -2,19 +2,19 @@ package sk.upjs.invoicesystem;
 
 public class Company {
 
-    private String companyName;
-    private String surName;
-    private String firstName;
-    private String street;
-    private String city;
+    private String companyName = "";
+    private String surName = "";
+    private String firstName = "";
+    private String street = "";
+    private String city = "";
     private int ZIP;
-    private String country;
+    private String country = "";
     private Long ICO;
     private Long DIC;
     private boolean DPHPayer;
-    private String telephoneNumber;
-    private String email;
-    private String IBAN;
+    private String telephoneNumber = "";
+    private String email = "";
+    private String IBAN = "";
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -148,7 +148,5 @@ public class Company {
         this.email = email;
         this.IBAN = IBAN;
     }
-    
-    
 
 }

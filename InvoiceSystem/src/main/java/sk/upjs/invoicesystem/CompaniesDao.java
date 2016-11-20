@@ -8,4 +8,7 @@ public interface CompaniesDao {
 
     public List<Company> getCompanies();
     
+    public Company searchCompany(String companyName);
+    
+    public Company searchCompany(String surName, String firstName);
 }

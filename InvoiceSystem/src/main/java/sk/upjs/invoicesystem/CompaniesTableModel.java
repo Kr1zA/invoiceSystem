@@ -26,20 +26,20 @@ public class CompaniesTableModel extends AbstractTableModel {
         Company company = companies.getCompanies().get(rowIndex);
         switch (columnIndex) {
             case 0:
-                if (company.getCompanyName() == null) {
+                if (company.getCompanyName() == "") {
                     return "-";
                 } else {
                     return company.getCompanyName();
                 }
 
             case 1:
-                if (company.getFirstName() == null) {
+                if (company.getFirstName() == "") {
                     return "-";
                 } else {
                     return company.getFirstName();
                 }
             case 2:
-                if (company.getSurName() == null) {
+                if (company.getSurName() == "") {
                     return "-";
                 } else {
                     return company.getSurName();

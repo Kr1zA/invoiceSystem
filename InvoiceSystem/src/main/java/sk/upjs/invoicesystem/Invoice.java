@@ -14,10 +14,10 @@ public class Invoice {
     private Date exposureDate;
     private Date deliveryDate;
     private Date paymentDueDate;
-    private String currency;
-    private String paymentsForm;
-    private String note;
-    private String drewUpBy;
+    private String currency = "";
+    private String paymentsForm = "";
+    private String note = "";
+    private String drewUpBy = "";
     private List<Item> items = new ArrayList<Item>();
 
     public void setInvoiceNumber(int invoiceNumber) {
@@ -146,9 +146,6 @@ public class Invoice {
         this.note = note;
         this.drewUpBy = drewUpBy;
     }
-
-   
-    
 
     private class Item {
 

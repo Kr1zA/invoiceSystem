@@ -37,7 +37,7 @@ public enum InvoicesList implements InvoicesDao {
 
     public List<Invoice> get5LastInvoices() {
         List<Invoice> lastInvoices = new ArrayList<Invoice>();
-        invoices.sort(new sorterByExposureDate());
+        invoices.sort(new SorterByExposureDate());
         for (int i = 0; i < 5; i++) {
             lastInvoices.add(invoices.get(i));
 
