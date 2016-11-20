@@ -4,7 +4,7 @@ import com.mongodb.DBCollection;
 import java.util.List;
 
 public class MongoCompaniesDao implements CompaniesDao {
-
+    //sorry asi som zmazal daco v POM ta dopln pls dependency abo jaky fras
     private DBCollection mongo;
     public MongoCompaniesDao(DBCollection mongo) {
         this.mongo=mongo;
