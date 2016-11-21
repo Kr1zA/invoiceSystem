@@ -2,7 +2,9 @@ package sk.upjs.invoicesystem;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,7 +44,27 @@ public class MongoCompanies implements CompaniesDao {
 
     @Override
     public List<Company> getCompanies() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Company> companies = new ArrayList<Company>();
+        DBCursor cursor = mongo.find();
+        
+
+        while(cursor.hasNext()){
+            Company company=new Company();
+            DBObject theone= cursor.next();
+            company.setCompanyName((String)theone.get("companyName"));
+            company.setStreet((String)theone.get("street"));
+            company.setCity((String)theone.get("city"));
+            company.setPostalCode((int)theone.get("postalCode"));
+            company.setCountry((String)theone.get("country")); 
+            company.setICO((Long)theone.get("ico"));
+            company.setDIC((Long)theone.get("dic"));
+            company.setDPHPayer((Long)theone.get("dph"));
+            company.setTelephoneNumber((String)theone.get("telephoneNumber"));
+            company.setEmail((String)theone.get("email"));
+            company.setIBAN((String)theone.get("iban"));       
+            companies.add(company);
+        }
+        return companies;
     }
 
     @Override
@@ -66,9 +88,5 @@ public class MongoCompanies implements CompaniesDao {
         return company;
     }
 
-    @Override
-    public Company searchCompany(String surName, String firstName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+   
 }

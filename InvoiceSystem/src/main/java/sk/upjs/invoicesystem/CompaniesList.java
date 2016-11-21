@@ -33,14 +33,4 @@ public enum CompaniesList implements CompaniesDao {
         }
         return null;
     }
-
-    public Company searchCompany(String firstName, String surName) {
-        /*for (int i = 0; i < companies.size(); i++) {
-            if (companies.get(i).getSurName().equals(surName) && companies.get(i).getFirstName().equals(firstName)) {
-                return companies.get(i);
-            }
-        }*/
-        return null;
-    }
-
 }

@@ -103,7 +103,7 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         int selectedRow = companiesTable.getSelectedRow();
-        if (!"-".equals((String) companiesTable.getValueAt(selectedRow, 0))) {
+       
             String companyName = (String) companiesTable.getValueAt(selectedRow, 0);
             Company company = CompaniesList.INSTANCE.searchCompany(companyName);
             if (selectedCompany.equals("supplier")) {
@@ -113,20 +113,7 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
                 createInvoiceForm.setCustomer(company);
                 createInvoiceForm.setButtonTextChooseCustomer(companyName);
             }
-        } else {
-            String firstName = (String) companiesTable.getValueAt(selectedRow, 1);
-            String surName = (String) companiesTable.getValueAt(selectedRow, 2);
-            Company company = CompaniesList.INSTANCE.searchCompany(firstName, surName);
-            if (selectedCompany.equals("supplier")) {
-                createInvoiceForm.setSupplier(company);
-                String name = firstName + " " + surName;
-                createInvoiceForm.setButtonTextChooseSupplier(name);
-            } else {
-                createInvoiceForm.setCustomer(company);
-                String name = firstName + " " + surName;
-                createInvoiceForm.setButtonTextChooseCustomer(name);
-            }
-        }
+       
 
     }//GEN-LAST:event_selectButtonActionPerformed
 

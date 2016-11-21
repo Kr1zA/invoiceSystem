@@ -34,6 +34,8 @@ public class MongoCompaniesTest {
 
     @Test
     public void testGetCompanies() {
+        CompaniesDao mongo = new CompaniesFactory().getCompanyDao();
+        
     }
 
     @Test
