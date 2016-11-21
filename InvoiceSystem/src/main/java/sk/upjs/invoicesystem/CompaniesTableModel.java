@@ -32,7 +32,7 @@ public class CompaniesTableModel extends AbstractTableModel {
                     return company.getCompanyName();
                 }
 
-            case 1:
+         /*   case 1:
                 if (company.getFirstName() == "") {
                     return "-";
                 } else {
@@ -43,7 +43,7 @@ public class CompaniesTableModel extends AbstractTableModel {
                     return "-";
                 } else {
                     return company.getSurName();
-                }
+                }*/
             case 3:
                 return company.getCity();
             default:

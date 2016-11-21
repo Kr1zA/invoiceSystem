@@ -11,4 +11,6 @@ public interface CompaniesDao {
     public Company searchCompany(String companyName);
     
     public Company searchCompany(String surName, String firstName);
+    
+    public long size();
 }
