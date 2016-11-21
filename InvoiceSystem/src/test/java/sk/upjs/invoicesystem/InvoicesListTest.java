@@ -15,8 +15,8 @@ public class InvoicesListTest {
 
     @Test
     public void testAddingInvoice() {
-        Company company = new Company("asd", "", "", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 46579L, "343434", "asd@asd.sd", "34sfasfa");
-        Company company1 = new Company("asd", "", "", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 4567L, "343434", "asd@asd.sd", "34sfasfa");
+        Company company = new Company("asd", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 46579L, "343434", "asd@asd.sd", "34sfasfa");
+        Company company1 = new Company("asd", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 4567L, "343434", "asd@asd.sd", "34sfasfa");
 
         InvoicesList invoices = InvoicesList.INSTANCE;
         Invoice invoice = new Invoice(company, company1, 231, 323, 323, new Date(2016 - 1999, Calendar.SEPTEMBER, 28), new Date(2016 - 1999, Calendar.SEPTEMBER, 28), new Date(2016 - 1999, Calendar.SEPTEMBER, 28), "€", "jak pridze", null, "me");

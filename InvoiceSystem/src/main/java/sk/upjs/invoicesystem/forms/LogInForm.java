@@ -89,7 +89,7 @@ public class LogInForm extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         if (passwordField.getText().equals("nasrac")) {
-            this.setVisible(false);
+            this.dispose();
             new MenuForm().setVisible(true);
         }
     }//GEN-LAST:event_okButtonActionPerformed
