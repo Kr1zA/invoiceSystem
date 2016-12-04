@@ -12,7 +12,7 @@ import sk.upjs.invoicesystem.CompaniesList;
  *
  * @author kriza
  */
-public class CreateCompanyForm extends javax.swing.JFrame {
+public class CreateCompanyForm extends javax.swing.JDialog {
 
     CompaniesList companiesList = CompaniesList.INSTANCE;
     CreateInvoiceForm createInvoiceForm;
@@ -20,13 +20,10 @@ public class CreateCompanyForm extends javax.swing.JFrame {
     /**
      * Creates new form CreateInvoiceForm
      */
-    public CreateCompanyForm() {
+    public CreateCompanyForm(javax.swing.JDialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-    }
-
-    public CreateCompanyForm(CreateInvoiceForm cIF) {
-        initComponents();
-        createInvoiceForm = cIF;
+        createInvoiceForm = (CreateInvoiceForm) parent;
     }
 
     /**
@@ -261,7 +258,7 @@ public class CreateCompanyForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateCompanyForm().setVisible(true);
+                //new CreateCompanyForm().setVisible(true);
             }
         });
     }

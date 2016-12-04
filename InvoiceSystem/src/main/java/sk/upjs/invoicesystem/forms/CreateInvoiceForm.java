@@ -13,12 +13,12 @@ import sk.upjs.invoicesystem.Company;
  *
  * @author kriza
  */
-public class CreateInvoiceForm extends javax.swing.JFrame {
+public class CreateInvoiceForm extends javax.swing.JDialog {
 
-    private CreateCompanyForm createSupplier = new CreateCompanyForm(this);
-    private CreateCompanyForm createCustomer = new CreateCompanyForm(this);
-    private ChooseCompanyForm chooseSupplier = new ChooseCompanyForm(this, "supplier");
-    private ChooseCompanyForm chooseCustomer = new ChooseCompanyForm(this, "customer");
+    private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true);
+    private CreateCompanyForm createCustomer = new CreateCompanyForm(this, true);
+    private ChooseCompanyForm chooseSupplier = new ChooseCompanyForm(this, true, "supplier");
+    private ChooseCompanyForm chooseCustomer = new ChooseCompanyForm(this, true, "customer");
 
     private Company supplier;
     private Company customer;
@@ -42,7 +42,8 @@ public class CreateInvoiceForm extends javax.swing.JFrame {
     /**
      * Creates new form CreateCompanyForm
      */
-    public CreateInvoiceForm() {
+    public CreateInvoiceForm(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -275,7 +276,7 @@ public class CreateInvoiceForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateInvoiceForm().setVisible(true);
+                // new CreateInvoiceForm().setVisible(true);
             }
         });
     }

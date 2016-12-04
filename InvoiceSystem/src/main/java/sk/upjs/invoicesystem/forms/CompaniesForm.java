@@ -11,12 +11,13 @@ import sk.upjs.invoicesystem.CompaniesTableModel;
  *
  * @author kriza
  */
-public class CompaniesForm extends javax.swing.JFrame {
+public class CompaniesForm extends javax.swing.JDialog {
 
     /**
      * Creates new form CompaniesForm
      */
-    public CompaniesForm() {
+    public CompaniesForm(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         refreshCompaniesForm();
     }
@@ -94,9 +95,10 @@ public class CompaniesForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//TO-DO oprav/vymysli iny konstruktor ...
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
-        new CreateCompanyForm().setVisible(true);
+        CreateCompanyForm createCompanyForm = new CreateCompanyForm(this, true);
+        createCompanyForm.setVisible(true);
     }//GEN-LAST:event_createCompanyButtonActionPerformed
 
     private void deleteCompaniesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCompaniesButtonActionPerformed
@@ -133,7 +135,7 @@ public class CompaniesForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CompaniesForm().setVisible(true);
+                // new CompaniesForm().setVisible(true);
             }
         });
     }

@@ -110,15 +110,18 @@ public class MenuForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void showAllInvoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAllInvoicesActionPerformed
-        new InvoicesForm().setVisible(true);
+        InvoicesForm invoicesForm = new InvoicesForm(this, true);
+        invoicesForm.setVisible(true);
     }//GEN-LAST:event_showAllInvoicesActionPerformed
 
     private void createInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceActionPerformed
-        new CreateInvoiceForm(this).setVisible(true);
+        CreateInvoiceForm createInvoicesForm = new CreateInvoiceForm(this, true);
+        createInvoicesForm.setVisible(true);
     }//GEN-LAST:event_createInvoiceActionPerformed
 
     private void showCompaniesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCompaniesActionPerformed
-        new CompaniesForm().setVisible(true);
+        CompaniesForm companiesForm = new CompaniesForm(this, true);
+        companiesForm.setVisible(true);
     }//GEN-LAST:event_showCompaniesActionPerformed
 
     /**

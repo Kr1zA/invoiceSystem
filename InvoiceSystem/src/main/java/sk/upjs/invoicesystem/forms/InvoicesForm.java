@@ -5,6 +5,7 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import java.awt.Dialog;
 import sk.upjs.invoicesystem.InvoiceTableModel;
 import sk.upjs.invoicesystem.InvoicesList;
 import sk.upjs.invoicesystem.InvoicesDao;
@@ -13,14 +14,15 @@ import sk.upjs.invoicesystem.InvoicesDao;
  *
  * @author kriza
  */
-public class InvoicesForm extends javax.swing.JFrame {
+public class InvoicesForm extends javax.swing.JDialog {
 
     private InvoicesDao invoicesDAO = InvoicesList.INSTANCE;
 
     /**
      * Creates new form InvoicesForm
      */
-    public InvoicesForm() {
+    public InvoicesForm(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         refreshInvoiceForm();
     }
@@ -137,7 +139,7 @@ public class InvoicesForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InvoicesForm().setVisible(true);
+                //new InvoicesForm().setVisible(true);
             }
         });
     }

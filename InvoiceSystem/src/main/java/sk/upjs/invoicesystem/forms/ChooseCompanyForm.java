@@ -11,7 +11,7 @@ import sk.upjs.invoicesystem.*;
  *
  * @author kriza
  */
-public class ChooseCompanyForm extends javax.swing.JFrame {
+public class ChooseCompanyForm extends javax.swing.JDialog {
 
     private CreateInvoiceForm createInvoiceForm;
     private String selectedCompany;
@@ -19,14 +19,16 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
     /**
      * Creates new form ChooseCompanyForm
      */
-    public ChooseCompanyForm() {
+    public ChooseCompanyForm(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
 
     }
 
-    public ChooseCompanyForm(CreateInvoiceForm cIF, String company) {
+    public ChooseCompanyForm(javax.swing.JDialog parent, boolean modal, String company) {
+        super(parent, modal);
         initComponents();
-        createInvoiceForm = cIF;
+        createInvoiceForm = (CreateInvoiceForm) parent;
         selectedCompany = company;
         refreshCompaniesForm();
     }
@@ -103,7 +105,7 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         int selectedRow = companiesTable.getSelectedRow();
-       
+        if (selectedRow != -1) {
             String companyName = (String) companiesTable.getValueAt(selectedRow, 0);
             Company company = CompaniesList.INSTANCE.searchCompany(companyName);
             if (selectedCompany.equals("supplier")) {
@@ -113,7 +115,9 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
                 createInvoiceForm.setCustomer(company);
                 createInvoiceForm.setButtonTextChooseCustomer(companyName);
             }
-       
+
+            dispose();
+        }
 
     }//GEN-LAST:event_selectButtonActionPerformed
 
@@ -147,7 +151,7 @@ public class ChooseCompanyForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChooseCompanyForm().setVisible(true);
+                // new ChooseCompanyForm().setVisible(true);
             }
         });
     }
