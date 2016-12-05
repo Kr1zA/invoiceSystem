@@ -5,9 +5,9 @@ import javax.swing.table.AbstractTableModel;
 
 public class CompaniesTableModel extends AbstractTableModel {
 
-    private CompaniesDao companies = CompaniesList.INSTANCE;
+    private CompaniesDao companies = CompaniesFactory.INSTANCE.getCompanyDao();
 
-    private static final String[] COLUMNS_NAMES = {"Company name", "Firstname", "Surname", "City",};
+    private static final String[] COLUMNS_NAMES = {"Company name", "City",};
 
     private static final int COLUMNS_COUNT = COLUMNS_NAMES.length;
 
@@ -26,25 +26,9 @@ public class CompaniesTableModel extends AbstractTableModel {
         Company company = companies.getCompanies().get(rowIndex);
         switch (columnIndex) {
             case 0:
-                if (company.getCompanyName() == "") {
-                    return "-";
-                } else {
-                    return company.getCompanyName();
-                }
 
-         /*   case 1:
-                if (company.getFirstName() == "") {
-                    return "-";
-                } else {
-                    return company.getFirstName();
-                }
-            case 2:
-                if (company.getSurName() == "") {
-                    return "-";
-                } else {
-                    return company.getSurName();
-                }*/
-            case 3:
+                return company.getCompanyName();
+            case 1:
                 return company.getCity();
             default:
                 return "???";
