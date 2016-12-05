@@ -16,6 +16,9 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
     CompaniesList companiesList = CompaniesList.INSTANCE;
     CreateInvoiceForm createInvoiceForm;
+    CompaniesForm companiesForm;
+
+    private String whoIsCreating = null;
 
     /**
      * Creates new form CreateInvoiceForm
@@ -23,6 +26,14 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        companiesForm = (CompaniesForm) parent;
+    }
+
+    public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, String whoIsCreating) {
+        super(parent, modal);
+        initComponents();
+        this.whoIsCreating = whoIsCreating;
         createInvoiceForm = (CreateInvoiceForm) parent;
     }
 
@@ -36,10 +47,8 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     private void initComponents() {
 
         companyNameField = new javax.swing.JTextField();
-        firstNameField = new javax.swing.JTextField();
         ZIPField = new javax.swing.JTextField();
         streetField = new javax.swing.JTextField();
-        surNameField = new javax.swing.JTextField();
         cityField = new javax.swing.JTextField();
         countryField = new javax.swing.JTextField();
         DPHField = new javax.swing.JTextField();
@@ -50,8 +59,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         telephoneNumberField = new javax.swing.JTextField();
         createCompanyButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -74,10 +81,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         });
 
         jLabel5.setText("Company name");
-
-        jLabel14.setText("Firstname");
-
-        jLabel15.setText("Surname");
 
         jLabel16.setText("Street");
 
@@ -106,26 +109,28 @@ public class CreateCompanyForm extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel25))
-                .addGap(117, 117, 117)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                        .addComponent(createCompanyButton))
+                        .addComponent(jLabel5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 361, Short.MAX_VALUE)
+                                .addComponent(createCompanyButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(companyNameField))))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25))
+                        .addGap(117, 117, 117)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DICField)
                             .addComponent(DPHField)
@@ -135,14 +140,8 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                             .addComponent(ZIPField, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(countryField)
                             .addComponent(ICOField)
-                            .addComponent(cityField)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(streetField)
-                            .addComponent(firstNameField)
-                            .addComponent(surNameField)
-                            .addComponent(companyNameField))))
+                            .addComponent(cityField)
+                            .addComponent(streetField))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -152,14 +151,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(companyNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(surNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +191,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(createCompanyButton)
                 .addContainerGap())
         );
@@ -210,8 +201,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
         String cnf = companyNameField.getText();
-        String fnf = firstNameField.getText();
-        String snf = surNameField.getText();
         String sf = streetField.getText();
         String cif = cityField.getText();
         String zipf = ZIPField.getText();
@@ -274,9 +263,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     private javax.swing.JTextField countryField;
     private javax.swing.JButton createCompanyButton;
     private javax.swing.JTextField emailField;
-    private javax.swing.JTextField firstNameField;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -289,7 +275,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField streetField;
-    private javax.swing.JTextField surNameField;
     private javax.swing.JTextField telephoneNumberField;
     // End of variables declaration//GEN-END:variables
 }
