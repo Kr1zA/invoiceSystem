@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sk.upjs.invoicesystem.forms;
 
+import sk.upjs.invoicesystem.CompaniesDao;
+import sk.upjs.invoicesystem.CompaniesFactory;
 import sk.upjs.invoicesystem.Company;
 import sk.upjs.invoicesystem.CompaniesList;
 
@@ -14,8 +11,8 @@ import sk.upjs.invoicesystem.CompaniesList;
  */
 public class CreateCompanyForm extends javax.swing.JDialog {
 
-    CompaniesList companiesList = CompaniesList.INSTANCE;
     CreateInvoiceForm createInvoiceForm;
+    private CompaniesDao companies = CompaniesFactory.INSTANCE.getCompanyDao();
 
     /**
      * Creates new form CreateInvoiceForm
@@ -209,22 +206,22 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
-        String cnf = companyNameField.getText();
-        String fnf = firstNameField.getText();
-        String snf = surNameField.getText();
-        String sf = streetField.getText();
-        String cif = cityField.getText();
-        String zipf = ZIPField.getText();
-        String cof = countryField.getText();
-        String icof = ICOField.getText();
-        String dicf = DICField.getText();
-        String dphf = DPHField.getText();
-        String tnf = telephoneNumberField.getText();
-        String ef = emailField.getText();
-        String ibanf = IBANField.getText();
+        Company newOne = new Company();
 
-        //    Company newOne   = new Company(
-        //companiesList.addCompany(company);
+        newOne.setCompanyName(companyNameField.getText());
+        newOne.setCompanyName(firstNameField.getText());
+        newOne.setStreet(streetField.getText());
+        newOne.setCity(cityField.getText());
+        newOne.setPostalCode(Integer.parseInt(ZIPField.getText()));
+        newOne.setCountry(countryField.getText());
+        newOne.setICO(Long.parseLong(ICOField.getText()));
+        newOne.setDIC(Long.parseLong(DICField.getText()));
+        newOne.setDPHPayer(Long.parseLong(DPHField.getText()));
+        newOne.setTelephoneNumber(telephoneNumberField.getText());
+        newOne.setEmail(emailField.getText());
+        newOne.setIBAN(IBANField.getText());
+
+        companies.addCompany(newOne);
     }//GEN-LAST:event_createCompanyButtonActionPerformed
 
     /**
