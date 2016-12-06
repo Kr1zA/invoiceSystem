@@ -5,15 +5,17 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import java.util.*;
 import javax.swing.JButton;
-import sk.upjs.invoicesystem.CompaniesDao;
-import sk.upjs.invoicesystem.Company;
+import sk.upjs.invoicesystem.*;
 
 /**
  *
  * @author kriza
  */
 public class CreateInvoiceForm extends javax.swing.JDialog {
+
+    private List<Product> products = new ArrayList<Product>();
 
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true, "supplier");
     private CreateCompanyForm createCustomer = new CreateCompanyForm(this, true, "customer");
@@ -64,6 +66,8 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         chooseSupplierButton = new javax.swing.JButton();
         chooseCustomerButton = new javax.swing.JButton();
         createSupplierButton = new javax.swing.JButton();
@@ -85,13 +89,29 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         paymentsFormField = new javax.swing.JTextField();
         noteField = new javax.swing.JTextField();
         createInvoiceButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        newProductField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        newCountField = new javax.swing.JTextField();
+        newPriceField = new javax.swing.JTextField();
+        addNewProductButton = new javax.swing.JToggleButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        productsTable = new javax.swing.JTable();
+        deleteProductButton = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Create invoice");
@@ -142,8 +162,6 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
         createInvoiceButton.setText("Create!");
 
-        jTextField1.setText("jTextField1");
-
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Product");
 
@@ -153,11 +171,22 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Price");
 
-        jTextField2.setText("jTextField2");
+        addNewProductButton.setText("Add product");
+        addNewProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewProductButtonActionPerformed(evt);
+            }
+        });
 
-        jTextField3.setText("jTextField3");
+        productsTable.setModel(new ProductsTableModel(products));
+        jScrollPane2.setViewportView(productsTable);
 
-        jToggleButton1.setText("Add product");
+        deleteProductButton.setText("Delete product");
+        deleteProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteProductButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,21 +228,26 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                         .addComponent(createInvoiceButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addComponent(jToggleButton1)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                                    .addComponent(newProductField))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                                    .addComponent(newCountField))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(newPriceField))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deleteProductButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addNewProductButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -268,11 +302,15 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                             .addComponent(jLabel11))
                         .addGap(35, 35, 35))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jToggleButton1)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addComponent(newCountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addNewProductButton)
+                        .addComponent(newProductField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteProductButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(createInvoiceButton)
                 .addContainerGap())
         );
@@ -296,6 +334,25 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private void createCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCustomerButtonActionPerformed
         createSupplier.setVisible(true);
     }//GEN-LAST:event_createCustomerButtonActionPerformed
+
+    private void deleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteProductButtonActionPerformed
+
+    private void addNewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewProductButtonActionPerformed
+
+        String name = newProductField.getText();
+        int count = Integer.parseInt(newCountField.getText());
+        double price = Double.parseDouble(newPriceField.getText());
+        products.add(new Product(name, count, price));
+        refreshMenuForm();
+    }//GEN-LAST:event_addNewProductButtonActionPerformed
+
+    private void refreshMenuForm() {
+        ProductsTableModel model = (ProductsTableModel) productsTable.getModel();
+        model.refresh();
+
+    }
 
     /**
      * @param args the command line arguments
@@ -337,6 +394,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton addNewProductButton;
     private javax.swing.JButton chooseCustomerButton;
     private javax.swing.JButton chooseSupplierButton;
     private javax.swing.JTextField constantSymbolField;
@@ -344,6 +402,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private javax.swing.JButton createInvoiceButton;
     private javax.swing.JButton createSupplierButton;
     private javax.swing.JTextField currencyField;
+    private javax.swing.JButton deleteProductButton;
     private javax.swing.JTextField deliveryDateField;
     private javax.swing.JTextField drewUpByField;
     private javax.swing.JTextField exposureDateField;
@@ -358,12 +417,15 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField newCountField;
+    private javax.swing.JTextField newPriceField;
+    private javax.swing.JTextField newProductField;
     private javax.swing.JTextField noteField;
     private javax.swing.JTextField paymentsDueDate;
     private javax.swing.JTextField paymentsFormField;
+    private javax.swing.JTable productsTable;
     // End of variables declaration//GEN-END:variables
 }
