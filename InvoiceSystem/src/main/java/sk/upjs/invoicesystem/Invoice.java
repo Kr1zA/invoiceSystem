@@ -5,6 +5,9 @@ import java.util.*;
 
 public class Invoice {
 
+    public Invoice() {
+    }
+
     private Company supplier;
     private Company customer;
 
@@ -18,7 +21,15 @@ public class Invoice {
     private String paymentsForm = "";
     private String note = "";
     private String drewUpBy = "";
-    private List<Item> items = new ArrayList<Item>();
+    private List<Product> products = new ArrayList<Product>();
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
 
     public void setInvoiceNumber(int invoiceNumber) {
         this.invoiceNumber = invoiceNumber;
@@ -58,10 +69,6 @@ public class Invoice {
 
     public void setDrewUpBy(String drewUpBy) {
         this.drewUpBy = drewUpBy;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
     }
 
     public int getInvoiceNumber() {
@@ -104,10 +111,6 @@ public class Invoice {
         return drewUpBy;
     }
 
-    public List<Item> getItems() {
-        return items;
-    }
-
     public void setSupplier(Company supplier) {
         this.supplier = supplier;
     }
@@ -147,22 +150,9 @@ public class Invoice {
         this.drewUpBy = drewUpBy;
     }
 
-    private class Item {
+    public void addProduct(String name, int count, double pricePerPiece) {
+        Product product = new Product(name, count, pricePerPiece);
+        products.add(product);
 
-        private String title;
-        private int count;
-        private double pricePerPiece;
-
-        public Item(String title, int count, double pricePerPiece) {
-            this.title = title;
-            this.count = count;
-            this.pricePerPiece = pricePerPiece;
-        }
-
-    }
-
-    public void addItem(String title, int count, double pricePerPiece) {
-        Item item = new Item(title, count, pricePerPiece);
-        items.add(item);
     }
 }

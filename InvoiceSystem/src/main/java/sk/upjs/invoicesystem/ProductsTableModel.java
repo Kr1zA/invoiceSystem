@@ -6,19 +6,19 @@ import javax.swing.table.AbstractTableModel;
 
 public class ProductsTableModel extends AbstractTableModel {
 
-    private List<Product> products;
+    private Invoice invoice;
 
     private static final String[] COLUMNS_NAMES = {"Name", "Count", "Price"};
 
     private static final int COLUMNS_COUNT = COLUMNS_NAMES.length;
 
-    public ProductsTableModel(List<Product> products) {
-        this.products = products;
+    public ProductsTableModel(Invoice invoice) {
+        this.invoice = invoice;
     }
 
     @Override
     public int getRowCount() {
-        return products.size();
+        return invoice.getProducts().size();
     }
 
     @Override
@@ -28,11 +28,10 @@ public class ProductsTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Product product = products.get(rowIndex);
+        Product product = invoice.getProducts().get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return product.getName();
-
             case 1:
                 return product.getCount();
             case 2:

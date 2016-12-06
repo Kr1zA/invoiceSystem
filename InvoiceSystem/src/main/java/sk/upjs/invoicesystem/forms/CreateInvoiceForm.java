@@ -15,7 +15,7 @@ import sk.upjs.invoicesystem.*;
  */
 public class CreateInvoiceForm extends javax.swing.JDialog {
 
-    private List<Product> products = new ArrayList<Product>();
+    private Invoice newInvoice = new Invoice();
 
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true, "supplier");
     private CreateCompanyForm createCustomer = new CreateCompanyForm(this, true, "customer");
@@ -178,7 +178,12 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             }
         });
 
-        productsTable.setModel(new ProductsTableModel(products));
+        productsTable.setModel(new ProductsTableModel(newInvoice));
+        productsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                productsTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(productsTable);
 
         deleteProductButton.setText("Delete product");
@@ -306,7 +311,6 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                         .addComponent(newPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(addNewProductButton)
                         .addComponent(newProductField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteProductButton))
@@ -336,7 +340,9 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     }//GEN-LAST:event_createCustomerButtonActionPerformed
 
     private void deleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductButtonActionPerformed
-        // TODO add your handling code here:
+
+        int selectedRow = productsTable.getSelectedRow();
+        //productsTable.getsele
     }//GEN-LAST:event_deleteProductButtonActionPerformed
 
     private void addNewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewProductButtonActionPerformed
@@ -344,9 +350,12 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         String name = newProductField.getText();
         int count = Integer.parseInt(newCountField.getText());
         double price = Double.parseDouble(newPriceField.getText());
-        products.add(new Product(name, count, price));
+        newInvoice.getProducts().add(new Product(name, count, price));
         refreshMenuForm();
     }//GEN-LAST:event_addNewProductButtonActionPerformed
+
+    private void productsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsTableMouseClicked
+    }//GEN-LAST:event_productsTableMouseClicked
 
     private void refreshMenuForm() {
         ProductsTableModel model = (ProductsTableModel) productsTable.getModel();
