@@ -28,14 +28,14 @@ public class ProductsTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Product product = invoice.getProducts().get(rowIndex);
+        Item product = invoice.getProducts().get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return product.getName();
+                return product.getDescription();
             case 1:
-                return product.getCount();
+                return product.getAmount();
             case 2:
-                return product.getPrice();
+                return product.getPricePerPiece();
             default:
                 return "???";
         }

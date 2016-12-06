@@ -21,13 +21,13 @@ public class Invoice {
     private String paymentsForm = "";
     private String note = "";
     private String drewUpBy = "";
-    private List<Product> products = new ArrayList<Product>();
+    private List<Item> products = new ArrayList<Item>();
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<Item> products) {
         this.products = products;
     }
 
-    public List<Product> getProducts() {
+    public List<Item> getProducts() {
         return products;
     }
 
@@ -151,7 +151,7 @@ public class Invoice {
     }
 
     public void addProduct(String name, int count, double pricePerPiece) {
-        Product product = new Product(name, count, pricePerPiece);
+        Item product = new Item(name, count, pricePerPiece);
         products.add(product);
 
     }

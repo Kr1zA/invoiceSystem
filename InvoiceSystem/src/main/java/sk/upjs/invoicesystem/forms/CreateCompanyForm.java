@@ -1,7 +1,7 @@
 package sk.upjs.invoicesystem.forms;
 
 import sk.upjs.invoicesystem.CompaniesDao;
-import sk.upjs.invoicesystem.CompaniesFactory;
+import sk.upjs.invoicesystem.ObjectFactory;
 import sk.upjs.invoicesystem.Company;
 import sk.upjs.invoicesystem.CompaniesList;
 
@@ -12,7 +12,7 @@ import sk.upjs.invoicesystem.CompaniesList;
 public class CreateCompanyForm extends javax.swing.JDialog {
 
     CreateInvoiceForm createInvoiceForm;
-    private CompaniesDao companies = CompaniesFactory.INSTANCE.getCompanyDao();
+    private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
     CompaniesForm companiesForm;
 
     private String whoIsCreating = null;

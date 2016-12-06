@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class CompaniesTableModel extends AbstractTableModel {
 
-    private CompaniesDao companies = CompaniesFactory.INSTANCE.getCompanyDao();
+    private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
 
     private static final String[] COLUMNS_NAMES = {"Company name", "City",};
 

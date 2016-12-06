@@ -25,12 +25,17 @@ public enum CompaniesList implements CompaniesDao {
         return companies;
     }
 
-    public Company searchCompany(String companyName) {
+    public Company searchCompanyByCompanyName(String companyName) {
         for (int i = 0; i < companies.size(); i++) {
             if (companies.get(i).getCompanyName().equals(companyName)) {
                 return companies.get(i);
             }
         }
         return null;
+    }
+
+    @Override
+    public Company searchCompanyById(String objectId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

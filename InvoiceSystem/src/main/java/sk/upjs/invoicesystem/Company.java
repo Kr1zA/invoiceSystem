@@ -5,7 +5,21 @@ public class Company {
     public Company() {
     }
 
-    
+    public Company(String companyName, String street, String city, int postalCode, String country, Long ICO, Long DIC, Long DPHPayer, String telephoneNumber, String email, String IBAN) {
+        this.companyName = companyName;
+        this.street = street;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.ICO = ICO;
+        this.DIC = DIC;
+        this.DPHPayer = DPHPayer;
+        this.telephoneNumber = telephoneNumber;
+        this.email = email;
+        this.IBAN = IBAN;
+    }
+
+    private String idCompany = "";
     private String companyName = "";
     private String street = "";
     private String city = "";
@@ -17,6 +31,14 @@ public class Company {
     private String telephoneNumber = "";
     private String email = "";
     private String IBAN = "";
+
+    public String getIdCompany() {
+        return idCompany;
+    }
+
+    public void setIdCompany(String idCompany) {
+        this.idCompany = idCompany;
+    }
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -30,13 +52,14 @@ public class Company {
         this.city = city;
     }
 
-   public int getPostalCode() {
+    public int getPostalCode() {
         return postalCode;
     }
 
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
     }
+
     public void setCountry(String country) {
         this.country = country;
     }
@@ -96,26 +119,13 @@ public class Company {
     public String getIBAN() {
         return IBAN;
     }
-     public Long getDPHPayer() {
+
+    public Long getDPHPayer() {
         return DPHPayer;
     }
 
     public void setDPHPayer(Long DPHPayer) {
         this.DPHPayer = DPHPayer;
-    }
-
-    public Company(String companyName,String street, String city, int postalCode, String country, Long ICO, Long DIC, Long DPHPayer, String telephoneNumber, String email, String IBAN) {
-        this.companyName=companyName;
-        this.street = street;
-        this.city = city;
-        this.postalCode = postalCode;
-        this.country = country;
-        this.ICO = ICO;
-        this.DIC = DIC;
-        this.DPHPayer = DPHPayer;
-        this.telephoneNumber = telephoneNumber;
-        this.email = email;
-        this.IBAN = IBAN;
     }
 
 }

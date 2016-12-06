@@ -44,4 +44,9 @@ public enum InvoicesList implements InvoicesDao {
         }
         return lastInvoices;
     }
+
+    @Override
+    public long size() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -350,7 +350,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         String name = newProductField.getText();
         int count = Integer.parseInt(newCountField.getText());
         double price = Double.parseDouble(newPriceField.getText());
-        newInvoice.getProducts().add(new Product(name, count, price));
+        newInvoice.getProducts().add(new Item(name, count, price));
         refreshMenuForm();
     }//GEN-LAST:event_addNewProductButtonActionPerformed
 

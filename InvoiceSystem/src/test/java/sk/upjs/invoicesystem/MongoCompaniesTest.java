@@ -27,7 +27,7 @@ public class MongoCompaniesTest {
     @Test
     public void testAddCompany() {
         Company company = new Company("asd", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 46579L, "343434", "asd@asd.sd", "34sfasfa");
-        CompaniesDao mongo = CompaniesFactory.INSTANCE.getCompanyDao();
+        CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
         long daco = mongo.size();
         mongo.addCompany(company);
         Assert.assertEquals(mongo.size(), daco + 1);
@@ -36,7 +36,7 @@ public class MongoCompaniesTest {
     @Test
     public void testGetCompanies() {
         Company company = new Company("asd", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 46579L, "343434", "asd@asd.sd", "34sfasfa");
-        CompaniesDao mongo = CompaniesFactory.INSTANCE.getCompanyDao();
+        CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
         List<Company> companies = mongo.getCompanies();
         mongo.addCompany(company);
         Assert.assertEquals(mongo.getCompanies().size(), companies.size() + 1);
@@ -45,8 +45,8 @@ public class MongoCompaniesTest {
 
     @Test
     public void testSearchCompany_String() {
-        CompaniesDao mongo = CompaniesFactory.INSTANCE.getCompanyDao();
-        Company company = mongo.searchCompany("asd");
+        CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
+        Company company = mongo.searchCompanyByCompanyName("asd");
         System.out.println(company.getCountry());
         Assert.assertEquals("Slovensko", company.getCountry());
     }

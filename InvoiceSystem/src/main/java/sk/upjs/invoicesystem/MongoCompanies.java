@@ -6,6 +6,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -68,11 +69,33 @@ public class MongoCompanies implements CompaniesDao {
     }
 
     @Override
-    public Company searchCompany(String companyName) {
+    public Company searchCompanyByCompanyName(String companyName) {
         Company company=new Company();
         
         BasicDBObject query = new BasicDBObject("companyName",companyName);
         DBObject theone= mongo.findOne(query);
+        company.setCompanyName((String)theone.get("companyName"));
+        company.setStreet((String)theone.get("street"));
+        company.setCity((String)theone.get("city"));
+        company.setPostalCode((int)theone.get("postalCode"));
+        company.setCountry((String)theone.get("country")); 
+        company.setICO((Long)theone.get("ico"));
+        company.setDIC((Long)theone.get("dic"));
+        company.setDPHPayer((Long)theone.get("dph"));
+        company.setTelephoneNumber((String)theone.get("telephoneNumber"));
+        company.setEmail((String)theone.get("email"));
+        company.setIBAN((String)theone.get("iban"));
+        
+        return company;
+    }
+
+    @Override
+    public Company searchCompanyById(String objectId) {
+          Company company=new Company();
+        
+        BasicDBObject query = new BasicDBObject("_id",objectId);
+        DBObject theone= mongo.findOne(query);
+        company.setIdCompany((String)theone.get("_id"));
         company.setCompanyName((String)theone.get("companyName"));
         company.setStreet((String)theone.get("street"));
         company.setCity((String)theone.get("city"));
