@@ -340,9 +340,11 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     }//GEN-LAST:event_createCustomerButtonActionPerformed
 
     private void deleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductButtonActionPerformed
-
         int selectedRow = productsTable.getSelectedRow();
-        //productsTable.getsele
+        if (selectedRow > 0) {
+            newInvoice.getProducts().remove(newInvoice.getProducts().get(selectedRow));
+            refreshMenuForm();
+        }
     }//GEN-LAST:event_deleteProductButtonActionPerformed
 
     private void addNewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewProductButtonActionPerformed
