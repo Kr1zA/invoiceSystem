@@ -4,6 +4,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import com.mongodb.Mongo;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -52,6 +53,7 @@ public class MongoCompanies implements CompaniesDao {
         while(cursor.hasNext()){
             Company company=new Company();
             DBObject theone= cursor.next();
+            company.setIdCompany((ObjectId) theone.get("_id"));
             company.setCompanyName((String)theone.get("companyName"));
             company.setStreet((String)theone.get("street"));
             company.setCity((String)theone.get("city"));
@@ -74,6 +76,7 @@ public class MongoCompanies implements CompaniesDao {
         
         BasicDBObject query = new BasicDBObject("companyName",companyName);
         DBObject theone= mongo.findOne(query);
+        company.setIdCompany((ObjectId) theone.get("_id"));
         company.setCompanyName((String)theone.get("companyName"));
         company.setStreet((String)theone.get("street"));
         company.setCity((String)theone.get("city"));
@@ -90,12 +93,12 @@ public class MongoCompanies implements CompaniesDao {
     }
 
     @Override
-    public Company searchCompanyById(String objectId) {
-          Company company=new Company();
+    public Company searchCompanyById(ObjectId objectId) {
+        Company company=new Company();
         
         BasicDBObject query = new BasicDBObject("_id",objectId);
         DBObject theone= mongo.findOne(query);
-        company.setIdCompany((String)theone.get("_id"));
+        company.setIdCompany((ObjectId)theone.get("_id"));
         company.setCompanyName((String)theone.get("companyName"));
         company.setStreet((String)theone.get("street"));
         company.setCity((String)theone.get("city"));

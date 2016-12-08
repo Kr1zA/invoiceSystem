@@ -22,14 +22,15 @@ public class MongoItems implements ItemsDao{
     public void addItem(Item item) {
         BasicDBObject doc =  new BasicDBObject("description",item.getDescription())
                 .append("amount", item.getDescription())
-                .append("pricePerPiece", item.getPricePerPiece());
+                .append("pricePerPiece", item.getPricePerPiece())
+                .append("invoiceId",item.getInvoiceId());
                 
         mongo.insert(doc);
     }
 
     @Override
     public long size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return mongo.getCount();
     }
     
 }

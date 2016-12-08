@@ -1,28 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sk.upjs.invoicesystem;
 
-/**
- *
- * @author kriza
- */
-public class Item {
+import org.bson.types.ObjectId;
 
-    
+
+public class Item {
 
     public Item(String description, int amount, double pricePerPiece) {
         this.description = description;
         this.amount = amount;
         this.pricePerPiece = pricePerPiece;
+       
     }
 
     private String description;
     private int amount;
     private double pricePerPiece;
-    
+    private ObjectId invoiceId;
 
     public String getDescription() {
         return description;
@@ -48,4 +41,12 @@ public class Item {
         this.pricePerPiece = pricePerPiece;
     }
 
+    public ObjectId getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(ObjectId invoiceId) {
+        this.invoiceId = invoiceId;
+    }
+    
 }

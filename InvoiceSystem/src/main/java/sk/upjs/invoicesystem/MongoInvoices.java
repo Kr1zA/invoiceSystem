@@ -10,7 +10,9 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -34,14 +36,14 @@ public class MongoInvoices implements InvoicesDao{
         while(cursor.hasNext()){
             Invoice invoice = new Invoice();
             DBObject theone= cursor.next();
-            
-            invoice.setSupplier(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById((String)theone.get("_id")));
-            invoice.setCustomer(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById((String)theone.get("_id")));
+            ObjectId object = (ObjectId) theone.get("supplier");
+            invoice.setSupplier(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById(object));
+            //invoice.setCustomer(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById((ObjectId)theone.get("customer")));
             invoice.setInvoiceNumber((int)theone.get("invoiceNumber"));
-            invoice.setConstantSymbol((int)theone.get("variablesNumber"));
-            //invoice.setExposureDate(exposureDate);
-            //invoice.setDeliveryDate(deliveryDate);
-            //invoice.setPaymentDueDate(paymentDueDate);
+            invoice.setConstantSymbol((int)theone.get("variableSymbol"));
+            invoice.setExposureDate((Date)theone.get("exposureDate"));
+            invoice.setDeliveryDate((Date)theone.get("deliveryDate"));
+            invoice.setPaymentDueDate((Date)theone.get("paymentDueDate"));
             invoice.setCurrency((String)theone.get("currency"));
             invoice.setPaymentsForm((String)theone.get("paymentsForm"));
             invoice.setNote((String)theone.get("note"));

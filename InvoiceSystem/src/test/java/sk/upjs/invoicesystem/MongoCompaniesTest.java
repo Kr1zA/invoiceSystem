@@ -7,6 +7,7 @@ package sk.upjs.invoicesystem;
 
 import java.util.List;
 import junit.framework.Assert;
+import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -44,11 +45,25 @@ public class MongoCompaniesTest {
     }
 
     @Test
-    public void testSearchCompany_String() {
+    public void testSearchCompanyByCompanyName() {
         CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
         Company company = mongo.searchCompanyByCompanyName("asd");
         System.out.println(company.getCountry());
         Assert.assertEquals("Slovensko", company.getCountry());
+    }
+
+    @Test
+    public void testSize() {
+    }
+
+    @Test
+    public void testSearchCompanyById() {
+
+        CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
+        ObjectId id = new ObjectId("5845de6c371f6030e4bf85b6");
+        Company company = mongo.searchCompanyById(id);
+        System.out.println(company.getCountry());
+        Assert.assertEquals("SLOVAKIA", company.getCountry());
     }
 
 }

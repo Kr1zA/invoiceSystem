@@ -161,6 +161,11 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         jLabel8.setText("Drew up by");
 
         createInvoiceButton.setText("Create!");
+        createInvoiceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createInvoiceButtonActionPerformed(evt);
+            }
+        });
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Product");
@@ -358,6 +363,11 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
     private void productsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsTableMouseClicked
     }//GEN-LAST:event_productsTableMouseClicked
+
+    private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
+        
+        
+    }//GEN-LAST:event_createInvoiceButtonActionPerformed
 
     private void refreshMenuForm() {
         ProductsTableModel model = (ProductsTableModel) productsTable.getModel();

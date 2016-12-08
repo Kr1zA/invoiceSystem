@@ -1,5 +1,7 @@
 package sk.upjs.invoicesystem;
 
+import org.bson.types.ObjectId;
+
 public class Company {
 
     public Company() {
@@ -19,7 +21,7 @@ public class Company {
         this.IBAN = IBAN;
     }
 
-    private String idCompany = "";
+    private ObjectId idCompany;
     private String companyName = "";
     private String street = "";
     private String city = "";
@@ -32,11 +34,11 @@ public class Company {
     private String email = "";
     private String IBAN = "";
 
-    public String getIdCompany() {
+    public ObjectId getIdCompany() {
         return idCompany;
     }
 
-    public void setIdCompany(String idCompany) {
+    public void setIdCompany(ObjectId idCompany) {
         this.idCompany = idCompany;
     }
 

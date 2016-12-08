@@ -1,6 +1,7 @@
 package sk.upjs.invoicesystem;
 
 import java.util.List;
+import org.bson.types.ObjectId;
 
 
 public interface CompaniesDao {
@@ -11,7 +12,7 @@ public interface CompaniesDao {
     
     public Company searchCompanyByCompanyName(String companyName);
     
-    public Company searchCompanyById(String objectId);
+    public Company searchCompanyById(ObjectId objectId);
     
     public long size();
 }

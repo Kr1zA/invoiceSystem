@@ -1,6 +1,7 @@
 package sk.upjs.invoicesystem;
 
 import java.util.*;
+import org.bson.types.ObjectId;
 
 public enum CompaniesList implements CompaniesDao {
 
@@ -35,7 +36,7 @@ public enum CompaniesList implements CompaniesDao {
     }
 
     @Override
-    public Company searchCompanyById(String objectId) {
+    public Company searchCompanyById(ObjectId objectId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
