@@ -5,10 +5,12 @@
  */
 package sk.upjs.invoicesystem;
 
+import java.util.List;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -25,6 +27,13 @@ public class MongoItemsTest {
 
     @Test
     public void testGetItems() {
+        Item item = new Item();
+        ItemsDao mongo = ObjectFactory.INSTANCE.getItemsDao();
+        long daco = mongo.size();
+        ObjectId id = new ObjectId("58470a2e371f601b786f55cc");
+        List<Item> items = mongo.getItems(id);
+        mongo.addItem(item);
+        Assert.assertEquals(mongo.size(), items.size()+1);
     }
 
     @Test

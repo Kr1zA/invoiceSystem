@@ -5,6 +5,9 @@ import org.bson.types.ObjectId;
 
 public class Item {
 
+    public Item() {
+    }
+
     public Item(String description, int amount, double pricePerPiece) {
         this.description = description;
         this.amount = amount;

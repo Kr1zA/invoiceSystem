@@ -38,7 +38,7 @@ public class MongoInvoices implements InvoicesDao{
             DBObject theone= cursor.next();
             ObjectId object = (ObjectId) theone.get("supplier");
             invoice.setSupplier(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById(object));
-            //invoice.setCustomer(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById((ObjectId)theone.get("customer")));
+            invoice.setCustomer(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById((ObjectId)theone.get("customer")));
             invoice.setInvoiceNumber((int)theone.get("invoiceNumber"));
             invoice.setConstantSymbol((int)theone.get("variableSymbol"));
             invoice.setExposureDate((Date)theone.get("exposureDate"));
