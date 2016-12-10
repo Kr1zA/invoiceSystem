@@ -86,7 +86,6 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         drewUpByField = new javax.swing.JTextField();
         paymentsDueDate = new javax.swing.JTextField();
         currencyField = new javax.swing.JTextField();
-        paymentsFormField = new javax.swing.JTextField();
         noteField = new javax.swing.JTextField();
         createInvoiceButton = new javax.swing.JButton();
         newProductField = new javax.swing.JTextField();
@@ -99,6 +98,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         productsTable = new javax.swing.JTable();
         deleteProductButton = new javax.swing.JButton();
+        paymentsFormComboBox = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -198,6 +198,13 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             }
         });
 
+        paymentsFormComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Money transfer", "Cash", "Cash on delivery"}));
+        paymentsFormComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentsFormComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -224,15 +231,15 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                             .addComponent(jLabel6)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(noteField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(paymentsFormField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(constantSymbolField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(currencyField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deliveryDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exposureDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(paymentsDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drewUpByField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(noteField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(constantSymbolField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(currencyField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(deliveryDateField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(exposureDateField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(paymentsDueDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(drewUpByField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(paymentsFormComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(createInvoiceButton))
@@ -295,8 +302,8 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(paymentsFormField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(paymentsFormComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(noteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,6 +375,10 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         
         
     }//GEN-LAST:event_createInvoiceButtonActionPerformed
+
+    private void paymentsFormComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentsFormComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paymentsFormComboBoxActionPerformed
 
     private void refreshMenuForm() {
         ProductsTableModel model = (ProductsTableModel) productsTable.getModel();
@@ -446,7 +457,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private javax.swing.JTextField newProductField;
     private javax.swing.JTextField noteField;
     private javax.swing.JTextField paymentsDueDate;
-    private javax.swing.JTextField paymentsFormField;
+    private javax.swing.JComboBox<String> paymentsFormComboBox;
     private javax.swing.JTable productsTable;
     // End of variables declaration//GEN-END:variables
 }

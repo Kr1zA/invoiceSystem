@@ -27,7 +27,7 @@ public class MongoCompaniesTest {
 
     @Test
     public void testAddCompany() {
-        Company company = new Company("asd", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 46579L, "343434", "asd@asd.sd", "34sfasfa");
+        Company company = new Company("asd2", "asd", "asd", 43242, "Slovensko", 234234L, 234234L, 46579L, "343434", "asd@asd.sd", "34sfasfa");
         CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
         long daco = mongo.size();
         mongo.addCompany(company);
@@ -60,10 +60,10 @@ public class MongoCompaniesTest {
     public void testSearchCompanyById() {
 
         CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
-        ObjectId id = new ObjectId("5845de6c371f6030e4bf85b6");
+        ObjectId id = new ObjectId("584b1cb4f514e3288301d424");
         Company company = mongo.searchCompanyById(id);
         System.out.println(company.getCountry());
-        Assert.assertEquals("SLOVAKIA", company.getCountry());
+        Assert.assertEquals("Slovensko", company.getCountry());
     }
 
 }
