@@ -11,21 +11,21 @@ public class Item {
         this.description = description;
         this.amount = amount;
         this.pricePerPiece = pricePerPiece;
-        this.unitOfQuantity = unitOfQuantity;
+        this.unitOfAmount = unitOfQuantity;
     }
 
     private String description;
     private int amount;
     private double pricePerPiece;
     private ObjectId invoiceId;
-    private String unitOfQuantity;
+    private String unitOfAmount;
 
-    public String getUnitOfQuantity() {
-        return unitOfQuantity;
+    public String getUnitOfAmount() {
+        return unitOfAmount;
     }
 
-    public void setUnitOfQuantity(String unitOfQuantity) {
-        this.unitOfQuantity = unitOfQuantity;
+    public void setUnitOfAmount(String unitOfQuantity) {
+        this.unitOfAmount = unitOfQuantity;
     }
 
     public String getDescription() {

@@ -419,8 +419,12 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         String note = noteField.getText();
         String drewUpBy = drewUpByField.getText();
 
-        String[] itemName = {"product1", "product2", "product3", "product4", "product5", "product6", "product7", "product8", "product9", "product10"};
-        String[] intemNumber = {"i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i10"};
+        String[] itemName = {"product1", "product2", "product3", "product4", "product5", "product6", "product7", "product8", "product9", "product10", "product11", "product12", "product13", "product14", "product15", "product16", "product17", "product18", "product19", "product20", "product21", "product22", "product23", "product24"};
+        String[] intemNumber = {"i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i10", "i11", "i12", "i13", "i14", "i15", "i16", "i17", "i18", "i19", "i20", "i21", "i22", "i23", "i24"};
+        String[] unitOfAmount = {"unitOfAmount1", "unitOfAmount2", "unitOfAmount3", "unitOfAmount4", "unitOfAmount5", "unitOfAmount7", "unitOfAmount6", "unitOfAmount8", "unitOfAmount9", "unitOfAmount10", "unitOfAmount11", "unitOfAmount12", "unitOfAmount13", "unitOfAmount14", "unitOfAmount15", "unitOfAmount16", "unitOfAmount17", "unitOfAmount18", "unitOfAmount19", "unitOfAmount20", "unitOfAmount21", "unitOfAmount22", "unitOfAmount23", "unitOfAmount24"};
+        String[] price = {"price1", "price2", "price3", "price4", "price5", "price6", "price7", "price8", "price9", "price10", "price11", "price12", "price13", "price14", "price15", "price16", "price17", "price18", "price19", "price20", "price21", "price22", "price23", "price24"};
+        String[] pricePerPiece = {"pricePerPiece1", "pricePerPiece2", "pricePerPiece3", "pricePerPiece4", "pricePerPiece5", "pricePerPiece6", "pricePerPiece7", "pricePerPiece8", "pricePerPiece9", "pricePerPiece10", "pricePerPiece11", "pricePerPiece12", "pricePerPiece13", "pricePerPiece14", "pricePerPiece15", "pricePerPiece16", "pricePerPiece17", "pricePerPiece18", "pricePerPiece19", "pricePerPiece20", "pricePerPiece21", "pricePerPiece22", "pricePerPiece23", "pricePerPiece24"};
+        String[] countOfItem = {"count1", "count2", "count3", "count4", "count5", "count6", "count7", "count8", "count9", "count10", "count11", "count12", "count13", "count14", "count15", "count16", "count17", "count18", "count19", "count20", "count21", "count22", "count23", "count24"};
 
         try {
             invoicePdfCreator.setField("paymentsForm", paymentsForm);
@@ -455,16 +459,32 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             invoicePdfCreator.setField("DICC", new Long(customer.getDIC()).toString());
             invoicePdfCreator.setField("ICDPHC", new Long(customer.getICDPH()).toString());
 
+            double priceSum = 0;
             for (int i = 0; i < newInvoice.getProducts().size(); i++) {
                 invoicePdfCreator.setField(itemName[i], newInvoice.getProducts().get(i).getDescription());
+                invoicePdfCreator.setField(intemNumber[i], Integer.toString(i + 1));
+                invoicePdfCreator.setField(unitOfAmount[i], newInvoice.getProducts().get(i).getUnitOfAmount());
+                invoicePdfCreator.setField(pricePerPiece[i], Double.toString(round(newInvoice.getProducts().get(i).getPricePerPiece())));
+                invoicePdfCreator.setField(countOfItem[i], Integer.toString(newInvoice.getProducts().get(i).getAmount()));
+                invoicePdfCreator.setField(price[i], Double.toString(round(newInvoice.getProducts().get(i).getPricePerPiece() * newInvoice.getProducts().get(i).getAmount())));
+                priceSum += newInvoice.getProducts().get(i).getPricePerPiece() * newInvoice.getProducts().get(i).getAmount();
             }
 
+            invoicePdfCreator.setField("priceWithoutDPH", Double.toString(round(priceSum)));
+            invoicePdfCreator.setField("priceWithDPH", Double.toString(round(priceSum * 0.2)));
+            invoicePdfCreator.setField("price", Double.toString(round(priceSum * 1.2)));
             invoicePdfCreator.saveAndClose();
 
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_createInvoiceButtonActionPerformed
+
+    private double round(double d) {
+        d = d * 100 + 0.5;
+        d = ((int) d) / 100.0;
+        return d;
+    }
 
     private void paymentsFormComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentsFormComboBoxActionPerformed
         // TODO add your handling code here:

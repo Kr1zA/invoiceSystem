@@ -35,7 +35,7 @@ public class ItemTableModel extends AbstractTableModel {
             case 1:
                 return product.getAmount();
             case 2:
-                return product.getUnitOfQuantity();
+                return product.getUnitOfAmount();
             case 3:
                 return product.getPricePerPiece();
             default:

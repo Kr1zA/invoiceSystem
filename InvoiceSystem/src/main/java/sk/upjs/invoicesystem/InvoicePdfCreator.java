@@ -15,7 +15,7 @@ public class InvoicePdfCreator {
 
     public InvoicePdfCreator() {
         try {
-            pdf = PDDocument.load(new File("Faktura1.pdf"));
+            pdf = PDDocument.load(new File("invoice.pdf"));
         } catch (Exception e) {
             e.printStackTrace();
         }
