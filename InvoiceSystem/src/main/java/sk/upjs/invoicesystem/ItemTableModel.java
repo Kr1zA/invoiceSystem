@@ -4,15 +4,15 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class ProductsTableModel extends AbstractTableModel {
+public class ItemTableModel extends AbstractTableModel {
 
     private Invoice invoice;
 
-    private static final String[] COLUMNS_NAMES = {"Name", "Count", "Price"};
+    private static final String[] COLUMNS_NAMES = {"Name", "Count", "Unit of quantity", "Price"};
 
     private static final int COLUMNS_COUNT = COLUMNS_NAMES.length;
 
-    public ProductsTableModel(Invoice invoice) {
+    public ItemTableModel(Invoice invoice) {
         this.invoice = invoice;
     }
 
@@ -35,6 +35,8 @@ public class ProductsTableModel extends AbstractTableModel {
             case 1:
                 return product.getAmount();
             case 2:
+                return product.getUnitOfQuantity();
+            case 3:
                 return product.getPricePerPiece();
             default:
                 return "???";

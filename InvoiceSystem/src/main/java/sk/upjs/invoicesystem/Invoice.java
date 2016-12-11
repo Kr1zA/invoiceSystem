@@ -150,8 +150,8 @@ public class Invoice {
         this.drewUpBy = drewUpBy;
     }
 
-    public void addProduct(String name, int count, double pricePerPiece) {
-        Item product = new Item(name, count, pricePerPiece);
+    public void addProduct(String name, int count, double pricePerPiece, String unitOfQuantity) {
+        Item product = new Item(name, count, pricePerPiece, unitOfQuantity);
         products.add(product);
 
     }

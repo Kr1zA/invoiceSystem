@@ -5,7 +5,10 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import sk.upjs.invoicesystem.*;
 
@@ -15,6 +18,7 @@ import sk.upjs.invoicesystem.*;
  */
 public class CreateInvoiceForm extends javax.swing.JDialog {
 
+    private InvoicePdfCreator invoicePdfCreator = new InvoicePdfCreator();
     private Invoice newInvoice = new Invoice();
 
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true, "supplier");
@@ -99,6 +103,8 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         productsTable = new javax.swing.JTable();
         deleteProductButton = new javax.swing.JButton();
         paymentsFormComboBox = new javax.swing.JComboBox<>();
+        newUnitOfQuantityField = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,7 +189,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             }
         });
 
-        productsTable.setModel(new ProductsTableModel(newInvoice));
+        productsTable.setModel(new sk.upjs.invoicesystem.ItemTableModel(newInvoice));
         productsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 productsTableMouseClicked(evt);
@@ -204,6 +210,14 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                 paymentsFormComboBoxActionPerformed(evt);
             }
         });
+
+        newUnitOfQuantityField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newUnitOfQuantityFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Unit of quantity");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -245,22 +259,23 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                         .addComponent(createInvoiceButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                                    .addComponent(newProductField))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                    .addComponent(newCountField))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(newPriceField))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(15, 15, 15)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(newProductField)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(newCountField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(newUnitOfQuantityField, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(newPriceField)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(deleteProductButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -313,16 +328,27 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                             .addComponent(drewUpByField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11))
-                        .addGap(35, 35, 35))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(newCountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(newPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addNewProductButton)
-                        .addComponent(newProductField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel11))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(newUnitOfQuantityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(newPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(newProductField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(31, 31, 31))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(newCountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(addNewProductButton))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteProductButton))
@@ -364,7 +390,8 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         String name = newProductField.getText();
         int count = Integer.parseInt(newCountField.getText());
         double price = Double.parseDouble(newPriceField.getText());
-        newInvoice.getProducts().add(new Item(name, count, price));
+        String unitOfQuantity = newUnitOfQuantityField.getText();
+        newInvoice.getProducts().add(new Item(name, count, price, unitOfQuantity));
         refreshMenuForm();
     }//GEN-LAST:event_addNewProductButtonActionPerformed
 
@@ -372,16 +399,30 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     }//GEN-LAST:event_productsTableMouseClicked
 
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
-        
-        
+        try {
+            invoicePdfCreator.setField("paymentsForm", (String) paymentsFormComboBox.getSelectedItem());
+            invoicePdfCreator.setField("currency", currencyField.getText());
+//                    invoicePdfCreator.setField("invoiceNumber", );
+//                            invoicePdfCreator.setField
+//                                    invoicePdfCreator.setField
+//                                            invoicePdfCreator.setField
+//                                                    invoicePdfCreator.setField
+//                                                         //TODO dorob   
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_createInvoiceButtonActionPerformed
 
     private void paymentsFormComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentsFormComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paymentsFormComboBoxActionPerformed
 
+    private void newUnitOfQuantityFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUnitOfQuantityFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newUnitOfQuantityFieldActionPerformed
+
     private void refreshMenuForm() {
-        ProductsTableModel model = (ProductsTableModel) productsTable.getModel();
+        ItemTableModel model = (ItemTableModel) productsTable.getModel();
         model.refresh();
 
     }
@@ -441,6 +482,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -455,6 +497,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private javax.swing.JTextField newCountField;
     private javax.swing.JTextField newPriceField;
     private javax.swing.JTextField newProductField;
+    private javax.swing.JTextField newUnitOfQuantityField;
     private javax.swing.JTextField noteField;
     private javax.swing.JTextField paymentsDueDate;
     private javax.swing.JComboBox<String> paymentsFormComboBox;
