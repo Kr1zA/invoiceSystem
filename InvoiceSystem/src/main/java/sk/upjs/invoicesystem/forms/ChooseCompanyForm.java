@@ -107,7 +107,7 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
         int selectedRow = companiesTable.getSelectedRow();
         if (selectedRow != -1) {
             String companyName = (String) companiesTable.getValueAt(selectedRow, 0);
-            Company company = CompaniesList.INSTANCE.searchCompanyByCompanyName(companyName);
+            Company company = ObjectFactory.INSTANCE.getCompanyDao().searchCompanyByCompanyName(companyName);
             if (selectedCompany.equals("supplier")) {
                 createInvoiceForm.setSupplier(company);
                 createInvoiceForm.setButtonTextChooseSupplier(companyName);

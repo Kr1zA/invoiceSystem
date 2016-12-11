@@ -206,7 +206,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         newOne.setCountry(countryField.getText());
         newOne.setICO(Long.parseLong(ICOField.getText()));
         newOne.setDIC(Long.parseLong(DICField.getText()));
-        newOne.setDPHPayer(Long.parseLong(DPHField.getText()));
+        newOne.setICDPH(Long.parseLong(DPHField.getText()));
         newOne.setTelephoneNumber(telephoneNumberField.getText());
         newOne.setEmail(emailField.getText());
         newOne.setIBAN(IBANField.getText());

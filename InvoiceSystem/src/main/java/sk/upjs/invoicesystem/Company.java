@@ -7,7 +7,7 @@ public class Company {
     public Company() {
     }
 
-    public Company(String companyName, String street, String city, int postalCode, String country, Long ICO, Long DIC, Long DPHPayer, String telephoneNumber, String email, String IBAN) {
+    public Company(String companyName, String street, String city, int postalCode, String country, Long ICO, Long DIC, Long ICDPH, String telephoneNumber, String email, String IBAN) {
         this.companyName = companyName;
         this.street = street;
         this.city = city;
@@ -15,7 +15,7 @@ public class Company {
         this.country = country;
         this.ICO = ICO;
         this.DIC = DIC;
-        this.DPHPayer = DPHPayer;
+        this.ICDPH = ICDPH;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.IBAN = IBAN;
@@ -29,7 +29,7 @@ public class Company {
     private String country = "";
     private Long ICO;
     private Long DIC;
-    private Long DPHPayer;
+    private Long ICDPH;
     private String telephoneNumber = "";
     private String email = "";
     private String IBAN = "";
@@ -122,12 +122,12 @@ public class Company {
         return IBAN;
     }
 
-    public Long getDPHPayer() {
-        return DPHPayer;
+    public Long getICDPH() {
+        return ICDPH;
     }
 
-    public void setDPHPayer(Long DPHPayer) {
-        this.DPHPayer = DPHPayer;
+    public void setICDPH(Long ICDPH) {
+        this.ICDPH = ICDPH;
     }
 
 }

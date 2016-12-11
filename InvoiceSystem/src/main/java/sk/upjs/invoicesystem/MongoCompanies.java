@@ -35,7 +35,7 @@ public class MongoCompanies implements CompaniesDao {
                 .append("country", company.getCountry())
                 .append("ico", company.getICO())
                 .append("dic", company.getDIC())
-                .append("dph", company.getDPHPayer())
+                .append("dph", company.getICDPH())
                 .append("telephoneNumber", company.getTelephoneNumber())
                 .append("email", company.getEmail())
                 .append("iban", company.getIBAN());
@@ -61,7 +61,7 @@ public class MongoCompanies implements CompaniesDao {
             company.setCountry((String)theone.get("country")); 
             company.setICO((Long)theone.get("ico"));
             company.setDIC((Long)theone.get("dic"));
-            company.setDPHPayer((Long)theone.get("dph"));
+            company.setICDPH((Long)theone.get("dph"));
             company.setTelephoneNumber((String)theone.get("telephoneNumber"));
             company.setEmail((String)theone.get("email"));
             company.setIBAN((String)theone.get("iban"));       
@@ -84,7 +84,7 @@ public class MongoCompanies implements CompaniesDao {
         company.setCountry((String)theone.get("country")); 
         company.setICO((Long)theone.get("ico"));
         company.setDIC((Long)theone.get("dic"));
-        company.setDPHPayer((Long)theone.get("dph"));
+        company.setICDPH((Long)theone.get("dph"));
         company.setTelephoneNumber((String)theone.get("telephoneNumber"));
         company.setEmail((String)theone.get("email"));
         company.setIBAN((String)theone.get("iban"));
@@ -106,7 +106,7 @@ public class MongoCompanies implements CompaniesDao {
         company.setCountry((String)theone.get("country")); 
         company.setICO((Long)theone.get("ico"));
         company.setDIC((Long)theone.get("dic"));
-        company.setDPHPayer((Long)theone.get("dph"));
+        company.setICDPH((Long)theone.get("dph"));
         company.setTelephoneNumber((String)theone.get("telephoneNumber"));
         company.setEmail((String)theone.get("email"));
         company.setIBAN((String)theone.get("iban"));
