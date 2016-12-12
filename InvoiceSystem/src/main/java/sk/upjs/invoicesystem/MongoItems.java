@@ -28,7 +28,6 @@ public class MongoItems implements ItemsDao {
                 if (theone.get("invoiceId").equals(idInvoice)) {
 
                     Item item = new Item();
-
                     item.setAmount((int) theone.get("amount"));
                     item.setDescription((String) theone.get("description"));
                     item.setPricePerPiece((double) theone.get("pricePerPiece"));
