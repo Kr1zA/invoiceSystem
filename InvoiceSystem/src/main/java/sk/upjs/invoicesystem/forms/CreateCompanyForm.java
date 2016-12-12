@@ -209,6 +209,14 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
         companies.addCompany(newOne);
 
+        if (whoIsCreating.equals("supplier")) {
+            createInvoiceForm.setSupplier(newOne);
+            createInvoiceForm.setButtonTextChooseSupplier(newOne.getCompanyName());
+        }
+        if (whoIsCreating.equals("customer")) {
+            createInvoiceForm.setCustomer(newOne);
+            createInvoiceForm.setButtonTextChooseCustomer(newOne.getCompanyName());
+        }
         this.dispose();
 
     }//GEN-LAST:event_createCompanyButtonActionPerformed
