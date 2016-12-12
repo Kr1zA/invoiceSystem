@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class InvoiceSmallTableModel extends AbstractTableModel {
 
-    private InvoicesDao invoicesDao = InvoicesList.INSTANCE;
+    private InvoicesDao invoicesDao = ObjectFactory.INSTANCE.getInvoicesDao();
 
     private static final String[] COLUMNS_NAMES = {"Supplier", "Customer", "Exposure date"};
 
@@ -13,7 +13,8 @@ public class InvoiceSmallTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return invoicesDao.get5LastInvoices().size();
+        int i = invoicesDao.getInvoices().size();
+        return i;
     }
 
     @Override
@@ -23,7 +24,7 @@ public class InvoiceSmallTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Invoice invoice = invoicesDao.get5LastInvoices().get(rowIndex);
+        Invoice invoice = invoicesDao.getInvoices().get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return invoice.getSupplier().getCompanyName();
