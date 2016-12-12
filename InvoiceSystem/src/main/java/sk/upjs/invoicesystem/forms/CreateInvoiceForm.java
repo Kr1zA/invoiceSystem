@@ -6,6 +6,8 @@
 package sk.upjs.invoicesystem.forms;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -103,10 +105,10 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         variableSymbolField = new javax.swing.JTextField();
-        deliveryDateJDateChooser = new com.toedter.calendar.JDateChooser();
         exposureDateJDateChooser = new com.toedter.calendar.JDateChooser();
         paymentsDueDateJDateChooser = new com.toedter.calendar.JDateChooser();
         currencyComboBox1 = new javax.swing.JComboBox<>();
+        deliveryDateJDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -223,10 +225,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
         jLabel13.setText("Variable symbol");
 
-        deliveryDateJDateChooser.setDateFormatString("dd.MM.YYYY");
-
-        exposureDateJDateChooser.setFocusable(false);
-        exposureDateJDateChooser.setMinSelectableDate(new java.util.Date(946684905000L));
+        exposureDateJDateChooser.setDateFormatString("dd.MM.YYYY");
 
         paymentsDueDateJDateChooser.setDateFormatString("dd.MM.YYYY");
 
@@ -236,6 +235,8 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                 currencyComboBox1ActionPerformed(evt);
             }
         });
+
+        deliveryDateJDateChooser1.setDateFormatString("dd.MM.YYYY");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,13 +260,13 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(jLabel13)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(paymentsDueDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(constantSymbolField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                             .addComponent(variableSymbolField)
-                            .addComponent(deliveryDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(exposureDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(exposureDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deliveryDateJDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(createInvoiceButton))
@@ -310,32 +311,32 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chooseSupplierButton)
-                    .addComponent(createSupplierButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chooseCustomerButton)
-                    .addComponent(createCustomerButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(variableSymbolField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(constantSymbolField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(exposureDateJDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(deliveryDateJDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chooseSupplierButton)
+                            .addComponent(createSupplierButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chooseCustomerButton)
+                            .addComponent(createCustomerButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(variableSymbolField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(constantSymbolField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(exposureDateJDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(deliveryDateJDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(paymentsDueDateJDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,9 +432,13 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
         String currency = (String) currencyComboBox1.getSelectedItem();
         String invoiceNumber = variableSymbolField.getText();
-        String paymentDueDate = paymentsDueDateJDateChooser.getDate().toString();
-        String deliveryDate = deliveryDateJDateChooser.getDate().toString();
-        String exposureDate = exposureDateJDateChooser.getDate().toString();
+//        Date datum = paymentsDueDateJDateChooser.getDate();
+//        System.out.print(datum);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
+//        System.out.print(sdf.format(datum));
+        String paymentDueDate = sdf.format(paymentsDueDateJDateChooser.getDate());
+        String deliveryDate = sdf.format(exposureDateJDateChooser.getDate());
+        String exposureDate = sdf.format(exposureDateJDateChooser.getDate());
         String variableSymbol = variableSymbolField.getText();
         String constantSymbol = constantSymbolField.getText();
         String note = noteField.getText();
@@ -573,7 +578,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private javax.swing.JButton createSupplierButton;
     private javax.swing.JComboBox<String> currencyComboBox1;
     private javax.swing.JButton deleteProductButton;
-    private com.toedter.calendar.JDateChooser deliveryDateJDateChooser;
+    private com.toedter.calendar.JDateChooser deliveryDateJDateChooser1;
     private javax.swing.JTextField drewUpByField;
     private com.toedter.calendar.JDateChooser exposureDateJDateChooser;
     private javax.swing.JLabel jLabel1;
