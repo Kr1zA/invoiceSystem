@@ -212,6 +212,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         newOne.setIBAN(IBANField.getText());
 
         companies.addCompany(newOne);
+        this.dispose();
     }//GEN-LAST:event_createCompanyButtonActionPerformed
 
     /**

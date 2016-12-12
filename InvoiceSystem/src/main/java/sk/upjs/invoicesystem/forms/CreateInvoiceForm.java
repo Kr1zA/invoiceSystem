@@ -12,6 +12,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import org.bson.types.ObjectId;
 import sk.upjs.invoicesystem.*;
 
 /**
@@ -23,6 +24,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private InvoicePdfCreator invoicePdfCreator = new InvoicePdfCreator();
     private Invoice newInvoice = new Invoice();
     private InvoicesDao invoices = ObjectFactory.INSTANCE.getInvoicesDao();
+    private ItemsDao    items = ObjectFactory.INSTANCE.getItemsDao();
 
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true, "supplier");
     private CreateCompanyForm createCustomer = new CreateCompanyForm(this, true, "customer");
@@ -422,6 +424,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     }//GEN-LAST:event_productsTableMouseClicked
 
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
+        ObjectId id = new ObjectId();
         newInvoice.setConstantSymbol(Integer.parseInt(constantSymbolField.getText()));
         newInvoice.setCurrency((String) currencyComboBox1.getSelectedItem());
         newInvoice.setCustomer(customer);
@@ -434,9 +437,17 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         newInvoice.setPaymentsForm((String) paymentsFormComboBox.getSelectedItem());
         newInvoice.setSupplier(supplier);
         newInvoice.setVariableSymbol(Integer.parseInt(variableSymbolField.getText()));
-
+        newInvoice.setInvoiceId(id);
         invoices.addInvoice(newInvoice);
-
+        
+        List<Item> item = newInvoice.getProducts();
+        for (Item item1 : item) {
+            item1.setInvoiceId(id);
+            items.addItem(item1);
+        }
+        
+        refreshMenuForm();
+        this.dispose();
         String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
         String currency = (String) currencyComboBox1.getSelectedItem();
         String invoiceNumber = variableSymbolField.getText();

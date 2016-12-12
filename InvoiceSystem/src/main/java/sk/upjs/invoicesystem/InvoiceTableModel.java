@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class InvoiceTableModel extends AbstractTableModel {
 
-    private InvoicesDao invoicesDao = InvoicesList.INSTANCE;
+    private InvoicesDao invoicesDao = ObjectFactory.INSTANCE.getInvoicesDao();
 
     private static final String[] COLUMNS_NAMES = {"Supplier", "Customer", "Exposure date"};
 

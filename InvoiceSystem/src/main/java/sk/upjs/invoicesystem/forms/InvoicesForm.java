@@ -9,6 +9,7 @@ import java.awt.Dialog;
 import sk.upjs.invoicesystem.InvoiceTableModel;
 import sk.upjs.invoicesystem.InvoicesList;
 import sk.upjs.invoicesystem.InvoicesDao;
+import sk.upjs.invoicesystem.ObjectFactory;
 
 /**
  *
@@ -16,7 +17,7 @@ import sk.upjs.invoicesystem.InvoicesDao;
  */
 public class InvoicesForm extends javax.swing.JDialog {
 
-    private InvoicesDao invoicesDAO = InvoicesList.INSTANCE;
+    private InvoicesDao invoicesDAO = ObjectFactory.INSTANCE.getInvoicesDao();
 
     /**
      * Creates new form InvoicesForm
