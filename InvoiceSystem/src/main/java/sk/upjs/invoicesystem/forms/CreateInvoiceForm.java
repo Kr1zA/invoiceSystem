@@ -106,10 +106,10 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         variableSymbolField = new javax.swing.JTextField();
-        exposureDateJDateChooser = new com.toedter.calendar.JDateChooser();
-        paymentsDueDateJDateChooser = new com.toedter.calendar.JDateChooser();
         currencyComboBox1 = new javax.swing.JComboBox<>();
-        deliveryDateJDateChooser1 = new com.toedter.calendar.JDateChooser();
+        exposureDateJDateChooser = new com.toedter.calendar.JDateChooser();
+        deliveryDateJDateChooser = new com.toedter.calendar.JDateChooser();
+        paymentsDueDateJDateChooser = new com.toedter.calendar.JDateChooser();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -226,18 +226,12 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
         jLabel13.setText("Variable symbol");
 
-        exposureDateJDateChooser.setDateFormatString("dd.MM.YYYY");
-
-        paymentsDueDateJDateChooser.setDateFormatString("dd.MM.YYYY");
-
         currencyComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "€", "$", "Czk"}));
         currencyComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 currencyComboBox1ActionPerformed(evt);
             }
         });
-
-        deliveryDateJDateChooser1.setDateFormatString("dd.MM.YYYY");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,13 +255,13 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(jLabel13)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(paymentsDueDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(constantSymbolField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                             .addComponent(variableSymbolField)
                             .addComponent(exposureDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(deliveryDateJDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(deliveryDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(paymentsDueDateJDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(createInvoiceButton))
@@ -321,7 +315,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(chooseCustomerButton)
                             .addComponent(createCustomerButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
                             .addComponent(variableSymbolField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -334,11 +328,11 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(exposureDateJDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(11, 11, 11)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(deliveryDateJDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
+                    .addComponent(deliveryDateJDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(paymentsDueDateJDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -358,11 +352,11 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(drewUpByField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10)
@@ -374,12 +368,10 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
                                     .addComponent(newPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(newProductField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
+                                .addGap(21, 21, 21)
                                 .addComponent(newCountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addNewProductButton)))
+                    .addComponent(addNewProductButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteProductButton))
@@ -431,20 +423,20 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
         newInvoice.setConstantSymbol(Integer.parseInt(constantSymbolField.getText()));
-        newInvoice.setCurrency((String)currencyComboBox1.getSelectedItem());
+        newInvoice.setCurrency((String) currencyComboBox1.getSelectedItem());
         newInvoice.setCustomer(customer);
-        newInvoice.setDeliveryDate(deliveryDateJDateChooser1.getDate());
+        newInvoice.setDeliveryDate(deliveryDateJDateChooser.getDate());
         newInvoice.setDrewUpBy(drewUpByField.getText());
         newInvoice.setExposureDate(exposureDateJDateChooser.getDate());
         newInvoice.setInvoiceNumber(Integer.parseInt(variableSymbolField.getText()));
         newInvoice.setNote(noteField.getText());
         newInvoice.setPaymentDueDate(paymentsDueDateJDateChooser.getDate());
-        newInvoice.setPaymentsForm((String)paymentsFormComboBox.getSelectedItem());
+        newInvoice.setPaymentsForm((String) paymentsFormComboBox.getSelectedItem());
         newInvoice.setSupplier(supplier);
         newInvoice.setVariableSymbol(Integer.parseInt(variableSymbolField.getText()));
-        
+
         invoices.addInvoice(newInvoice);
-        
+
         String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
         String currency = (String) currencyComboBox1.getSelectedItem();
         String invoiceNumber = variableSymbolField.getText();
@@ -453,8 +445,11 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
 //        System.out.print(sdf.format(datum));
         String paymentDueDate = sdf.format(paymentsDueDateJDateChooser.getDate());
-        String deliveryDate = sdf.format(deliveryDateJDateChooser1.getDate());
+
+        String deliveryDate = sdf.format(deliveryDateJDateChooser.getDate());
         String exposureDate = sdf.format(exposureDateJDateChooser.getDate());
+        System.out.println(paymentsDueDateJDateChooser.getDate() + "\n" + deliveryDateJDateChooser.getDate() + "\n" + exposureDateJDateChooser.getDate());
+        System.out.println(paymentDueDate + "\n" + deliveryDate + "\n" + exposureDate);
         String variableSymbol = variableSymbolField.getText();
         String constantSymbol = constantSymbolField.getText();
         String note = noteField.getText();
@@ -594,7 +589,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private javax.swing.JButton createSupplierButton;
     private javax.swing.JComboBox<String> currencyComboBox1;
     private javax.swing.JButton deleteProductButton;
-    private com.toedter.calendar.JDateChooser deliveryDateJDateChooser1;
+    private com.toedter.calendar.JDateChooser deliveryDateJDateChooser;
     private javax.swing.JTextField drewUpByField;
     private com.toedter.calendar.JDateChooser exposureDateJDateChooser;
     private javax.swing.JLabel jLabel1;
