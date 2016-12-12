@@ -9,6 +9,8 @@ public interface ItemsDao {
 
     public void addItem(Item item);
     
+    public void deleteItems(ObjectId objectId);
+    
     public long size();
     
 }

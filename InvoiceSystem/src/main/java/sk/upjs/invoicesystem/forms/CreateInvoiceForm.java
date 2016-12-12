@@ -22,6 +22,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
     private InvoicePdfCreator invoicePdfCreator = new InvoicePdfCreator();
     private Invoice newInvoice = new Invoice();
+    private InvoicesDao invoices = ObjectFactory.INSTANCE.getInvoicesDao();
 
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true, "supplier");
     private CreateCompanyForm createCustomer = new CreateCompanyForm(this, true, "customer");
@@ -429,6 +430,21 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     }//GEN-LAST:event_productsTableMouseClicked
 
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
+        newInvoice.setConstantSymbol(Integer.parseInt(constantSymbolField.getText()));
+        newInvoice.setCurrency((String)currencyComboBox1.getSelectedItem());
+        newInvoice.setCustomer(customer);
+        newInvoice.setDeliveryDate(deliveryDateJDateChooser1.getDate());
+        newInvoice.setDrewUpBy(drewUpByField.getText());
+        newInvoice.setExposureDate(exposureDateJDateChooser.getDate());
+        newInvoice.setInvoiceNumber(Integer.parseInt(variableSymbolField.getText()));
+        newInvoice.setNote(noteField.getText());
+        newInvoice.setPaymentDueDate(paymentsDueDateJDateChooser.getDate());
+        newInvoice.setPaymentsForm((String)paymentsFormComboBox.getSelectedItem());
+        newInvoice.setSupplier(supplier);
+        newInvoice.setVariableSymbol(Integer.parseInt(variableSymbolField.getText()));
+        
+        invoices.addInvoice(newInvoice);
+        
         String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
         String currency = (String) currencyComboBox1.getSelectedItem();
         String invoiceNumber = variableSymbolField.getText();
@@ -437,7 +453,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
 //        System.out.print(sdf.format(datum));
         String paymentDueDate = sdf.format(paymentsDueDateJDateChooser.getDate());
-        String deliveryDate = sdf.format(exposureDateJDateChooser.getDate());
+        String deliveryDate = sdf.format(deliveryDateJDateChooser1.getDate());
         String exposureDate = sdf.format(exposureDateJDateChooser.getDate());
         String variableSymbol = variableSymbolField.getText();
         String constantSymbol = constantSymbolField.getText();

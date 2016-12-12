@@ -60,5 +60,9 @@ public class MongoInvoicesTest {
     @Test
     public void testSize() {
     }
+
+    @Test
+    public void testDeleteInvoice() {
+    }
     
 }

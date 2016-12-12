@@ -2,6 +2,7 @@ package sk.upjs.invoicesystem;
 
 import java.util.Date;
 import java.util.*;
+import org.bson.types.ObjectId;
 
 public class Invoice {
 
@@ -10,7 +11,7 @@ public class Invoice {
 
     private Company supplier;
     private Company customer;
-
+    private ObjectId objectId;
     private int invoiceNumber;
     private int variableSymbol;
     private int constantSymbol;
@@ -22,6 +23,7 @@ public class Invoice {
     private String note = "";
     private String drewUpBy = "";
     private List<Item> products = new ArrayList<Item>();
+    private ObjectId invoiceId;
 
     public void setProducts(List<Item> products) {
         this.products = products;
@@ -133,6 +135,15 @@ public class Invoice {
 
     public String getPaymentsForm() {
         return paymentsForm;
+    }
+    
+    
+    public ObjectId getInvoiceId() {
+        return objectId;
+    }
+
+    public void setInvoiceId(ObjectId objectId) {
+        this.objectId = objectId;
     }
 
     public Invoice(Company supplier, Company customer, int invoiceNumber, int variableSymbol, int constantSymbol, Date exposureDate, Date deliveryDate, Date paymentDueDate, String currency, String paymentsForm, String note, String drewUpBy) {

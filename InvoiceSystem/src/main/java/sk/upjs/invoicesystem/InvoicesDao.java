@@ -8,7 +8,9 @@ public interface InvoicesDao {
 
     public void addInvoice(Invoice invoice);
     
-    public List<Invoice> get5LastInvoices();
+    public void deleteInvoice(Invoice invoice);
     
+    public List<Invoice> get5LastInvoices();
+      
     public long size();
 }

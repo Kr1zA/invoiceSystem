@@ -66,4 +66,11 @@ public class MongoCompaniesTest {
         Assert.assertEquals("Slovensko", company.getCountry());
     }
 
+    @Test
+    public void testDeleteCompany() {
+        CompaniesDao mongo = ObjectFactory.INSTANCE.getCompanyDao();
+        ObjectId id = new ObjectId("584b1cb4f514e3288301d424");
+        
+    }
+
 }

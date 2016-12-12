@@ -56,4 +56,17 @@ public class MongoItems implements ItemsDao {
         return mongo.getCount();
     }
 
+    @Override
+    public void deleteItems(ObjectId objectId) {
+      
+        DBCursor cursor = mongo.find();
+        while(cursor.hasNext()){
+            DBObject theone = cursor.next();
+            
+            if(theone.get("invoiceId").equals(objectId)){
+                mongo.remove(theone);
+            }   
+        }
+    }
+
 }

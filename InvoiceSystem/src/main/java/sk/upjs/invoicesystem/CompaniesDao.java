@@ -7,6 +7,8 @@ import org.bson.types.ObjectId;
 public interface CompaniesDao {
 
     public void addCompany(Company company);
+    
+    public void deleteCompany(Company company);
 
     public List<Company> getCompanies();
     

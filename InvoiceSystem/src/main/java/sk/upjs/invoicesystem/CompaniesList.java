@@ -39,4 +39,9 @@ public enum CompaniesList implements CompaniesDao {
     public Company searchCompanyById(ObjectId objectId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void deleteCompany(Company company) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

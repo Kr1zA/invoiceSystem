@@ -48,6 +48,7 @@ public class MongoInvoices implements InvoicesDao{
             invoice.setPaymentsForm((String)theone.get("paymentsForm"));
             invoice.setNote((String)theone.get("note"));
             invoice.setDrewUpBy((String)theone.get("drewUpBy"));
+            invoice.setInvoiceId((ObjectId)theone.get("_id"));
             invoices.add(invoice);
         }
         return invoices;
@@ -55,6 +56,8 @@ public class MongoInvoices implements InvoicesDao{
 
     @Override
     public void addInvoice(Invoice invoice) {
+       
+        
         BasicDBObject doc =  new BasicDBObject("invoiceNumber",invoice.getInvoiceNumber())
                 .append("supplier", invoice.getSupplier().getIdCompany())
                 .append("customer", invoice.getCustomer().getIdCompany())
@@ -78,6 +81,16 @@ public class MongoInvoices implements InvoicesDao{
     @Override
     public long size() {
         return mongo.getCount();
+    }
+
+    @Override
+    public void deleteInvoice(Invoice invoice) {
+        ObjectId objectId = invoice.getInvoiceId();
+        BasicDBObject query = new BasicDBObject("_id", objectId);
+        DBObject theone = mongo.findOne(query);
+        mongo.remove(theone);        
+        ItemsDao mongoIt = ObjectFactory.INSTANCE.getItemsDao();
+        mongoIt.deleteItems(objectId);
     }
     
 }

@@ -49,4 +49,9 @@ public enum InvoicesList implements InvoicesDao {
     public long size() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void deleteInvoice(Invoice invoice) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
