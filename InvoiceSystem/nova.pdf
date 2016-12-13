@@ -408,7 +408,7 @@ endobj
 /Subtype /Widget
 /T (paymentsForm)
 /Type /Annot
-/V (Cash)
+/V (Cash on delivery)
 /AP 200 0 R
 >>
 endobj
@@ -442,7 +442,7 @@ endobj
 /Subtype /Widget
 /T (invoiceNumber)
 /Type /Annot
-/V (1216)
+/V (5648)
 /AP 202 0 R
 >>
 endobj
@@ -459,7 +459,7 @@ endobj
 /Subtype /Widget
 /T (paymentDueDate)
 /Type /Annot
-/V (03.08.2016)
+/V (14.12.2016)
 /AP 203 0 R
 >>
 endobj
@@ -476,7 +476,7 @@ endobj
 /Subtype /Widget
 /T (deliveryDate)
 /Type /Annot
-/V (03.08.2016)
+/V (19.12.2016)
 /AP 204 0 R
 >>
 endobj
@@ -493,7 +493,7 @@ endobj
 /Subtype /Widget
 /T (exposureDate)
 /Type /Annot
-/V (03.07.2016)
+/V (06.12.2016)
 /AP 205 0 R
 >>
 endobj
@@ -527,7 +527,7 @@ endobj
 /Subtype /Widget
 /T (variableSymbol)
 /Type /Annot
-/V (1216)
+/V (5648)
 /AP 207 0 R
 >>
 endobj
@@ -544,7 +544,7 @@ endobj
 /Subtype /Widget
 /T (constantSymbol)
 /Type /Annot
-/V (6598)
+/V (4659)
 /AP 208 0 R
 >>
 endobj
@@ -561,7 +561,7 @@ endobj
 /Subtype /Widget
 /T (note)
 /Type /Annot
-/V (zrob teraz)
+/V (nevjem)
 /AP 209 0 R
 >>
 endobj
@@ -834,7 +834,7 @@ endobj
 /Subtype /Widget
 /T (drewUpBy)
 /Type /Annot
-/V (Edinko)
+/V (guru)
 /AP 226 0 R
 >>
 endobj
@@ -899,7 +899,7 @@ endobj
 /Subtype /Widget
 /T (product1)
 /Type /Annot
-/V (pocitac)
+/V (coska)
 /AP 230 0 R
 >>
 endobj
@@ -932,7 +932,7 @@ endobj
 /Subtype /Widget
 /T (product2)
 /Type /Annot
-/V (stolny pocitac)
+/V (ais)
 /AP 232 0 R
 >>
 endobj
@@ -949,7 +949,7 @@ endobj
 /Subtype /Widget
 /T (count1)
 /Type /Annot
-/V (9)
+/V (45)
 /AP 233 0 R
 >>
 endobj
@@ -966,7 +966,7 @@ endobj
 /Subtype /Widget
 /T (pricePerPiece1)
 /Type /Annot
-/V (300.0)
+/V (45.0)
 /AP 234 0 R
 >>
 endobj
@@ -983,7 +983,7 @@ endobj
 /Subtype /Widget
 /T (price1)
 /Type /Annot
-/V (2700.0)
+/V (2025.0)
 /AP 235 0 R
 >>
 endobj
@@ -1638,7 +1638,7 @@ endobj
 /Subtype /Widget
 /T (count2)
 /Type /Annot
-/V (8)
+/V (1)
 /AP 236 0 R
 >>
 endobj
@@ -1985,7 +1985,7 @@ endobj
 /Subtype /Widget
 /T (pricePerPiece2)
 /Type /Annot
-/V (408.0)
+/V (455.0)
 /AP 237 0 R
 >>
 endobj
@@ -2332,7 +2332,7 @@ endobj
 /Subtype /Widget
 /T (price2)
 /Type /Annot
-/V (3264.0)
+/V (455.0)
 /AP 238 0 R
 >>
 endobj
@@ -2679,7 +2679,7 @@ endobj
 /Subtype /Widget
 /T (priceWithoutDPH)
 /Type /Annot
-/V (5964.0)
+/V (2480.0)
 /AP 239 0 R
 >>
 endobj
@@ -2696,7 +2696,7 @@ endobj
 /Subtype /Widget
 /T (priceWithDPH)
 /Type /Annot
-/V (1192.8)
+/V (496.0)
 /AP 240 0 R
 >>
 endobj
@@ -2713,7 +2713,7 @@ endobj
 /Subtype /Widget
 /T (price)
 /Type /Annot
-/V (7156.8)
+/V (2976.0)
 /AP 241 0 R
 >>
 endobj
@@ -2730,7 +2730,7 @@ endobj
 /Subtype /Widget
 /T (unitOfAmount1)
 /Type /Annot
-/V (ks)
+/V (neviem)
 /AP 242 0 R
 >>
 endobj
@@ -2747,7 +2747,7 @@ endobj
 /Subtype /Widget
 /T (unitOfAmount2)
 /Type /Annot
-/V (ks)
+/V (neviem)
 /AP 243 0 R
 >>
 endobj
@@ -10009,7 +10009,7 @@ endobj
 /BBox [0.0 0.0 126.341995 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 96
+/Length 107
 /Resources <<
 /Font 308 0 R
 >>
@@ -10023,8 +10023,8 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
-102.342 3.559 Td
-(Cash) Tj
+49.795 3.559 Td
+(Cash on delivery) Tj
 ET
 Q
 EMC
@@ -10084,7 +10084,7 @@ n
 BT
 /TimesNewRoman 14 Tf
 99.722 4.9075 Td
-(1216) Tj
+(5648) Tj
 ET
 Q
 EMC
@@ -10114,7 +10114,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 74.842 3.559 Td
-(03.08.2016) Tj
+(14.12.2016) Tj
 ET
 Q
 EMC
@@ -10144,7 +10144,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 74.842 3.559 Td
-(03.08.2016) Tj
+(19.12.2016) Tj
 ET
 Q
 EMC
@@ -10174,7 +10174,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 74.842 3.559 Td
-(03.07.2016) Tj
+(06.12.2016) Tj
 ET
 Q
 EMC
@@ -10234,7 +10234,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 102.342 3.559 Td
-(1216) Tj
+(5648) Tj
 ET
 Q
 EMC
@@ -10264,7 +10264,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 102.342 3.559 Td
-(6598) Tj
+(4659) Tj
 ET
 Q
 EMC
@@ -10279,7 +10279,7 @@ endobj
 /BBox [0.0 0.0 126.342 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 101
+/Length 97
 /Resources <<
 /Font 317 0 R
 >>
@@ -10293,8 +10293,8 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
-80.672 3.559 Td
-(zrob teraz) Tj
+91.958 3.559 Td
+(nevjem) Tj
 ET
 Q
 EMC
@@ -10789,7 +10789,7 @@ endobj
 /BBox [0.0 0.0 109.8541 14.400101]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 103
+/Length 101
 /Resources <<
 /Font 334 0 R
 >>
@@ -10803,8 +10803,8 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
-39.0376 3.5591 Td
-(Edinko) Tj
+44.8456 3.5591 Td
+(guru) Tj
 ET
 Q
 EMC
@@ -10909,7 +10909,7 @@ endobj
 /BBox [0.0 0.0 273.3545 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 94
+/Length 92
 /Resources <<
 /Font 338 0 R
 >>
@@ -10924,7 +10924,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(pocitac) Tj
+(coska) Tj
 ET
 Q
 EMC
@@ -10969,7 +10969,7 @@ endobj
 /BBox [0.0 0.0 273.35458 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 101
+/Length 90
 /Resources <<
 /Font 340 0 R
 >>
@@ -10984,7 +10984,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(stolny pocitac) Tj
+(ais) Tj
 ET
 Q
 EMC
@@ -10999,7 +10999,7 @@ endobj
 /BBox [0.0 0.0 54.10501 14.396057]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 85
+/Length 86
 /Resources <<
 /Font 341 0 R
 >>
@@ -11013,8 +11013,8 @@ W
 n
 BT
 /Helv 12 Tf
-45.4312 2.89 Td
-(9) Tj
+38.7574 2.89 Td
+(45) Tj
 ET
 Q
 EMC
@@ -11029,7 +11029,7 @@ endobj
 /BBox [0.0 0.0 81.147 14.401001]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 90
+/Length 89
 /Resources <<
 /Font 342 0 R
 >>
@@ -11043,8 +11043,8 @@ W
 n
 BT
 /Helv 12 Tf
-49.1177 2.8925 Td
-(300.0) Tj
+55.7915 2.8925 Td
+(45.0) Tj
 ET
 Q
 EMC
@@ -11074,7 +11074,7 @@ n
 BT
 /Helv 12 Tf
 15.6759 3.1105 Td
-(2700.0) Tj
+(2025.0) Tj
 ET
 Q
 EMC
@@ -11104,7 +11104,7 @@ n
 BT
 /Helv 12 Tf
 45.4312 2.89 Td
-(8) Tj
+(1) Tj
 ET
 Q
 EMC
@@ -11134,7 +11134,7 @@ n
 BT
 /Helv 12 Tf
 49.1167 2.8925 Td
-(408.0) Tj
+(455.0) Tj
 ET
 Q
 EMC
@@ -11149,7 +11149,7 @@ endobj
 /BBox [0.0 0.0 54.37903 14.401001]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 91
+/Length 90
 /Resources <<
 /Font 346 0 R
 >>
@@ -11163,8 +11163,8 @@ W
 n
 BT
 /Helv 12 Tf
-15.6759 2.8925 Td
-(3264.0) Tj
+22.3497 2.8925 Td
+(455.0) Tj
 ET
 Q
 EMC
@@ -11194,7 +11194,7 @@ n
 BT
 /Helv 12 Tf
 15.0588 6.692 Td
-(5964.0) Tj
+(2480.0) Tj
 ET
 Q
 EMC
@@ -11209,7 +11209,7 @@ endobj
 /BBox [0.0 0.0 53.763 22.0]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 86
+/Length 85
 /Resources <<
 /Font 348 0 R
 >>
@@ -11223,8 +11223,8 @@ W
 n
 BT
 /Helv 12 Tf
-15.0599 6.692 Td
-(1192.8) Tj
+21.7337 6.692 Td
+(496.0) Tj
 ET
 Q
 EMC
@@ -11254,7 +11254,7 @@ n
 BT
 /Helv 12 Tf
 15.0599 6.692 Td
-(7156.8) Tj
+(2976.0) Tj
 ET
 Q
 EMC
@@ -11269,7 +11269,7 @@ endobj
 /BBox [0.0 0.0 60.613983 14.405029]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 86
+/Length 91
 /Resources <<
 /Font 350 0 R
 >>
@@ -11283,8 +11283,8 @@ W
 n
 BT
 /Helv 12 Tf
-46.614 2.8945 Td
-(ks) Tj
+19.9304 2.8945 Td
+(neviem) Tj
 ET
 Q
 EMC
@@ -11299,7 +11299,7 @@ endobj
 /BBox [0.0 0.0 60.613983 14.404968]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 86
+/Length 91
 /Resources <<
 /Font 351 0 R
 >>
@@ -11313,8 +11313,8 @@ W
 n
 BT
 /Helv 12 Tf
-46.614 2.8945 Td
-(ks) Tj
+19.9304 2.8945 Td
+(neviem) Tj
 ET
 Q
 EMC
@@ -12211,15 +12211,18 @@ endobj
 /Index [0 370]
 /W [1 3 0]
 /Filter /FlateDecode
-/Length 1030
+/Length 1029
 >>
 stream
-xú”yP’e∆ÒÛX¶ô(ÊÜ˜Ääfj9ì6â^Y]@ƒ≠˜5∑ÃJqAãL—ƒRSD‹‘D£§lZÑ[N¢„XCc5YMSMπ4§MôJﬂ?>sﬂ˚ª?ﬁÛºÁ=òô…¨•LE≤&ﬂÀ"˙b
-œÛY ã˙T÷e)æñuœíı‚˜ﬁ≤>£Òû,Ü˜b™e˝∂…˙èì£Òßl@•,vã,nÇ,˛\ó%|(K\+K#ÿﬂ»ÌïŒêÈÅZYrπ,%[6t®,µ)Œ Ümê•Ò}x. Flóçú$’ód£w ü%{"ÄdcvÀûL∆≤Ù]≤±ÉpM6.O6>ø…&êw"Îâóeìx>9¨ß∞û zÍŸ4ÍLOƒUŸå|ŸSI`üô;d≥‚wŸlzî¡˛¨Á|.ÎπúcuÁêÁÈ–óÖ˚eœ§·¶lQ±ÏŸë∏%{ÆLˆ¸X¸'[|@∂Ñ¸K®ïπU∂¥8◊≤u≤ÂΩP#[¡]du∆Ÿ E≤UmAÔ^†/ﬁã„≤lˆÀÆìΩT%[Õ;/;ËÁöÂ≤µ›¿>9´eÎ˚Øﬂ${%úw=Õ•Áπ‰‹xHˆ*wˆö¿æõ¶…6sõ©∑ÖØGÅ9Ÿ:_∂çÁ€ﬁëÂçGΩl˚AY>ÁÕø!€A
-Ëy¡/≤ùeªz„+ŸÓU≤=ÃÕŒ≤óú˚8À>ˆﬁœ¨ C!3Zí≠ëìµ¯;ŸAf‚≥xË'ŸaÊÏçXpgG∏èzWBØè éç=xÛ®¨îLo5∆	Ÿ€3d«[Ä:e‰.[/{ü;¸‡ŸGÕd';»>&_9˜V>‰-/≈0À˜„10Û+¿W∞W}<EﬁS]0s@÷S«pÃFe8E:ñÅ^WûÁ™º#´‚^´ò£™Ÿ WU	ŒÅ|!2á»‚>Bô†ß!˛ØBﬂÇ~“QvzòÏ3zSçsºwæøÏyæ†^uk.´yªÖÂ§´eJÆZÖµQ‡ﬂ:Í¢®OV‡ˆBÓÏT†·¥‹ÆÀ‰w≈ÀÔû!oú+øÁàº…óÚ¶…õÖÀÔÎ+oû.[$o±IﬁÚ]y¯Ey´øÂ≠#‰mbÂm' €e…€ÔìGúïw¯UÓç‰ë]ÂQ…Úé≥Âù∂»;ó»£©€Âgy◊:y7j?îw-Ô1Sﬁs•¸°|˘√eÚ2≈‰…˚uFïºˇdwA2˘-∏ `ø‡˘Äéé8å4»c{Å|±Îq? „¬0 s±!‘ „©Xäb|ézyBOå√Zê-Å˛$‹î'v@¶c®õXçkÚ§Ë#xE>òZCÿ/Âå<ï˜Ü›íß]íèê|d4nÀGe KÂEÙÙ
-˚\çP‰¸ZE.òˆ?áif
+xú”ypçg«ÒÛSK[Y9â≠ìRUÀ¥ÕJ"Bö†∂RjMb)Eê™6±KB;°Qk—v⁄™Ì^Q5∫P¸”1∫È2Juå©—©-˝˛Òô˚‹˜æ˜úÛ¸û˜53ìY∏L;d~îµx#π6ìœı≤Ë/dÌf„{Y˚π≤N¸ﬁµV÷≠?>ë≈r_ÏYY‹6Y¸8Y¬sx$K¸Fñ¥Y÷}Ç¨GW<ê%üî•¨î•éê•9~ëı‹)Î5UñŒ=ÈweΩOÀ2ñ»˙P?≥. ˙ñÀ˙Ò=´Æ»^⁄$À#Àâ∆œ≤˛[dòy`S0ÁÀ≤A…¯S6x≠lH~ó]%˙æ¬√Yø*¡ıW„¿z$ÎQ¨G˝*{mµlt<~ìç)ïçM u∆ï…∆'‚ŸfÀ•~.Î<ÆÁ≥Œø&õHﬂI›¡ìôgJ
+˛íΩN¶S{·ñl˘ºëÅ€≤È{e3rèlÊYÛ–k÷
+Ÿl≤ôÕæÊ…
+c@∂oí˚‹ñ ”∑ÚeÛ¬©Ïmrxßˆ»ä®WtG6ˇàl˜ìOÒ)Ÿ¬È≤E≠@ù≈úiIP	π/Â|ó≤ﬂekdÀS¡ú+∂ Vf·ûluWìï÷˝ f» 9óÚc≤5cekÎÅΩTp^Ù~ó=VˆƒuŸ:2\O˝ı?»6,îm§Ô∆Û≤M≤ÕÏesP∂%O∂5<[€Ê…™»°Í_Ÿˆ„≤≈≤˜:Ég†z©lÁ‡ÃﬁßÓ.ŒcYÔ^'€ì2›[%€óÊﬁœ‹ï®ãèeGÀ—Ás8%≤œ8ü√<ÉGûêm!;÷Evº7»Ó¯rÏ«9ê…â∆xCPàç†÷	ﬁ°ºÅ∂‡úπ`÷ ô»;∑,»˚ÏÜA‡›
+ÚL9£ ˚
+>îùlç4åsù‹çØ¿|5Ã\√\5An5ï8åÀ∏/;≈;q:SvÜlŒ‚kÓ˚ñÁ˘<Û\†ﬂ%˙^∫¶êàE
+]<H·À‘8¥â"ˇªß»˚ù˘`Ä"*ÚQµ"køì€}yù˘côÚ∫S‰ı ‰ı»\ñ?~O˛dÑºaí<dÑ<tñ<¨B˛πº—yc˛€§ïºiöºŸhyƒ|yÛjyãsÚñ7‰^_’^›Gﬁ*Oﬁ∫Dﬁ¶Jﬁˆ®ºıü∫-èi$∫≥º}∫º√P˘3”‰KÂœî«“7vç<éqy¸p\ï'ÑÅﬂ&¢ßpKûÖæòÊHºÄáÚ§éÜ≈¯?…ª7D<r±A‹î˜hâ`;ÿKrHf…ÉQfKæà;ÚîÊHƒ(, }SŒ‡∫<5]‰i◊‰ΩËïNΩå/Âô‹◊˜Æºd’ ≥[É,sf ∑ÔìÔ ÛÎ‘π°®I75y‰ˇ}qg9
 endstream
 endobj
 startxref
-1884861
+1884859
 %%EOF

@@ -58,7 +58,8 @@ public class MongoInvoices implements InvoicesDao{
     public void addInvoice(Invoice invoice) {
        
         
-        BasicDBObject doc =  new BasicDBObject("invoiceNumber",invoice.getInvoiceNumber())
+        BasicDBObject doc =  new BasicDBObject("_id",invoice.getInvoiceId())
+                .append("invoiceNumber",invoice.getInvoiceNumber())
                 .append("supplier", invoice.getSupplier().getIdCompany())
                 .append("customer", invoice.getCustomer().getIdCompany())
                 .append("variableSymbol", invoice.getVariableSymbol())

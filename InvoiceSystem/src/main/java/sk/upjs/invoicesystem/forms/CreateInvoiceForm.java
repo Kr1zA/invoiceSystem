@@ -446,7 +446,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             items.addItem(item1);
         }
         
-        refreshMenuForm();
+        
         this.dispose();
         String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
         String currency = (String) currencyComboBox1.getSelectedItem();
