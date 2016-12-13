@@ -103,13 +103,19 @@ public class InvoicesForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
-
+        CreateInvoiceForm createInvoicesForm = new CreateInvoiceForm(this, true);
+        createInvoicesForm.setVisible(true);
     }//GEN-LAST:event_createInvoiceButtonActionPerformed
 
     private void deleteInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInvoiceButtonActionPerformed
-        Invoice selected = invoicesDAO.getInvoices().get(invoiceFormTable.getSelectedRow());
-        invoicesDAO.deleteInvoice(selected);
-        refreshInvoiceForm();
+        int selectedRow = invoiceFormTable.getSelectedRow();
+        if (selectedRow != -1) {
+            Invoice selected = invoicesDAO.getInvoices().get(invoiceFormTable.getSelectedRow());
+            if (selected != null) {
+                invoicesDAO.deleteInvoice(selected);
+                refreshInvoiceForm();
+            }
+        }
     }//GEN-LAST:event_deleteInvoiceButtonActionPerformed
 
     /**

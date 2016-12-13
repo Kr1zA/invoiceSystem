@@ -35,7 +35,7 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
 
     private void refreshCompaniesForm() {
         CompaniesTableModel model = (CompaniesTableModel) companiesTable.getModel();
-        model.refresh();
+        model.refresh(searchField.getText());
     }
 
     /**
@@ -127,6 +127,7 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+
         refreshCompaniesForm();
     }//GEN-LAST:event_searchButtonActionPerformed
 

@@ -1,5 +1,6 @@
 package sk.upjs.invoicesystem.forms;
 
+import org.bson.types.ObjectId;
 import sk.upjs.invoicesystem.CompaniesDao;
 import sk.upjs.invoicesystem.ObjectFactory;
 import sk.upjs.invoicesystem.Company;
@@ -9,23 +10,42 @@ import sk.upjs.invoicesystem.Company;
  * @author kriza
  */
 public class CreateCompanyForm extends javax.swing.JDialog {
-
-    CreateInvoiceForm createInvoiceForm;
+    
+    private CreateInvoiceForm createInvoiceForm;
     private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
-    CompaniesForm companiesForm;
-
+    private CompaniesForm companiesForm;
+    private Company selected = null;
     private String whoIsCreating = null;
 
     /**
      * Creates new form CreateInvoiceForm
      */
+    public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, int selectedRow) {
+        super(parent, modal);
+        initComponents();
+        companiesForm = (CompaniesForm) parent;
+        
+        selected = companies.getCompanies().get(selectedRow);
+        
+        companyNameField.setText(selected.getCompanyName());
+        streetField.setText(selected.getStreet());
+        cityField.setText(selected.getCity());
+        ZIPField.setText(Integer.toString(selected.getPostalCode()));
+        countryField.setText(selected.getCountry());
+        ICOField.setText(Long.toString(selected.getICO()));
+        DICField.setText(Long.toString(selected.getDIC()));
+        DPHField.setText(Long.toString(selected.getICDPH()));
+        telephoneNumberField.setText(selected.getTelephoneNumber());
+        emailField.setText(selected.getEmail());
+        IBANField.setText(selected.getIBAN());
+        
+    }
+    
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
-        companiesForm = (CompaniesForm) parent;
     }
-
+    
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, String whoIsCreating) {
         super(parent, modal);
         initComponents();
@@ -143,7 +163,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(companyNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
@@ -183,7 +203,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(createCompanyButton)
                 .addContainerGap())
         );
@@ -193,7 +213,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
         Company newOne = new Company();
-
+        
         newOne.setCompanyName(companyNameField.getText());
         newOne.setStreet(streetField.getText());
         newOne.setCity(cityField.getText());
@@ -205,17 +225,30 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         newOne.setTelephoneNumber(telephoneNumberField.getText());
         newOne.setEmail(emailField.getText());
         newOne.setIBAN(IBANField.getText());
-
+        
+        if (whoIsCreating != null) {
+            
+            if (whoIsCreating.equals("supplier")) {
+                createInvoiceForm.setSupplier(newOne);
+                createInvoiceForm.setButtonTextChooseSupplier(newOne.getCompanyName());
+                companies.addCompany(newOne);
+                
+            }
+            if (whoIsCreating.equals("customer")) {
+                createInvoiceForm.setCustomer(newOne);
+                createInvoiceForm.setButtonTextChooseCustomer(newOne.getCompanyName());
+                companies.addCompany(newOne);
+                
+            }
+        }
+        
+        if (selected != null) {
+            companies.deleteCompany(selected);
+            newOne.setIdCompany(selected.getIdCompany());
+            companies.addCompany(newOne);
+            
+        }
         companies.addCompany(newOne);
-
-        if (whoIsCreating.equals("supplier")) {
-            createInvoiceForm.setSupplier(newOne);
-            createInvoiceForm.setButtonTextChooseSupplier(newOne.getCompanyName());
-        }
-        if (whoIsCreating.equals("customer")) {
-            createInvoiceForm.setCustomer(newOne);
-            createInvoiceForm.setButtonTextChooseCustomer(newOne.getCompanyName());
-        }
         this.dispose();
 
     }//GEN-LAST:event_createCompanyButtonActionPerformed

@@ -29,7 +29,7 @@ public class CompaniesForm extends javax.swing.JDialog {
 
     private void refreshCompaniesForm() {
         CompaniesTableModel model = (CompaniesTableModel) companiesTable.getModel();
-        model.refresh();
+        model.refresh(searchField.getText());
     }
 
     /**
@@ -46,6 +46,8 @@ public class CompaniesForm extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         companiesTable = new javax.swing.JTable();
         updateCompanyButton = new javax.swing.JButton();
+        searchField = new javax.swing.JTextField();
+        searchButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Companies");
@@ -68,6 +70,18 @@ public class CompaniesForm extends javax.swing.JDialog {
         jScrollPane1.setViewportView(companiesTable);
 
         updateCompanyButton.setText("Update company");
+        updateCompanyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateCompanyButtonActionPerformed(evt);
+            }
+        });
+
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,13 +90,16 @@ public class CompaniesForm extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(deleteCompanyButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateCompanyButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(createCompanyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(searchField)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(updateCompanyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteCompanyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(createCompanyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -91,11 +108,17 @@ public class CompaniesForm extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createCompanyButton)
-                    .addComponent(deleteCompanyButton)
-                    .addComponent(updateCompanyButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(searchButton)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(deleteCompanyButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCompanyButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
 
         pack();
@@ -104,14 +127,32 @@ public class CompaniesForm extends javax.swing.JDialog {
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
         CreateCompanyForm createCompanyForm = new CreateCompanyForm(this, true);
         createCompanyForm.setVisible(true);
-        
+        refreshCompaniesForm();
+
     }//GEN-LAST:event_createCompanyButtonActionPerformed
 
     private void deleteCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCompanyButtonActionPerformed
-        Company selected = companies.getCompanies().get(companiesTable.getSelectedRow());
-        companies.deleteCompany(selected);
-        refreshCompaniesForm();
+        int selectedRow = companiesTable.getSelectedRow();
+        if (selectedRow != -1) {
+            Company selected = companies.getCompanies().get(selectedRow);
+            companies.deleteCompany(selected);
+            refreshCompaniesForm();
+        }
+
     }//GEN-LAST:event_deleteCompanyButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        refreshCompaniesForm();
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void updateCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCompanyButtonActionPerformed
+        int selectedRow = companiesTable.getSelectedRow();
+        if (selectedRow != -1) {
+            CreateCompanyForm updatingCompany = new CreateCompanyForm(this, true, selectedRow);
+            updatingCompany.setVisible(true);
+            refreshCompaniesForm();
+        }
+    }//GEN-LAST:event_updateCompanyButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +194,8 @@ public class CompaniesForm extends javax.swing.JDialog {
     private javax.swing.JButton createCompanyButton;
     private javax.swing.JButton deleteCompanyButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton searchButton;
+    private javax.swing.JTextField searchField;
     private javax.swing.JButton updateCompanyButton;
     // End of variables declaration//GEN-END:variables
 }

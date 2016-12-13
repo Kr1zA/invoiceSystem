@@ -29,18 +29,34 @@ public class MongoCompanies implements CompaniesDao {
 
     @Override
     public void addCompany(Company company) {
-        BasicDBObject doc = new BasicDBObject("companyName", company.getCompanyName())
-                .append("street", company.getStreet())
-                .append("city", company.getCity())
-                .append("postalCode", company.getPostalCode())
-                .append("country", company.getCountry())
-                .append("ico", company.getICO())
-                .append("dic", company.getDIC())
-                .append("dph", company.getICDPH())
-                .append("telephoneNumber", company.getTelephoneNumber())
-                .append("email", company.getEmail())
-                .append("iban", company.getIBAN());
-        mongo.insert(doc);
+        if (company.getIdCompany() != null) {
+            BasicDBObject doc = new BasicDBObject("_id", company.getIdCompany())
+                    .append("companyName", company.getCompanyName())
+                    .append("street", company.getStreet())
+                    .append("city", company.getCity())
+                    .append("postalCode", company.getPostalCode())
+                    .append("country", company.getCountry())
+                    .append("ico", company.getICO())
+                    .append("dic", company.getDIC())
+                    .append("dph", company.getICDPH())
+                    .append("telephoneNumber", company.getTelephoneNumber())
+                    .append("email", company.getEmail())
+                    .append("iban", company.getIBAN());
+            mongo.insert(doc);
+        } else {
+            BasicDBObject doc = new BasicDBObject("companyName", company.getCompanyName())
+                    .append("street", company.getStreet())
+                    .append("city", company.getCity())
+                    .append("postalCode", company.getPostalCode())
+                    .append("country", company.getCountry())
+                    .append("ico", company.getICO())
+                    .append("dic", company.getDIC())
+                    .append("dph", company.getICDPH())
+                    .append("telephoneNumber", company.getTelephoneNumber())
+                    .append("email", company.getEmail())
+                    .append("iban", company.getIBAN());
+            mongo.insert(doc);
+        }
 
     }
 
@@ -109,21 +125,26 @@ public class MongoCompanies implements CompaniesDao {
     }
 
     public List<Company> searchCompanyByNameInList(String companyName) {
-        List<Company> company = getCompanies();
+        List<Company> companies = getCompanies();
         List<Company> searched = new ArrayList<Company>();
-        if (!companyName.equals(null) && !companyName.equals("")) {
-            for (Company companyFromAll : company) {
+        if (companyName != null && !companyName.equals("")) {
+            for (Company companyFromAll : companies) {
                 String name = companyFromAll.getCompanyName();
                 int shorter = Math.min(name.length(), companyName.length());
+                boolean isInList = true;
                 for (int i = 0; i < shorter; i++) {
-                    if (name.charAt(i) == companyName.charAt(i)) {
-                        searched.add(companyFromAll);
+                    if (name.charAt(i) != companyName.charAt(i)) {
+                        isInList = false;
+                        break;
                     }
+                }
+                if (isInList) {
+                    searched.add(companyFromAll);
                 }
             }
             return searched;
         }
-        return company;
+        return companies;
     }
 
     @Override

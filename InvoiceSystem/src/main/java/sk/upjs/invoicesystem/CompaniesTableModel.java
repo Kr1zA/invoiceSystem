@@ -7,8 +7,6 @@ public class CompaniesTableModel extends AbstractTableModel {
 
     private String searched;
 
-    
-
     private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
 
     private static final String[] COLUMNS_NAMES = {"Company name", "City",};
@@ -17,7 +15,7 @@ public class CompaniesTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return companies.getCompanies().size();
+        return companies.searchCompanyByNameInList(searched).size();
     }
 
     @Override
@@ -50,7 +48,8 @@ public class CompaniesTableModel extends AbstractTableModel {
         return COLUMNS_NAMES[columnIndex];
     }
 
-    public void refresh() {
+    public void refresh(String searched) {
+        this.searched = searched;
         fireTableDataChanged();
     }
 

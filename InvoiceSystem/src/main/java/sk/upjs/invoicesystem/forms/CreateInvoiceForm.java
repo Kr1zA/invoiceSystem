@@ -24,7 +24,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private InvoicePdfCreator invoicePdfCreator = new InvoicePdfCreator();
     private Invoice newInvoice = new Invoice();
     private InvoicesDao invoices = ObjectFactory.INSTANCE.getInvoicesDao();
-    private ItemsDao    items = ObjectFactory.INSTANCE.getItemsDao();
+    private ItemsDao items = ObjectFactory.INSTANCE.getItemsDao();
 
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true, "supplier");
     private CreateCompanyForm createCustomer = new CreateCompanyForm(this, true, "customer");
@@ -54,6 +54,11 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
      * Creates new form CreateCompanyForm
      */
     public CreateInvoiceForm(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+    }
+
+    public CreateInvoiceForm(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -404,28 +409,40 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
     private void deleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductButtonActionPerformed
         int selectedRow = productsTable.getSelectedRow();
-        if (selectedRow > 0) {
+        if (selectedRow >= 0) {
             newInvoice.getProducts().remove(newInvoice.getProducts().get(selectedRow));
             refreshMenuForm();
         }
     }//GEN-LAST:event_deleteProductButtonActionPerformed
 
     private void addNewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewProductButtonActionPerformed
-
-        String name = newProductField.getText();
-        int count = Integer.parseInt(newCountField.getText());
-        double price = Double.parseDouble(newPriceField.getText());
-        String unitOfQuantity = newUnitOfQuantityField.getText();
-        newInvoice.getProducts().add(new Item(name, count, price, unitOfQuantity));
-        refreshMenuForm();
+        String newProduct = newProductField.getText();
+        String newCount = newCountField.getText();
+        String newPrice = newPriceField.getText();
+        String newUnitOfQuantity = newUnitOfQuantityField.getText();
+        if (!"".equals(newProduct) && !"".equals(newCount) && !"".equals(newPrice) && !"".equals(newUnitOfQuantity)) {
+            String name = newProduct;
+            int count = Integer.parseInt(newCount);
+            double price = Double.parseDouble(newPrice);
+            String unitOfQuantity = newUnitOfQuantity;
+            newInvoice.getProducts().add(new Item(name, count, price, unitOfQuantity));
+            refreshMenuForm();
+            newProductField.setText("");
+            newCountField.setText("");
+            newPriceField.setText("");
+            newUnitOfQuantityField.setText("");
+        }
     }//GEN-LAST:event_addNewProductButtonActionPerformed
 
     private void productsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsTableMouseClicked
     }//GEN-LAST:event_productsTableMouseClicked
 
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
+
+        String constantSymbol = constantSymbolField.getText();
+
         ObjectId id = new ObjectId();
-        newInvoice.setConstantSymbol(Integer.parseInt(constantSymbolField.getText()));
+        newInvoice.setConstantSymbol(Integer.parseInt(constantSymbol));
         newInvoice.setCurrency((String) currencyComboBox1.getSelectedItem());
         newInvoice.setCustomer(customer);
         newInvoice.setDeliveryDate(deliveryDateJDateChooser.getDate());
@@ -462,7 +479,6 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         System.out.println(paymentsDueDateJDateChooser.getDate() + "\n" + deliveryDateJDateChooser.getDate() + "\n" + exposureDateJDateChooser.getDate());
         System.out.println(paymentDueDate + "\n" + deliveryDate + "\n" + exposureDate);
         String variableSymbol = variableSymbolField.getText();
-        String constantSymbol = constantSymbolField.getText();
         String note = noteField.getText();
         String drewUpBy = drewUpByField.getText();
 
