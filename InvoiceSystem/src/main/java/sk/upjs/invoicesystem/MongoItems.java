@@ -18,7 +18,7 @@ public class MongoItems implements ItemsDao {
     }
 
     @Override
-    public List<Item> getItems(ObjectId idInvoice) {
+    public List<Item> getItemsById(ObjectId idInvoice) {
         List<Item> items = new ArrayList<Item>();
         DBCursor cursor = mongo.find();
 

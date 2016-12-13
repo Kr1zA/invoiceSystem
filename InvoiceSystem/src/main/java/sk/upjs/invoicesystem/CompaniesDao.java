@@ -5,15 +5,15 @@ import org.bson.types.ObjectId;
 
 
 public interface CompaniesDao {
-
-    public void addCompany(Company company);
-    
-    public void deleteCompany(Company company);
-
-    public List<Company> getCompanies();
-    
-    public Company searchCompanyByCompanyName(String companyName);
-    
+    //pridam spolocnost
+    public void addCompany(Company company);            
+    //vymazem spolocnost
+    public void deleteCompany(Company company);         
+    //vrati mi list vsetkych spolocnosti
+    public List<Company> getCompanies();                
+    //vyhladam spolocnost podla mena
+    public Company searchCompanyByCompanyName(String companyName);  
+    //vyhladam spolocnost podla Id
     public Company searchCompanyById(ObjectId objectId);
     
     public long size();

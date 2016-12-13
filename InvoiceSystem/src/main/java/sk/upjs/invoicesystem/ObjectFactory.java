@@ -12,8 +12,9 @@ public enum ObjectFactory {
     private InvoicesDao mongoInvoices;
     private ItemsDao mongoItems;
 
-    MongoClient mongoClient = new MongoClient("localhost", 27017);    //pripoji sa na databazu	
-    private DB db = mongoClient.getDB(databaseName);
+   
+    MongoClient mongoClient = new MongoClient("localhost", 27017);    //pripojenie na server	
+    private DB db = mongoClient.getDB(databaseName);                    //pripojenie na databazu
 
     public CompaniesDao getCompanyDao() {
 
