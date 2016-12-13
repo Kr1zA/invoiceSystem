@@ -13,7 +13,8 @@ public class InvoiceSmallTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return invoicesDao.getInvoices().size();
+        int i = invoicesDao.getInvoices().size();
+        return i;
     }
 
     @Override

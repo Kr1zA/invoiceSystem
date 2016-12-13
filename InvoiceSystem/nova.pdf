@@ -408,7 +408,11 @@ endobj
 /Subtype /Widget
 /T (paymentsForm)
 /Type /Annot
+<<<<<<< HEAD
 /V (Cash on delivery)
+=======
+/V (Money transfer)
+>>>>>>> origin/master1
 /AP 200 0 R
 >>
 endobj
@@ -442,7 +446,11 @@ endobj
 /Subtype /Widget
 /T (invoiceNumber)
 /Type /Annot
+<<<<<<< HEAD
 /V (5648)
+=======
+/V (234234)
+>>>>>>> origin/master1
 /AP 202 0 R
 >>
 endobj
@@ -459,7 +467,11 @@ endobj
 /Subtype /Widget
 /T (paymentDueDate)
 /Type /Annot
+<<<<<<< HEAD
 /V (14.12.2016)
+=======
+/V (31.12.2016)
+>>>>>>> origin/master1
 /AP 203 0 R
 >>
 endobj
@@ -476,7 +488,11 @@ endobj
 /Subtype /Widget
 /T (deliveryDate)
 /Type /Annot
+<<<<<<< HEAD
 /V (19.12.2016)
+=======
+/V (24.12.2016)
+>>>>>>> origin/master1
 /AP 204 0 R
 >>
 endobj
@@ -493,7 +509,11 @@ endobj
 /Subtype /Widget
 /T (exposureDate)
 /Type /Annot
+<<<<<<< HEAD
 /V (06.12.2016)
+=======
+/V (22.12.2016)
+>>>>>>> origin/master1
 /AP 205 0 R
 >>
 endobj
@@ -510,7 +530,7 @@ endobj
 /Subtype /Widget
 /T (IBAN)
 /Type /Annot
-/V (65498665756)
+/V (23233223)
 /AP 206 0 R
 >>
 endobj
@@ -527,7 +547,11 @@ endobj
 /Subtype /Widget
 /T (variableSymbol)
 /Type /Annot
+<<<<<<< HEAD
 /V (5648)
+=======
+/V (234234)
+>>>>>>> origin/master1
 /AP 207 0 R
 >>
 endobj
@@ -544,7 +568,11 @@ endobj
 /Subtype /Widget
 /T (constantSymbol)
 /Type /Annot
+<<<<<<< HEAD
 /V (4659)
+=======
+/V (234234)
+>>>>>>> origin/master1
 /AP 208 0 R
 >>
 endobj
@@ -561,7 +589,11 @@ endobj
 /Subtype /Widget
 /T (note)
 /Type /Annot
+<<<<<<< HEAD
 /V (nevjem)
+=======
+/V (fsd)
+>>>>>>> origin/master1
 /AP 209 0 R
 >>
 endobj
@@ -577,7 +609,7 @@ endobj
 /Subtype /Widget
 /T (companyName)
 /Type /Annot
-/V (Drevorubaci)
+/V (company1)
 /AP 210 0 R
 >>
 endobj
@@ -593,7 +625,7 @@ endobj
 /Subtype /Widget
 /T (street)
 /Type /Annot
-/V (Drevorubacska 549/98)
+/V (neviem 12)
 /AP 211 0 R
 >>
 endobj
@@ -609,7 +641,7 @@ endobj
 /Subtype /Widget
 /T (city)
 /Type /Annot
-/V (Lesna 9486)
+/V (kosice 30300)
 /AP 212 0 R
 >>
 endobj
@@ -625,7 +657,7 @@ endobj
 /Subtype /Widget
 /T (country)
 /Type /Annot
-/V (Slovensko)
+/V (Cinsko)
 /AP 213 0 R
 >>
 endobj
@@ -641,7 +673,7 @@ endobj
 /Subtype /Widget
 /T (email)
 /Type /Annot
-/V (lesz@lesy.sk)
+/V (a.a@s.sk)
 /AP 214 0 R
 >>
 endobj
@@ -657,7 +689,7 @@ endobj
 /Subtype /Widget
 /T (companyNameC)
 /Type /Annot
-/V (Iteckari)
+/V (company2)
 /AP 215 0 R
 >>
 endobj
@@ -673,7 +705,7 @@ endobj
 /Subtype /Widget
 /T (streetC)
 /Type /Annot
-/V (Zimna 2)
+/V (medicka 6)
 /AP 216 0 R
 >>
 endobj
@@ -689,7 +721,7 @@ endobj
 /Subtype /Widget
 /T (cityC)
 /Type /Annot
-/V (Kosice 45976)
+/V (poprad 23244)
 /AP 217 0 R
 >>
 endobj
@@ -705,7 +737,7 @@ endobj
 /Subtype /Widget
 /T (telephoneNumberC)
 /Type /Annot
-/V (0915648978)
+/V (3234)
 /AP 218 0 R
 >>
 endobj
@@ -721,7 +753,7 @@ endobj
 /Subtype /Widget
 /T (emailC)
 /Type /Annot
-/V (it@it.sk)
+/V (dasd.sda@gmail.com)
 /AP 219 0 R
 >>
 endobj
@@ -737,7 +769,7 @@ endobj
 /Subtype /Widget
 /T (telephoneNumber)
 /Type /Annot
-/V (0954687)
+/V (324234)
 /AP 220 0 R
 >>
 endobj
@@ -753,7 +785,7 @@ endobj
 /Subtype /Widget
 /T (ICO)
 /Type /Annot
-/V (798468765)
+/V (12123123)
 /AP 221 0 R
 >>
 endobj
@@ -769,7 +801,7 @@ endobj
 /Subtype /Widget
 /T (DIC)
 /Type /Annot
-/V (578654896)
+/V (1312312)
 /AP 222 0 R
 >>
 endobj
@@ -785,7 +817,7 @@ endobj
 /Subtype /Widget
 /T (ICDPH)
 /Type /Annot
-/V (48965)
+/V (234234234)
 /AP 223 0 R
 >>
 endobj
@@ -801,7 +833,7 @@ endobj
 /Subtype /Widget
 /T (DICC)
 /Type /Annot
-/V (657984)
+/V (432432)
 /AP 224 0 R
 >>
 endobj
@@ -817,7 +849,7 @@ endobj
 /Subtype /Widget
 /T (ICDPHC)
 /Type /Annot
-/V (12357896564)
+/V (43223)
 /AP 225 0 R
 >>
 endobj
@@ -834,7 +866,11 @@ endobj
 /Subtype /Widget
 /T (drewUpBy)
 /Type /Annot
+<<<<<<< HEAD
 /V (guru)
+=======
+/V (kriza)
+>>>>>>> origin/master1
 /AP 226 0 R
 >>
 endobj
@@ -850,7 +886,7 @@ endobj
 /Subtype /Widget
 /T (ICOC)
 /Type /Annot
-/V (798654)
+/V (234234)
 /AP 227 0 R
 >>
 endobj
@@ -899,7 +935,11 @@ endobj
 /Subtype /Widget
 /T (product1)
 /Type /Annot
+<<<<<<< HEAD
 /V (coska)
+=======
+/V (daco)
+>>>>>>> origin/master1
 /AP 230 0 R
 >>
 endobj
@@ -932,7 +972,11 @@ endobj
 /Subtype /Widget
 /T (product2)
 /Type /Annot
+<<<<<<< HEAD
 /V (ais)
+=======
+/V (daco ine)
+>>>>>>> origin/master1
 /AP 232 0 R
 >>
 endobj
@@ -949,7 +993,11 @@ endobj
 /Subtype /Widget
 /T (count1)
 /Type /Annot
+<<<<<<< HEAD
 /V (45)
+=======
+/V (33)
+>>>>>>> origin/master1
 /AP 233 0 R
 >>
 endobj
@@ -966,7 +1014,11 @@ endobj
 /Subtype /Widget
 /T (pricePerPiece1)
 /Type /Annot
+<<<<<<< HEAD
 /V (45.0)
+=======
+/V (9.99)
+>>>>>>> origin/master1
 /AP 234 0 R
 >>
 endobj
@@ -983,7 +1035,11 @@ endobj
 /Subtype /Widget
 /T (price1)
 /Type /Annot
+<<<<<<< HEAD
 /V (2025.0)
+=======
+/V (329.67)
+>>>>>>> origin/master1
 /AP 235 0 R
 >>
 endobj
@@ -1638,7 +1694,11 @@ endobj
 /Subtype /Widget
 /T (count2)
 /Type /Annot
+<<<<<<< HEAD
 /V (1)
+=======
+/V (300)
+>>>>>>> origin/master1
 /AP 236 0 R
 >>
 endobj
@@ -1985,7 +2045,11 @@ endobj
 /Subtype /Widget
 /T (pricePerPiece2)
 /Type /Annot
+<<<<<<< HEAD
 /V (455.0)
+=======
+/V (0.01)
+>>>>>>> origin/master1
 /AP 237 0 R
 >>
 endobj
@@ -2332,7 +2396,11 @@ endobj
 /Subtype /Widget
 /T (price2)
 /Type /Annot
+<<<<<<< HEAD
 /V (455.0)
+=======
+/V (3.0)
+>>>>>>> origin/master1
 /AP 238 0 R
 >>
 endobj
@@ -2679,7 +2747,11 @@ endobj
 /Subtype /Widget
 /T (priceWithoutDPH)
 /Type /Annot
+<<<<<<< HEAD
 /V (2480.0)
+=======
+/V (332.67)
+>>>>>>> origin/master1
 /AP 239 0 R
 >>
 endobj
@@ -2696,7 +2768,11 @@ endobj
 /Subtype /Widget
 /T (priceWithDPH)
 /Type /Annot
+<<<<<<< HEAD
 /V (496.0)
+=======
+/V (66.53)
+>>>>>>> origin/master1
 /AP 240 0 R
 >>
 endobj
@@ -2713,7 +2789,11 @@ endobj
 /Subtype /Widget
 /T (price)
 /Type /Annot
+<<<<<<< HEAD
 /V (2976.0)
+=======
+/V (399.2)
+>>>>>>> origin/master1
 /AP 241 0 R
 >>
 endobj
@@ -2730,7 +2810,11 @@ endobj
 /Subtype /Widget
 /T (unitOfAmount1)
 /Type /Annot
+<<<<<<< HEAD
 /V (neviem)
+=======
+/V (l)
+>>>>>>> origin/master1
 /AP 242 0 R
 >>
 endobj
@@ -10009,7 +10093,11 @@ endobj
 /BBox [0.0 0.0 126.341995 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
+<<<<<<< HEAD
 /Length 107
+=======
+/Length 105
+>>>>>>> origin/master1
 /Resources <<
 /Font 308 0 R
 >>
@@ -10023,8 +10111,13 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
+<<<<<<< HEAD
 49.795 3.559 Td
 (Cash on delivery) Tj
+=======
+56.835 3.559 Td
+(Money transfer) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10069,7 +10162,7 @@ endobj
 /BBox [0.0 0.0 129.72198 19.083008]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 98
+/Length 100
 /Resources <<
 /Font 310 0 R
 >>
@@ -10083,8 +10176,13 @@ W
 n
 BT
 /TimesNewRoman 14 Tf
+<<<<<<< HEAD
 99.722 4.9075 Td
 (5648) Tj
+=======
+85.722 4.9075 Td
+(234234) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10114,7 +10212,11 @@ n
 BT
 /TimesNewRoman 11 Tf
 74.842 3.559 Td
+<<<<<<< HEAD
 (14.12.2016) Tj
+=======
+(31.12.2016) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10144,7 +10246,11 @@ n
 BT
 /TimesNewRoman 11 Tf
 74.842 3.559 Td
+<<<<<<< HEAD
 (19.12.2016) Tj
+=======
+(24.12.2016) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10174,7 +10280,11 @@ n
 BT
 /TimesNewRoman 11 Tf
 74.842 3.559 Td
+<<<<<<< HEAD
 (06.12.2016) Tj
+=======
+(22.12.2016) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10189,7 +10299,7 @@ endobj
 /BBox [0.0 0.0 126.342 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 102
+/Length 99
 /Resources <<
 /Font 314 0 R
 >>
@@ -10203,8 +10313,8 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
-63.842 3.559 Td
-(65498665756) Tj
+80.342 3.559 Td
+(23233223) Tj
 ET
 Q
 EMC
@@ -10219,7 +10329,7 @@ endobj
 /BBox [0.0 0.0 126.342 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 96
+/Length 97
 /Resources <<
 /Font 315 0 R
 >>
@@ -10233,8 +10343,13 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
+<<<<<<< HEAD
 102.342 3.559 Td
 (5648) Tj
+=======
+91.342 3.559 Td
+(234234) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10249,7 +10364,7 @@ endobj
 /BBox [0.0 0.0 126.342 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 96
+/Length 97
 /Resources <<
 /Font 316 0 R
 >>
@@ -10263,8 +10378,13 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
+<<<<<<< HEAD
 102.342 3.559 Td
 (4659) Tj
+=======
+91.342 3.559 Td
+(234234) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10279,7 +10399,11 @@ endobj
 /BBox [0.0 0.0 126.342 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
+<<<<<<< HEAD
 /Length 97
+=======
+/Length 93
+>>>>>>> origin/master1
 /Resources <<
 /Font 317 0 R
 >>
@@ -10293,8 +10417,13 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
+<<<<<<< HEAD
 91.958 3.559 Td
 (nevjem) Tj
+=======
+110.9 3.559 Td
+(fsd) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10309,7 +10438,7 @@ endobj
 /BBox [0.0 0.0 306.0 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 93
+/Length 90
 /Resources <<
 /Font 318 0 R
 >>
@@ -10324,7 +10453,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(Drevorubaci) Tj
+(company1) Tj
 ET
 Q
 EMC
@@ -10339,7 +10468,7 @@ endobj
 /BBox [0.0 0.0 306.00003 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 102
+/Length 91
 /Resources <<
 /Font 319 0 R
 >>
@@ -10354,7 +10483,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(Drevorubacska 549/98) Tj
+(neviem 12) Tj
 ET
 Q
 EMC
@@ -10369,7 +10498,7 @@ endobj
 /BBox [0.0 0.0 306.00003 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 92
+/Length 94
 /Resources <<
 /Font 320 0 R
 >>
@@ -10384,7 +10513,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(Lesna 9486) Tj
+(kosice 30300) Tj
 ET
 Q
 EMC
@@ -10399,7 +10528,7 @@ endobj
 /BBox [0.0 0.0 306.0 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 91
+/Length 88
 /Resources <<
 /Font 321 0 R
 >>
@@ -10414,7 +10543,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(Slovensko) Tj
+(Cinsko) Tj
 ET
 Q
 EMC
@@ -10429,7 +10558,7 @@ endobj
 /BBox [0.0 0.0 152.181 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 98
+/Length 94
 /Resources <<
 /Font 322 0 R
 >>
@@ -10444,7 +10573,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(lesz@lesy.sk) Tj
+(a.a@s.sk) Tj
 ET
 Q
 EMC
@@ -10474,7 +10603,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(Iteckari) Tj
+(company2) Tj
 ET
 Q
 EMC
@@ -10489,7 +10618,7 @@ endobj
 /BBox [0.0 0.0 306.0 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 89
+/Length 91
 /Resources <<
 /Font 324 0 R
 >>
@@ -10504,7 +10633,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(Zimna 2) Tj
+(medicka 6) Tj
 ET
 Q
 EMC
@@ -10534,7 +10663,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(Kosice 45976) Tj
+(poprad 23244) Tj
 ET
 Q
 EMC
@@ -10549,7 +10678,7 @@ endobj
 /BBox [0.0 0.0 153.05399 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 96
+/Length 90
 /Resources <<
 /Font 326 0 R
 >>
@@ -10564,7 +10693,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(0915648978) Tj
+(3234) Tj
 ET
 Q
 EMC
@@ -10579,7 +10708,7 @@ endobj
 /BBox [0.0 0.0 152.18198 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 94
+/Length 104
 /Resources <<
 /Font 327 0 R
 >>
@@ -10594,7 +10723,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(it@it.sk) Tj
+(dasd.sda@gmail.com) Tj
 ET
 Q
 EMC
@@ -10609,7 +10738,7 @@ endobj
 /BBox [0.0 0.0 153.055 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 93
+/Length 92
 /Resources <<
 /Font 328 0 R
 >>
@@ -10624,7 +10753,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(0954687) Tj
+(324234) Tj
 ET
 Q
 EMC
@@ -10639,7 +10768,7 @@ endobj
 /BBox [0.0 0.0 74.507996 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 94
+/Length 93
 /Resources <<
 /Font 329 0 R
 >>
@@ -10654,7 +10783,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(798468765) Tj
+(12123123) Tj
 ET
 Q
 EMC
@@ -10669,7 +10798,7 @@ endobj
 /BBox [0.0 0.0 65.018005 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 94
+/Length 92
 /Resources <<
 /Font 330 0 R
 >>
@@ -10684,7 +10813,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(578654896) Tj
+(1312312) Tj
 ET
 Q
 EMC
@@ -10699,7 +10828,7 @@ endobj
 /BBox [0.0 0.0 80.15503 14.399963]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 90
+/Length 94
 /Resources <<
 /Font 331 0 R
 >>
@@ -10714,7 +10843,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(48965) Tj
+(234234234) Tj
 ET
 Q
 EMC
@@ -10744,7 +10873,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(657984) Tj
+(432432) Tj
 ET
 Q
 EMC
@@ -10759,7 +10888,7 @@ endobj
 /BBox [0.0 0.0 80.15399 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 96
+/Length 90
 /Resources <<
 /Font 333 0 R
 >>
@@ -10774,7 +10903,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(12357896564) Tj
+(43223) Tj
 ET
 Q
 EMC
@@ -10789,7 +10918,11 @@ endobj
 /BBox [0.0 0.0 109.8541 14.400101]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
+<<<<<<< HEAD
 /Length 101
+=======
+/Length 102
+>>>>>>> origin/master1
 /Resources <<
 /Font 334 0 R
 >>
@@ -10803,8 +10936,13 @@ W
 n
 BT
 /TimesNewRoman 11 Tf
+<<<<<<< HEAD
 44.8456 3.5591 Td
 (guru) Tj
+=======
+43.9326 3.5591 Td
+(kriza) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10834,7 +10972,7 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
-(798654) Tj
+(234234) Tj
 ET
 Q
 EMC
@@ -10909,7 +11047,11 @@ endobj
 /BBox [0.0 0.0 273.3545 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
+<<<<<<< HEAD
 /Length 92
+=======
+/Length 91
+>>>>>>> origin/master1
 /Resources <<
 /Font 338 0 R
 >>
@@ -10924,7 +11066,11 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
+<<<<<<< HEAD
 (coska) Tj
+=======
+(daco) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -10969,7 +11115,11 @@ endobj
 /BBox [0.0 0.0 273.35458 14.400024]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
+<<<<<<< HEAD
 /Length 90
+=======
+/Length 95
+>>>>>>> origin/master1
 /Resources <<
 /Font 340 0 R
 >>
@@ -10984,7 +11134,11 @@ n
 BT
 /TimesNewRoman 11 Tf
 2 3.559 Td
+<<<<<<< HEAD
 (ais) Tj
+=======
+(daco ine) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11014,7 +11168,11 @@ n
 BT
 /Helv 12 Tf
 38.7574 2.89 Td
+<<<<<<< HEAD
 (45) Tj
+=======
+(33) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11044,7 +11202,11 @@ n
 BT
 /Helv 12 Tf
 55.7915 2.8925 Td
+<<<<<<< HEAD
 (45.0) Tj
+=======
+(9.99) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11074,7 +11236,11 @@ n
 BT
 /Helv 12 Tf
 15.6759 3.1105 Td
+<<<<<<< HEAD
 (2025.0) Tj
+=======
+(329.67) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11089,7 +11255,7 @@ endobj
 /BBox [0.0 0.0 54.10498 14.395996]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 84
+/Length 86
 /Resources <<
 /Font 344 0 R
 >>
@@ -11103,8 +11269,13 @@ W
 n
 BT
 /Helv 12 Tf
+<<<<<<< HEAD
 45.4312 2.89 Td
 (1) Tj
+=======
+32.0835 2.89 Td
+(300) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11119,7 +11290,7 @@ endobj
 /BBox [0.0 0.0 81.145996 14.401001]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 90
+/Length 89
 /Resources <<
 /Font 345 0 R
 >>
@@ -11133,8 +11304,13 @@ W
 n
 BT
 /Helv 12 Tf
+<<<<<<< HEAD
 49.1167 2.8925 Td
 (455.0) Tj
+=======
+55.7905 2.8925 Td
+(0.01) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11149,7 +11325,11 @@ endobj
 /BBox [0.0 0.0 54.37903 14.401001]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
+<<<<<<< HEAD
 /Length 90
+=======
+/Length 88
+>>>>>>> origin/master1
 /Resources <<
 /Font 346 0 R
 >>
@@ -11163,8 +11343,13 @@ W
 n
 BT
 /Helv 12 Tf
+<<<<<<< HEAD
 22.3497 2.8925 Td
 (455.0) Tj
+=======
+35.6974 2.8925 Td
+(3.0) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11194,7 +11379,11 @@ n
 BT
 /Helv 12 Tf
 15.0588 6.692 Td
+<<<<<<< HEAD
 (2480.0) Tj
+=======
+(332.67) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11224,7 +11413,11 @@ n
 BT
 /Helv 12 Tf
 21.7337 6.692 Td
+<<<<<<< HEAD
 (496.0) Tj
+=======
+(66.53) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11239,7 +11432,7 @@ endobj
 /BBox [0.0 0.0 53.763 21.999996]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
-/Length 86
+/Length 85
 /Resources <<
 /Font 349 0 R
 >>
@@ -11253,8 +11446,13 @@ W
 n
 BT
 /Helv 12 Tf
+<<<<<<< HEAD
 15.0599 6.692 Td
 (2976.0) Tj
+=======
+21.7337 6.692 Td
+(399.2) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -11269,7 +11467,11 @@ endobj
 /BBox [0.0 0.0 60.613983 14.405029]
 /Matrix [1.0 0.0 0.0 1.0 0.0 0.0]
 /FormType 1
+<<<<<<< HEAD
 /Length 91
+=======
+/Length 85
+>>>>>>> origin/master1
 /Resources <<
 /Font 350 0 R
 >>
@@ -11283,8 +11485,13 @@ W
 n
 BT
 /Helv 12 Tf
+<<<<<<< HEAD
 19.9304 2.8945 Td
 (neviem) Tj
+=======
+55.948 2.8945 Td
+(l) Tj
+>>>>>>> origin/master1
 ET
 Q
 EMC
@@ -12211,9 +12418,14 @@ endobj
 /Index [0 370]
 /W [1 3 0]
 /Filter /FlateDecode
+<<<<<<< HEAD
 /Length 1029
+=======
+/Length 1037
+>>>>>>> origin/master1
 >>
 stream
+<<<<<<< HEAD
 xú”ypçg«ÒÛSK[Y9â≠ìRUÀ¥ÕJ"Bö†∂RjMb)Eê™6±KB;°Qk—v⁄™Ì^Q5∫P¸”1∫È2Juå©—©-˝˛Òô˚‹˜æ˜úÛ¸û˜53ìY∏L;d~îµx#π6ìœı≤Ë/dÌf„{Y˚π≤N¸ﬁµV÷≠?>ë≈r_ÏYY‹6Y¸8Y¬sx$K¸Fñ¥Y÷}Ç¨GW<ê%üî•¨î•éê•9~ëı‹)Î5UñŒ=ÈweΩOÀ2ñ»˙P?≥. ˙ñÀ˙Ò=´Æ»^⁄$À#Àâ∆œ≤˛[dòy`S0ÁÀ≤A…¯S6x≠lH~ó]%˙æ¬√Yø*¡ıW„¿z$ÎQ¨G˝*{mµlt<~ìç)ïçM u∆ï…∆'‚ŸfÀ•~.Î<ÆÁ≥Œø&õHﬂI›¡ìôgJ
 ˛íΩN¶S{·ñl˘ºëÅ€≤È{e3rèlÊYÛ–k÷
 Ÿl≤ôÕæÊ…
@@ -12221,8 +12433,20 @@ c@∂oí˚‹ñ ”∑ÚeÛ¬©Ïmrxßˆ»ä®WtG6ˇàl˜ìOÒ)Ÿ¬È≤E≠@ù≈úiIP	π/Â|ó≤ﬂekdÀS¡ú+∂ Vf·ûl
 ÚL9£ ˚
 >îùlç4åsù‹çØ¿|5Ã\√\5An5ï8åÀ∏/;≈;q:SvÜlŒ‚kÓ˚ñÁ˘<Û\†ﬂ%˙^∫¶êàE
 ]<H·À‘8¥â"ˇªß»˚ù˘`Ä"*ÚQµ"køì€}yù˘côÚ∫S‰ı ‰ı»\ñ?~O˛dÑºaí<dÑ<tñ<¨B˛πº—yc˛€§ïºiöºŸhyƒ|yÛjyãsÚñ7‰^_’^›Gﬁ*Oﬁ∫Dﬁ¶Jﬁˆ®ºıü∫-èi$∫≥º}∫º√P˘3”‰KÂœî«“7vç<éqy¸p\ï'ÑÅﬂ&¢ßpKûÖæòÊHºÄáÚ§éÜ≈¯?…ª7D<r±A‹î˜hâ`;ÿKrHf…ÉQfKæà;ÚîÊHƒ(, }SŒ‡∫<5]‰i◊‰ΩËïNΩå/Âô‹◊˜Æºd’ ≥[É,sf ∑ÔìÔ ÛÎ‘π°®I75y‰ˇ}qg9
+=======
+xú‘wlñU∆·˚Ffe~ß¨äî•2b)¥¥ÄPŸ  êΩ≤G+ZÜ(°»AQ!¥_ø"""(Àë†"Ç$D£â¡˛˛∏“”˜º=Á9˜sﬁJí•8À€≠2ﬂ[5ü¿ûM„Áz´ˆ«V¬|c%Œ∂ö1ﬂ¸æ’¢7éXIºót⁄jΩ≈Jfµy˜¨∂ü[)õ≠‘·Vª«q◊JãZÈK≠ˆ›¨Ò•’qïı‰@´Sm\∑:Ô∑2fYO•É}∫7][›⁄[›©µ˚ßV÷ËŸ√ÍUg¨ﬁ9V~∫$òÔõe=Ûæµû]bıkäÀVˇy÷ÄÜ8oúkb<ËÇ5òÁœ%ÇÒ∆CΩh=?ﬂz°.Y√X√ÉuF,¥^lÇØ¨ëã¨Q¨?äÒhûèa<Ü¨∆≤Ô∏f†ÜÒ‘3Å&\±&RÎ§V∏jMŒµ¶$·ö5ï¨29cÊœ÷¥Â÷ÙÊ¯⁄zâzf$‡3kÊTkVZ/è¥fó«{÷úA÷\≤ôª«ö◊∑≠˘õ¨¨∑‡¶µpüµàåó¬˚÷zíEœ≥
+¨ÏÒ÷+µ@óí{ô‰p∆W©Y¸h-_iÂ¶‚+o£µ¢˛∂VÓ∂V—Û’‰æö=^Îˆ^≥¡z=ÙÛŒ≤ñu÷í√:Ú\ﬂ ‹çô÷FŒ≤ë≥lam.ãÉ÷ñ~∏cΩπ√⁄Jm€∏O€»$óµ}¥ı÷CàY;&Z;©{Á)k◊tkw]ú≥ˆ–◊ΩÙi/ŸΩùmÌk	≤ﬁø¬:êÇ[÷;‹ÎÉùáınæu®'ÿÎCÓ≈GÙËËo÷1ÓÎÒ™V}.‡nL∆jêw˘¸e÷D[Ωr?
+Y´nX—“‡ÓDπÎQjçíaÙ∏WQ2*™éd=.⁄
+ŒUÙì#œ}àëså∫by õı≈®πò∫äπ7≈Ù¥x¯ˆä˘NäÈ’â÷I2;E6ßqÜ˜Œ∆[_Pœyˆª»æœ∫Bı±ÆòùÏ∏åIÆR·G˛ΩÍ»qé‹iÂ»›°é‹[Ê»˝tÕ°Dáö:îÏÌPjäCÈÂeˆ9î=ÁPÓ¶CyÊ+4t®ÿ—°“pá∏Eï:Ta˛¡ﬂ™Vv®÷“°z_áSjnv®u‘!rŸ!¸ÈPª™CùVu8‘Àt®üÁê∞ﬂ··O\wx‰æCb5áFâç”öth:›!IËﬁiùÂê\ªq…°s¸/
+m#G¿Y⁄VB
+∆b-NÄS‚—3±Áq◊!µ	®+5áÒÉCªÚH∆(¨A~uH´ÖP[⁄:√w†˛Ùt˚¶ÁÇ|“/‡∂CáŸ´ÎeêmﬁÎz‹°€VáÓ'z‹pËsË’⁄!ü¸ÛØ8‹bù[W?Ó∞„«◊ˇÈø`Ÿ
+>>>>>>> origin/master1
 endstream
 endobj
 startxref
+<<<<<<< HEAD
 1884859
+=======
+1884800
+>>>>>>> origin/master1
 %%EOF

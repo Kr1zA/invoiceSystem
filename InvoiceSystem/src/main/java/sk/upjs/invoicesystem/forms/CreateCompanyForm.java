@@ -91,7 +91,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
         jLabel21.setText("DIC");
 
-        jLabel22.setText("DPH payer");
+        jLabel22.setText("ICDPH");
 
         jLabel23.setText("Telephone number");
 
@@ -107,14 +107,8 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 361, Short.MAX_VALUE)
-                                .addComponent(createCompanyButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(companyNameField))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(createCompanyButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
@@ -126,9 +120,11 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                             .addComponent(jLabel22)
                             .addComponent(jLabel23)
                             .addComponent(jLabel24)
-                            .addComponent(jLabel25))
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel5))
                         .addGap(117, 117, 117)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(companyNameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                             .addComponent(DICField)
                             .addComponent(DPHField)
                             .addComponent(telephoneNumberField)
@@ -148,7 +144,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(companyNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
@@ -188,7 +184,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(createCompanyButton)
                 .addContainerGap())
         );
@@ -212,7 +208,17 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         newOne.setIBAN(IBANField.getText());
 
         companies.addCompany(newOne);
+
+        if (whoIsCreating.equals("supplier")) {
+            createInvoiceForm.setSupplier(newOne);
+            createInvoiceForm.setButtonTextChooseSupplier(newOne.getCompanyName());
+        }
+        if (whoIsCreating.equals("customer")) {
+            createInvoiceForm.setCustomer(newOne);
+            createInvoiceForm.setButtonTextChooseCustomer(newOne.getCompanyName());
+        }
         this.dispose();
+
     }//GEN-LAST:event_createCompanyButtonActionPerformed
 
     /**

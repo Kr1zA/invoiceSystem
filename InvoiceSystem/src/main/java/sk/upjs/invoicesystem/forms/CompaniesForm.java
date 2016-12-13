@@ -5,13 +5,18 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import sk.upjs.invoicesystem.CompaniesDao;
 import sk.upjs.invoicesystem.CompaniesTableModel;
+import sk.upjs.invoicesystem.Company;
+import sk.upjs.invoicesystem.ObjectFactory;
 
 /**
  *
  * @author kriza
  */
 public class CompaniesForm extends javax.swing.JDialog {
+
+    CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
 
     /**
      * Creates new form CompaniesForm
@@ -36,7 +41,7 @@ public class CompaniesForm extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        deleteCompaniesButton = new javax.swing.JButton();
+        deleteCompanyButton = new javax.swing.JButton();
         createCompanyButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         companiesTable = new javax.swing.JTable();
@@ -45,10 +50,10 @@ public class CompaniesForm extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Companies");
 
-        deleteCompaniesButton.setText("Delete companies");
-        deleteCompaniesButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteCompanyButton.setText("Delete company");
+        deleteCompanyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteCompaniesButtonActionPerformed(evt);
+                deleteCompanyButtonActionPerformed(evt);
             }
         });
 
@@ -73,7 +78,7 @@ public class CompaniesForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(deleteCompaniesButton)
+                        .addComponent(deleteCompanyButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(updateCompanyButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -86,7 +91,7 @@ public class CompaniesForm extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createCompanyButton)
-                    .addComponent(deleteCompaniesButton)
+                    .addComponent(deleteCompanyButton)
                     .addComponent(updateCompanyButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,11 +104,14 @@ public class CompaniesForm extends javax.swing.JDialog {
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
         CreateCompanyForm createCompanyForm = new CreateCompanyForm(this, true);
         createCompanyForm.setVisible(true);
+        
     }//GEN-LAST:event_createCompanyButtonActionPerformed
 
-    private void deleteCompaniesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCompaniesButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteCompaniesButtonActionPerformed
+    private void deleteCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCompanyButtonActionPerformed
+        Company selected = companies.getCompanies().get(companiesTable.getSelectedRow());
+        companies.deleteCompany(selected);
+        refreshCompaniesForm();
+    }//GEN-LAST:event_deleteCompanyButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +151,7 @@ public class CompaniesForm extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable companiesTable;
     private javax.swing.JButton createCompanyButton;
-    private javax.swing.JButton deleteCompaniesButton;
+    private javax.swing.JButton deleteCompanyButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton updateCompanyButton;
     // End of variables declaration//GEN-END:variables
