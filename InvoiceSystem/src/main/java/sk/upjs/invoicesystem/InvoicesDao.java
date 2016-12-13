@@ -9,6 +9,8 @@ public interface InvoicesDao {
     public void addInvoice(Invoice invoice);
     //vymazem fakturu
     public void deleteInvoice(Invoice invoice);
+    //update faktury
+    public void updateInvoice(Invoice invoice);
     
     public List<Invoice> get5LastInvoices();
       

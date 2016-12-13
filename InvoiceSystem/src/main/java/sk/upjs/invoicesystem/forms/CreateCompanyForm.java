@@ -243,9 +243,8 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         }
         
         if (selected != null) {
-            companies.deleteCompany(selected);
-            newOne.setIdCompany(selected.getIdCompany());
-            companies.addCompany(newOne);
+            companies.updateCompany(selected);
+            
             
         }
         companies.addCompany(newOne);

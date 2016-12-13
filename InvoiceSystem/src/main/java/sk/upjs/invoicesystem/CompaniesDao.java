@@ -16,6 +16,8 @@ public interface CompaniesDao {
     //vyhladam spolocnost podla Id
     public Company searchCompanyById(ObjectId objectId);
     
+    public void updateCompany(Company company);
+    
     public long size();
     
     public List<Company> searchCompanyByNameInList(String companyName);
