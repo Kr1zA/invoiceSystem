@@ -108,9 +108,26 @@ public class MongoCompanies implements CompaniesDao {
         return company;
     }
 
+    public List<Company> searchCompanyByNameInList(String companyName) {
+        List<Company> company = getCompanies();
+        List<Company> searched = new ArrayList<Company>();
+        if (!companyName.equals(null) && !companyName.equals("")) {
+            for (Company companyFromAll : company) {
+                String name = companyFromAll.getCompanyName();
+                int shorter = Math.min(name.length(), companyName.length());
+                for (int i = 0; i < shorter; i++) {
+                    if (name.charAt(i) == companyName.charAt(i)) {
+                        searched.add(companyFromAll);
+                    }
+                }
+            }
+            return searched;
+        }
+        return company;
+    }
+
     @Override
-    public Company searchCompanyById(ObjectId objectId
-    ) {
+    public Company searchCompanyById(ObjectId objectId) {
         Company company = new Company();
 
         List<Company> companies = getCompanies();

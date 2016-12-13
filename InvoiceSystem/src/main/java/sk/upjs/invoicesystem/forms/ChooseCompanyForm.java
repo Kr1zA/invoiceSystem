@@ -64,6 +64,11 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
         });
 
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         companiesTable.setModel(new CompaniesTableModel());
         jScrollPane2.setViewportView(companiesTable);
@@ -120,6 +125,10 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_selectButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        refreshCompaniesForm();
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -7,7 +7,6 @@ package sk.upjs.invoicesystem.forms;
 
 import sk.upjs.invoicesystem.InvoiceSmallTableModel;
 import sk.upjs.invoicesystem.InvoicesDao;
-import sk.upjs.invoicesystem.InvoicesList;
 
 /**
  *
@@ -15,7 +14,6 @@ import sk.upjs.invoicesystem.InvoicesList;
  */
 public class MenuForm extends javax.swing.JFrame {
 
-    private InvoicesDao invoicesDAO = InvoicesList.INSTANCE;
 
     /**
      * Creates new form Menu

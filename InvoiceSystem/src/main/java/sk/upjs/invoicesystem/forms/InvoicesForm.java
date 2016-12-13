@@ -6,8 +6,8 @@
 package sk.upjs.invoicesystem.forms;
 
 import java.awt.Dialog;
+import sk.upjs.invoicesystem.Invoice;
 import sk.upjs.invoicesystem.InvoiceTableModel;
-import sk.upjs.invoicesystem.InvoicesList;
 import sk.upjs.invoicesystem.InvoicesDao;
 import sk.upjs.invoicesystem.ObjectFactory;
 
@@ -42,7 +42,7 @@ public class InvoicesForm extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        deleteInvoicesButton = new javax.swing.JButton();
+        deleteInvoiceButton = new javax.swing.JButton();
         createInvoiceButton = new javax.swing.JButton();
         updateInvoiceButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -51,10 +51,10 @@ public class InvoicesForm extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Invoices");
 
-        deleteInvoicesButton.setText("Delete invoices");
-        deleteInvoicesButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteInvoiceButton.setText("Delete invoice");
+        deleteInvoiceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteInvoicesButtonActionPerformed(evt);
+                deleteInvoiceButtonActionPerformed(evt);
             }
         });
 
@@ -79,7 +79,7 @@ public class InvoicesForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(deleteInvoicesButton)
+                        .addComponent(deleteInvoiceButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(updateInvoiceButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -91,7 +91,7 @@ public class InvoicesForm extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteInvoicesButton)
+                    .addComponent(deleteInvoiceButton)
                     .addComponent(createInvoiceButton)
                     .addComponent(updateInvoiceButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -106,9 +106,11 @@ public class InvoicesForm extends javax.swing.JDialog {
 
     }//GEN-LAST:event_createInvoiceButtonActionPerformed
 
-    private void deleteInvoicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInvoicesButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteInvoicesButtonActionPerformed
+    private void deleteInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInvoiceButtonActionPerformed
+        Invoice selected = invoicesDAO.getInvoices().get(invoiceFormTable.getSelectedRow());
+        invoicesDAO.deleteInvoice(selected);
+        refreshInvoiceForm();
+    }//GEN-LAST:event_deleteInvoiceButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,7 +149,7 @@ public class InvoicesForm extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createInvoiceButton;
-    private javax.swing.JButton deleteInvoicesButton;
+    private javax.swing.JButton deleteInvoiceButton;
     private javax.swing.JTable invoiceFormTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton updateInvoiceButton;

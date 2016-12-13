@@ -3,7 +3,6 @@ package sk.upjs.invoicesystem.forms;
 import sk.upjs.invoicesystem.CompaniesDao;
 import sk.upjs.invoicesystem.ObjectFactory;
 import sk.upjs.invoicesystem.Company;
-import sk.upjs.invoicesystem.CompaniesList;
 
 /**
  *

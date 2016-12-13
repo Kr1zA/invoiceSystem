@@ -439,13 +439,13 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         newInvoice.setVariableSymbol(Integer.parseInt(variableSymbolField.getText()));
         newInvoice.setInvoiceId(id);
         invoices.addInvoice(newInvoice);
-        
+
         List<Item> item = newInvoice.getProducts();
         for (Item item1 : item) {
             item1.setInvoiceId(id);
             items.addItem(item1);
         }
-        
+
         refreshMenuForm();
         this.dispose();
         String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();

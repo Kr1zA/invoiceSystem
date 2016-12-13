@@ -5,6 +5,10 @@ import javax.swing.table.AbstractTableModel;
 
 public class CompaniesTableModel extends AbstractTableModel {
 
+    private String searched;
+
+    
+
     private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
 
     private static final String[] COLUMNS_NAMES = {"Company name", "City",};
@@ -23,7 +27,7 @@ public class CompaniesTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Company company = companies.getCompanies().get(rowIndex);
+        Company company = companies.searchCompanyByNameInList(searched).get(rowIndex);
         switch (columnIndex) {
             case 0:
 
