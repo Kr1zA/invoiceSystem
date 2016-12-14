@@ -13,7 +13,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
     private CreateInvoiceForm createInvoiceForm;
     private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
-    private CompaniesForm companiesForm;
     private Company selected = null;
     private String whoIsCreating = null;
 
@@ -23,8 +22,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, int selectedRow) {
         super(parent, modal);
         initComponents();
-        companiesForm = (CompaniesForm) parent;
-
+        
         selected = companies.getCompanies().get(selectedRow);
 
         companyNameField.setText(selected.getCompanyName());
@@ -38,7 +36,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         telephoneNumberField.setText(selected.getTelephoneNumber());
         emailField.setText(selected.getEmail());
         IBANField.setText(selected.getIBAN());
-
+        createCompanyButton.setText("Update");
     }
 
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal) {
@@ -240,11 +238,13 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 companies.addCompany(newOne);
 
             }
-        } else {
+        }else {
+            
             if (selected != null) {
                 newOne.setIdCompany(selected.getIdCompany());
+                
                 companies.updateCompany(newOne);
-
+                
             } else {
                 companies.addCompany(newOne);
             }

@@ -47,7 +47,11 @@ public class MongoInvoices implements InvoicesDao {
             invoice.setNote((String) theone.get("note"));
             invoice.setDrewUpBy((String) theone.get("drewUpBy"));
             invoice.setInvoiceId((ObjectId) theone.get("_id"));
+            List<Item> stored = ObjectFactory.INSTANCE.getItemsDao().getItemsById(invoice.getInvoiceId());
+
+            invoice.setProducts(stored);
             invoices.add(invoice);
+
         }
         return invoices;
     }
@@ -75,18 +79,18 @@ public class MongoInvoices implements InvoicesDao {
     public void updateInvoice(Invoice invoice) {
         BasicDBObject doc = new BasicDBObject();
 
-        doc.append("$set", new BasicDBObject().append("invoiceNumber", invoice.getInvoiceNumber()))
-                .append("$set", new BasicDBObject().append("supplier", invoice.getSupplier().getIdCompany()))
-                .append("$set", new BasicDBObject().append("customer", invoice.getCustomer().getIdCompany()))
-                .append("$set", new BasicDBObject().append("variableSymbol", invoice.getVariableSymbol()))
-                .append("$set", new BasicDBObject().append("constantSymbol", invoice.getInvoiceNumber()))
-                .append("$set", new BasicDBObject().append("exposureDate", invoice.getExposureDate()))
-                .append("$set", new BasicDBObject().append("deliveryDate", invoice.getDeliveryDate()))
-                .append("$set", new BasicDBObject().append("paymentDueDate", invoice.getPaymentDueDate()))
-                .append("$set", new BasicDBObject().append("currency", invoice.getCurrency()))
-                .append("$set", new BasicDBObject().append("paymentsForm", invoice.getPaymentsForm()))
-                .append("$set", new BasicDBObject().append("note", invoice.getNote()))
-                .append("$set", new BasicDBObject().append("drewUpBy", invoice.getDrewUpBy()));
+        doc.append("$set", new BasicDBObject().append("invoiceNumber", invoice.getInvoiceNumber())
+                .append("supplier", invoice.getSupplier().getIdCompany())
+                .append("customer", invoice.getCustomer().getIdCompany())
+                .append("variableSymbol", invoice.getVariableSymbol())
+                .append("constantSymbol", invoice.getInvoiceNumber())
+                .append("exposureDate", invoice.getExposureDate())
+                .append("deliveryDate", invoice.getDeliveryDate())
+                .append("paymentDueDate", invoice.getPaymentDueDate())
+                .append("currency", invoice.getCurrency())
+                .append("paymentsForm", invoice.getPaymentsForm())
+                .append("note", invoice.getNote())
+                .append("drewUpBy", invoice.getDrewUpBy()));
 
         BasicDBObject searchQuery = new BasicDBObject().append("_id", invoice.getInvoiceId());
         mongo.update(searchQuery, doc);

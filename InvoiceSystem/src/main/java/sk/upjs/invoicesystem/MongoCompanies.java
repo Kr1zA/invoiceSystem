@@ -49,18 +49,19 @@ public class MongoCompanies implements CompaniesDao {
     public void updateCompany(Company company) {
         BasicDBObject doc = new BasicDBObject();
 
-        doc.append("$set", new BasicDBObject().append("companyName", company.getCompanyName()))
-                .append("$set", new BasicDBObject().append("street", company.getStreet()))
-                .append("$set", new BasicDBObject().append("city", company.getCity()))
-                .append("$set", new BasicDBObject().append("postalCode", company.getPostalCode()))
-                .append("$set", new BasicDBObject().append("country", company.getCountry()))
-                .append("$set", new BasicDBObject().append("ico", company.getICO()))
-                .append("$set", new BasicDBObject().append("dic", company.getDIC()))
-                .append("$set", new BasicDBObject().append("dph", company.getICDPH()))
-                .append("$set", new BasicDBObject().append("telephoneNumber", company.getTelephoneNumber()))
-                .append("$set", new BasicDBObject().append("email", company.getEmail()))
-                .append("$set", new BasicDBObject().append("iban", company.getIBAN()));
+        doc.append("$set", new BasicDBObject().append("companyName", company.getCompanyName())
+                .append("street", company.getStreet())
+                .append("city", company.getCity())
+                .append("postalCode", company.getPostalCode())
+                .append("country", company.getCountry())
+                .append("ico", company.getICO())
+                .append("dic", company.getDIC())
+                .append("dph", company.getICDPH())
+                .append("telephoneNumber", company.getTelephoneNumber())
+                .append("email", company.getEmail())
+                .append("iban", company.getIBAN()));
         BasicDBObject searchQuery = new BasicDBObject().append("_id", company.getIdCompany());
+        System.out.println(doc.toString());
         mongo.update(searchQuery, doc);
 
     }
