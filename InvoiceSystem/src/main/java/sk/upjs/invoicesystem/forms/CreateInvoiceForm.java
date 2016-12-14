@@ -23,9 +23,9 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
 
     private InvoicePdfCreator invoicePdfCreator = new InvoicePdfCreator();
     private Invoice newInvoice = new Invoice();
+    private Invoice selectedInvoice = null;
     private InvoicesDao invoices = ObjectFactory.INSTANCE.getInvoicesDao();
     private ItemsDao items = ObjectFactory.INSTANCE.getItemsDao();
-
     private CreateCompanyForm createSupplier = new CreateCompanyForm(this, true, "supplier");
     private CreateCompanyForm createCustomer = new CreateCompanyForm(this, true, "customer");
     private ChooseCompanyForm chooseSupplier = new ChooseCompanyForm(this, true, "supplier");
@@ -50,24 +50,39 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         this.chooseSupplierButton.setText(name);
     }
 
-    /**
-     * Creates new form CreateCompanyForm
-     */
+    //volany pri create invoice z menuForm
     public CreateInvoiceForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    //volany pri update invoice z invoiceForm
+    public CreateInvoiceForm(javax.swing.JDialog parent, boolean modal, int selectedRow) {
+        super(parent, modal);
+        this.selectedInvoice = invoices.getInvoices().get(selectedRow);
+        initComponents();
+
+        constantSymbolField.setText(Integer.toString(selectedInvoice.getConstantSymbol()));
+        paymentsFormComboBox.setSelectedItem(selectedInvoice.getPaymentsForm());
+        currencyComboBox1.setSelectedItem(selectedInvoice.getCurrency());
+        paymentsDueDateJDateChooser.setDate(selectedInvoice.getPaymentDueDate());
+        deliveryDateJDateChooser.setDate(selectedInvoice.getDeliveryDate());
+        exposureDateJDateChooser.setDate(selectedInvoice.getExposureDate());
+        variableSymbolField.setText(Integer.toString(selectedInvoice.getVariableSymbol()));
+        noteField.setText(selectedInvoice.getNote());
+        drewUpByField.setText(selectedInvoice.getDrewUpBy());
+        supplier = selectedInvoice.getSupplier();
+        customer = selectedInvoice.getCustomer();
+        chooseSupplierButton.setText(supplier.getCompanyName());
+        chooseCustomerButton.setText(customer.getCompanyName());
+        newInvoice.setProducts(selectedInvoice.getProducts());
+        createInvoiceButton.setText("Update");
+
+    }
+
+    //volany pri create invoice z invoiceForm
     public CreateInvoiceForm(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
-        initComponents();
-    }
-
-    public CreateInvoiceForm(MenuForm menuForm) {
-        initComponents();
-    }
-
-    public CreateInvoiceForm(InvoicesForm invoicesForm) {
         initComponents();
     }
 
@@ -411,7 +426,8 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         int selectedRow = productsTable.getSelectedRow();
         if (selectedRow >= 0) {
             newInvoice.getProducts().remove(newInvoice.getProducts().get(selectedRow));
-            refreshMenuForm();
+
+            refreshItemsTable();
         }
     }//GEN-LAST:event_deleteProductButtonActionPerformed
 
@@ -426,7 +442,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             double price = Double.parseDouble(newPrice);
             String unitOfQuantity = newUnitOfQuantity;
             newInvoice.getProducts().add(new Item(name, count, price, unitOfQuantity));
-            refreshMenuForm();
+            refreshItemsTable();
             newProductField.setText("");
             newCountField.setText("");
             newPriceField.setText("");
@@ -440,47 +456,50 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
 
         String constantSymbol = constantSymbolField.getText();
-
-        ObjectId id = new ObjectId();
-        newInvoice.setConstantSymbol(Integer.parseInt(constantSymbol));
-        newInvoice.setCurrency((String) currencyComboBox1.getSelectedItem());
-        newInvoice.setCustomer(customer);
-        newInvoice.setDeliveryDate(deliveryDateJDateChooser.getDate());
-        newInvoice.setDrewUpBy(drewUpByField.getText());
-        newInvoice.setExposureDate(exposureDateJDateChooser.getDate());
-        newInvoice.setInvoiceNumber(Integer.parseInt(variableSymbolField.getText()));
-        newInvoice.setNote(noteField.getText());
-        newInvoice.setPaymentDueDate(paymentsDueDateJDateChooser.getDate());
-        newInvoice.setPaymentsForm((String) paymentsFormComboBox.getSelectedItem());
-        newInvoice.setSupplier(supplier);
-        newInvoice.setVariableSymbol(Integer.parseInt(variableSymbolField.getText()));
-        newInvoice.setInvoiceId(id);
-        invoices.addInvoice(newInvoice);
-
-        List<Item> item = newInvoice.getProducts();
-        for (Item item1 : item) {
-            item1.setInvoiceId(id);
-            items.addItem(item1);
-        }
-
-        refreshMenuForm();
-        this.dispose();
         String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
         String currency = (String) currencyComboBox1.getSelectedItem();
         String invoiceNumber = variableSymbolField.getText();
-//        Date datum = paymentsDueDateJDateChooser.getDate();
-//        System.out.print(datum);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
-//        System.out.print(sdf.format(datum));
         String paymentDueDate = sdf.format(paymentsDueDateJDateChooser.getDate());
-
         String deliveryDate = sdf.format(deliveryDateJDateChooser.getDate());
         String exposureDate = sdf.format(exposureDateJDateChooser.getDate());
-        System.out.println(paymentsDueDateJDateChooser.getDate() + "\n" + deliveryDateJDateChooser.getDate() + "\n" + exposureDateJDateChooser.getDate());
-        System.out.println(paymentDueDate + "\n" + deliveryDate + "\n" + exposureDate);
         String variableSymbol = variableSymbolField.getText();
         String note = noteField.getText();
         String drewUpBy = drewUpByField.getText();
+
+        newInvoice.setConstantSymbol(Integer.parseInt(constantSymbol));
+        newInvoice.setCurrency(currency);
+        newInvoice.setCustomer(customer);
+        newInvoice.setDeliveryDate(deliveryDateJDateChooser.getDate());
+        newInvoice.setDrewUpBy(drewUpBy);
+        newInvoice.setExposureDate(exposureDateJDateChooser.getDate());
+        newInvoice.setInvoiceNumber(Integer.parseInt(invoiceNumber));
+        newInvoice.setNote(note);
+        newInvoice.setPaymentDueDate(paymentsDueDateJDateChooser.getDate());
+        newInvoice.setPaymentsForm(paymentsForm);
+        newInvoice.setSupplier(supplier);
+        newInvoice.setVariableSymbol(Integer.parseInt(variableSymbol));
+
+        List<Item> item = newInvoice.getProducts();
+
+        if (selectedInvoice == null) {//ked vytvaram invoice
+            ObjectId id = new ObjectId();
+            newInvoice.setInvoiceId(id);
+            invoices.addInvoice(newInvoice);
+            for (Item item1 : item) {
+                item1.setInvoiceId(id);
+                items.addItem(item1);
+            }
+        } else {//ked upravujem invoice
+            ObjectId id = selectedInvoice.getInvoiceId();
+            newInvoice.setInvoiceId(id);
+            invoices.updateInvoice(newInvoice);
+            ObjectFactory.INSTANCE.getItemsDao().deleteItems(id);
+            for (Item item1 : item) {
+                item1.setInvoiceId(id);
+                items.addItem(item1);
+            }
+        }
 
         String[] itemName = {"product1", "product2", "product3", "product4", "product5", "product6", "product7", "product8", "product9", "product10", "product11", "product12", "product13", "product14", "product15", "product16", "product17", "product18", "product19", "product20", "product21", "product22", "product23", "product24"};
         String[] intemNumber = {"i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i10", "i11", "i12", "i13", "i14", "i15", "i16", "i17", "i18", "i19", "i20", "i21", "i22", "i23", "i24"};
@@ -538,6 +557,9 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             invoicePdfCreator.setField("price", Double.toString(round(priceSum * 1.2)));
             invoicePdfCreator.saveAndClose();
 
+            refreshItemsTable();
+            this.dispose();
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -561,7 +583,7 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_currencyComboBox1ActionPerformed
 
-    private void refreshMenuForm() {
+    private void refreshItemsTable() {
         ItemTableModel model = (ItemTableModel) productsTable.getModel();
         model.refresh();
 

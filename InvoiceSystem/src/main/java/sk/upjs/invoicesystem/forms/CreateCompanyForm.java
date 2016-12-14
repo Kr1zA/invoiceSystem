@@ -13,7 +13,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     
     private CreateInvoiceForm createInvoiceForm;
     private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
-    private CompaniesForm companiesForm;
     private Company selected = null;
     private String whoIsCreating = null;
 
@@ -23,7 +22,6 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, int selectedRow) {
         super(parent, modal);
         initComponents();
-        companiesForm = (CompaniesForm) parent;
         
         selected = companies.getCompanies().get(selectedRow);
         
@@ -38,7 +36,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         telephoneNumberField.setText(selected.getTelephoneNumber());
         emailField.setText(selected.getEmail());
         IBANField.setText(selected.getIBAN());
-        
+        createCompanyButton.setText("Update");
     }
     
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal) {
@@ -226,6 +224,8 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         newOne.setEmail(emailField.getText());
         newOne.setIBAN(IBANField.getText());
         
+        System.out.println(companyNameField.getText());
+        
         if (whoIsCreating != null) {
             
             if (whoIsCreating.equals("supplier")) {
@@ -240,14 +240,17 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 companies.addCompany(newOne);
                 
             }
-        }
-        
-        if (selected != null) {
-            companies.updateCompany(selected);
+        } else {
             
-            
+            if (selected != null) {
+                newOne.setIdCompany(selected.getIdCompany());
+                
+                companies.updateCompany(newOne);
+                
+            } else {
+                companies.addCompany(newOne);
+            }
         }
-        companies.addCompany(newOne);
         this.dispose();
 
     }//GEN-LAST:event_createCompanyButtonActionPerformed

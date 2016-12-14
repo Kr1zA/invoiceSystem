@@ -66,6 +66,11 @@ public class InvoicesForm extends javax.swing.JDialog {
         });
 
         updateInvoiceButton.setText("Update invoice");
+        updateInvoiceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateInvoiceButtonActionPerformed(evt);
+            }
+        });
 
         invoiceFormTable.setModel(new InvoiceTableModel());
         jScrollPane1.setViewportView(invoiceFormTable);
@@ -105,6 +110,7 @@ public class InvoicesForm extends javax.swing.JDialog {
     private void createInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceButtonActionPerformed
         CreateInvoiceForm createInvoicesForm = new CreateInvoiceForm(this, true);
         createInvoicesForm.setVisible(true);
+        refreshInvoiceForm();
     }//GEN-LAST:event_createInvoiceButtonActionPerformed
 
     private void deleteInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInvoiceButtonActionPerformed
@@ -117,6 +123,15 @@ public class InvoicesForm extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_deleteInvoiceButtonActionPerformed
+
+    private void updateInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateInvoiceButtonActionPerformed
+        int selectedRow = invoiceFormTable.getSelectedRow();
+        if (selectedRow != -1) {
+            CreateInvoiceForm createInvoicesForm = new CreateInvoiceForm(this, true, selectedRow);
+            createInvoicesForm.setVisible(true);
+            refreshInvoiceForm();
+        }
+    }//GEN-LAST:event_updateInvoiceButtonActionPerformed
 
     /**
      * @param args the command line arguments
