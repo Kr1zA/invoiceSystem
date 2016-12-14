@@ -10,7 +10,7 @@ import sk.upjs.invoicesystem.Company;
  * @author kriza
  */
 public class CreateCompanyForm extends javax.swing.JDialog {
-    
+
     private CreateInvoiceForm createInvoiceForm;
     private CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
     private CompaniesForm companiesForm;
@@ -24,9 +24,9 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         companiesForm = (CompaniesForm) parent;
-        
+
         selected = companies.getCompanies().get(selectedRow);
-        
+
         companyNameField.setText(selected.getCompanyName());
         streetField.setText(selected.getStreet());
         cityField.setText(selected.getCity());
@@ -38,14 +38,14 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         telephoneNumberField.setText(selected.getTelephoneNumber());
         emailField.setText(selected.getEmail());
         IBANField.setText(selected.getIBAN());
-        
+
     }
-    
+
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-    
+
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, String whoIsCreating) {
         super(parent, modal);
         initComponents();
@@ -213,7 +213,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
         Company newOne = new Company();
-        
+
         newOne.setCompanyName(companyNameField.getText());
         newOne.setStreet(streetField.getText());
         newOne.setCity(cityField.getText());
@@ -225,29 +225,30 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         newOne.setTelephoneNumber(telephoneNumberField.getText());
         newOne.setEmail(emailField.getText());
         newOne.setIBAN(IBANField.getText());
-        
+
         if (whoIsCreating != null) {
-            
+
             if (whoIsCreating.equals("supplier")) {
                 createInvoiceForm.setSupplier(newOne);
                 createInvoiceForm.setButtonTextChooseSupplier(newOne.getCompanyName());
                 companies.addCompany(newOne);
-                
+
             }
             if (whoIsCreating.equals("customer")) {
                 createInvoiceForm.setCustomer(newOne);
                 createInvoiceForm.setButtonTextChooseCustomer(newOne.getCompanyName());
                 companies.addCompany(newOne);
-                
+
+            }
+        } else {
+            if (selected != null) {
+                newOne.setIdCompany(selected.getIdCompany());
+                companies.updateCompany(newOne);
+
+            } else {
+                companies.addCompany(newOne);
             }
         }
-        
-        if (selected != null) {
-            companies.updateCompany(selected);
-            
-            
-        }
-        companies.addCompany(newOne);
         this.dispose();
 
     }//GEN-LAST:event_createCompanyButtonActionPerformed

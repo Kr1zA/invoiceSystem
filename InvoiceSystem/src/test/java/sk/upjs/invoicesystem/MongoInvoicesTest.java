@@ -55,13 +55,6 @@ public class MongoInvoicesTest {
 
     }
 
-    @Test
-    public void testGet5LastInvoices() {
-    }
-
-    @Test
-    public void testSize() {
-    }
 
     @Test
     public void testDeleteInvoice() {
