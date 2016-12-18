@@ -14,7 +14,6 @@ import sk.upjs.invoicesystem.InvoicesDao;
  */
 public class MenuForm extends javax.swing.JFrame {
 
-
     /**
      * Creates new form Menu
      */
@@ -110,16 +109,19 @@ public class MenuForm extends javax.swing.JFrame {
     private void showAllInvoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAllInvoicesActionPerformed
         InvoicesForm invoicesForm = new InvoicesForm(this, true);
         invoicesForm.setVisible(true);
+        refreshMenuForm();
     }//GEN-LAST:event_showAllInvoicesActionPerformed
 
     private void createInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createInvoiceActionPerformed
         CreateInvoiceForm createInvoicesForm = new CreateInvoiceForm(this, true);
         createInvoicesForm.setVisible(true);
+        refreshMenuForm();
     }//GEN-LAST:event_createInvoiceActionPerformed
 
     private void showCompaniesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCompaniesActionPerformed
         CompaniesForm companiesForm = new CompaniesForm(this, true);
         companiesForm.setVisible(true);
+        refreshMenuForm();
     }//GEN-LAST:event_showCompaniesActionPerformed
 
     /**

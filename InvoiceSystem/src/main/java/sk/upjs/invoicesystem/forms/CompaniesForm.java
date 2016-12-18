@@ -15,8 +15,10 @@ import sk.upjs.invoicesystem.ObjectFactory;
  * @author kriza
  */
 public class CompaniesForm extends javax.swing.JDialog {
-
+    
     CompaniesDao companies = ObjectFactory.INSTANCE.getCompanyDao();
+    
+    String lastSearch;
 
     /**
      * Creates new form CompaniesForm
@@ -26,10 +28,11 @@ public class CompaniesForm extends javax.swing.JDialog {
         initComponents();
         refreshCompaniesForm();
     }
-
+    
     private void refreshCompaniesForm() {
         CompaniesTableModel model = (CompaniesTableModel) companiesTable.getModel();
-        model.refresh(searchField.getText());
+        lastSearch = searchField.getText();
+        model.refresh(lastSearch);
     }
 
     /**
@@ -123,7 +126,6 @@ public class CompaniesForm extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//TO-DO oprav/vymysli iny konstruktor ...
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
         CreateCompanyForm createCompanyForm = new CreateCompanyForm(this, true);
         createCompanyForm.setVisible(true);
@@ -134,7 +136,7 @@ public class CompaniesForm extends javax.swing.JDialog {
     private void deleteCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCompanyButtonActionPerformed
         int selectedRow = companiesTable.getSelectedRow();
         if (selectedRow != -1) {
-            Company selected = companies.getCompanies().get(selectedRow);
+            Company selected = companies.searchCompaniesByName(lastSearch).get(selectedRow);
             companies.deleteCompany(selected);
             refreshCompaniesForm();
         }

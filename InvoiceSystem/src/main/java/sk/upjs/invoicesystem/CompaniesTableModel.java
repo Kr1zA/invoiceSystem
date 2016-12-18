@@ -15,7 +15,7 @@ public class CompaniesTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return companies.searchCompanyByNameInList(searched).size();
+        return companies.searchCompaniesByName(searched).size();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class CompaniesTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Company company = companies.searchCompanyByNameInList(searched).get(rowIndex);
+        Company company = companies.searchCompaniesByName(searched).get(rowIndex);
         switch (columnIndex) {
             case 0:
 

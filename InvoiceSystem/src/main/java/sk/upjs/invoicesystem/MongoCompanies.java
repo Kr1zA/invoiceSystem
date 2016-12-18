@@ -7,6 +7,7 @@ import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import org.bson.types.ObjectId;
 
 /**
@@ -61,7 +62,6 @@ public class MongoCompanies implements CompaniesDao {
                 .append("email", company.getEmail())
                 .append("iban", company.getIBAN()));
         BasicDBObject searchQuery = new BasicDBObject().append("_id", company.getIdCompany());
-        System.out.println(doc.toString());
         mongo.update(searchQuery, doc);
 
     }
@@ -130,37 +130,46 @@ public class MongoCompanies implements CompaniesDao {
         return company;
     }
 
-    public List<Company> searchCompanyByNameInList(String companyName) {
-        List<Company> companies = getCompanies();
-        List<Company> searched = new ArrayList<Company>();
-        if (companyName != null && !companyName.equals("")) {
-            for (Company companyFromAll : companies) {
-                String name = companyFromAll.getCompanyName();
-                int shorter = Math.min(name.length(), companyName.length());
-                boolean isInList = true;
-                for (int i = 0; i < shorter; i++) {
-                    if (name.charAt(i) != companyName.charAt(i)) {
-                        isInList = false;
-                        break;
-                    }
-                }
-                if (isInList) {
-                    searched.add(companyFromAll);
-                }
+    public List<Company> searchCompaniesByName(String companyName) {
+        if (companyName != null && !"".equals(companyName)) {
+            List<Company> companies = new ArrayList<Company>();
+            Pattern regex = Pattern.compile(companyName, Pattern.CASE_INSENSITIVE);
+
+            BasicDBObject query = new BasicDBObject();
+            query.put("companyName", regex);
+            DBCursor cursor = mongo.find(query);
+
+            while (cursor.hasNext()) {
+                Company company = new Company();
+                DBObject theone = cursor.next();
+                company.setIdCompany((ObjectId) theone.get("_id"));
+                company.setCompanyName((String) theone.get("companyName"));
+                company.setStreet((String) theone.get("street"));
+                company.setCity((String) theone.get("city"));
+                company.setPostalCode((int) theone.get("postalCode"));
+                company.setCountry((String) theone.get("country"));
+                company.setICO((Long) theone.get("ico"));
+                company.setDIC((Long) theone.get("dic"));
+                company.setICDPH((Long) theone.get("dph"));
+                company.setTelephoneNumber((String) theone.get("telephoneNumber"));
+                company.setEmail((String) theone.get("email"));
+                company.setIBAN((String) theone.get("iban"));
+                companies.add(company);
             }
-            return searched;
+            return companies;
         }
-        return companies;
+        return getCompanies();
     }
 
     @Override
     public Company searchCompanyById(ObjectId objectId) {
         Company company = new Company();
 
-        List<Company> companies = getCompanies();
-        DBCursor cursor = mongo.find();
+        BasicDBObject query = new BasicDBObject();
+        query.put("_id", objectId);
+        DBCursor cursor = mongo.find(query);
 
-        while (cursor.hasNext()) {
+        if (cursor.hasNext()) {
             DBObject theone = cursor.next();
             if (theone.get("_id") != null) {
                 if (theone.get("_id").equals(objectId)) {

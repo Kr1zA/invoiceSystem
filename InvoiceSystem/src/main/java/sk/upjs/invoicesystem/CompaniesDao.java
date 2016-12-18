@@ -20,5 +20,5 @@ public interface CompaniesDao {
     
     public long size();
     
-    public List<Company> searchCompanyByNameInList(String companyName);
+    public List<Company> searchCompaniesByName(String companyName);
 }
