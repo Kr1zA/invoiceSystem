@@ -30,11 +30,11 @@ public class MongoItemsTest {
         Item item = new Item("drevo na zimu", 9, 33.3, "pc");
         ItemsDao mongo = ObjectFactory.INSTANCE.getItemsDao();
         ObjectId id = new ObjectId("58470a2e371f601b786f55ce");
-        List<Item> items = mongo.getItemsById(id);
+        List<Item> items = mongo.getItemsByInvoiceId(id);
         long size = items.size();
         item.setInvoiceId(id);
         mongo.addItem(item);
-        Assert.assertEquals(size, mongo.getItemsById(id).size() - 1);
+        Assert.assertEquals(size, mongo.getItemsByInvoiceId(id).size() - 1);
         mongo.deleteItems(id);
     }
 

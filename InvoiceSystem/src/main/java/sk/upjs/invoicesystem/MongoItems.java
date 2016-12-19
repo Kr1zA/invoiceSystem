@@ -18,23 +18,21 @@ public class MongoItems implements ItemsDao {
     }
 
     @Override
-    public List<Item> getItemsById(ObjectId idInvoice) {
+    public List<Item> getItemsByInvoiceId(ObjectId idInvoice) {
         List<Item> items = new ArrayList<Item>();
-        DBCursor cursor = mongo.find();
+        BasicDBObject query = new BasicDBObject("invoiceId", idInvoice);
+
+        DBCursor cursor = mongo.find(query);
 
         while (cursor.hasNext()) {
             DBObject theone = cursor.next();
-            if (theone.get("invoiceId") != null) {
-                if (theone.get("invoiceId").equals(idInvoice)) {
 
-                    Item item = new Item();
-                    item.setAmount((int) theone.get("amount"));
-                    item.setDescription((String) theone.get("description"));
-                    item.setPricePerPiece((double) theone.get("pricePerPiece"));
-                    item.setInvoiceId((ObjectId) theone.get("invoiceId"));
-                    items.add(item);
-                }
-            }
+            Item item = new Item();
+            item.setAmount((int) theone.get("amount"));
+            item.setDescription((String) theone.get("description"));
+            item.setPricePerPiece((double) theone.get("pricePerPiece"));
+            item.setInvoiceId((ObjectId) theone.get("invoiceId"));
+            items.add(item);
 
         }
         return items;
@@ -56,15 +54,15 @@ public class MongoItems implements ItemsDao {
     }
 
     @Override
-    public void deleteItems(ObjectId objectId) {
-      
-        DBCursor cursor = mongo.find();
-        while(cursor.hasNext()){
+    public void deleteItems(ObjectId idInvoice) {
+
+        BasicDBObject query = new BasicDBObject("invoiceId", idInvoice);
+
+        DBCursor cursor = mongo.find(query);
+        while (cursor.hasNext()) {
             DBObject theone = cursor.next();
-            
-            if(theone.get("invoiceId").equals(objectId)){
-                mongo.remove(theone);
-            }   
+
+            mongo.remove(theone);
         }
     }
 

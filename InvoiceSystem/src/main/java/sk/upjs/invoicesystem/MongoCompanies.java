@@ -101,31 +101,28 @@ public class MongoCompanies implements CompaniesDao {
     }
 
     @Override
-    public Company searchCompanyByCompanyName(String companyName) {
+    public Company searchCompanyByCompanyName(String companyName) { //najde prvu company s tymto nazvom
         Company company = new Company();
-        List<Company> companies = getCompanies();
-        DBCursor cursor = mongo.find();
+        if (!"".equals(company) && companyName != null) {
+            BasicDBObject query = new BasicDBObject("companyName", companyName);
 
-        while (cursor.hasNext()) {
-            DBObject theone = cursor.next();
-            if (theone.get("companyName") != null) {
-                if (theone.get("companyName").equals(companyName)) {
+            DBCursor cursor = mongo.find(query);
+            if (cursor.hasNext()) {
+                DBObject theone = cursor.next();
 
-                    company.setIdCompany((ObjectId) theone.get("_id"));
-                    company.setCompanyName((String) theone.get("companyName"));
-                    company.setStreet((String) theone.get("street"));
-                    company.setCity((String) theone.get("city"));
-                    company.setPostalCode((int) theone.get("postalCode"));
-                    company.setCountry((String) theone.get("country"));
-                    company.setICO((Long) theone.get("ico"));
-                    company.setDIC((Long) theone.get("dic"));
-                    company.setICDPH((Long) theone.get("dph"));
-                    company.setTelephoneNumber((String) theone.get("telephoneNumber"));
-                    company.setEmail((String) theone.get("email"));
-                    company.setIBAN((String) theone.get("iban"));
-                }
+                company.setIdCompany((ObjectId) theone.get("_id"));
+                company.setCompanyName((String) theone.get("companyName"));
+                company.setStreet((String) theone.get("street"));
+                company.setCity((String) theone.get("city"));
+                company.setPostalCode((int) theone.get("postalCode"));
+                company.setCountry((String) theone.get("country"));
+                company.setICO((Long) theone.get("ico"));
+                company.setDIC((Long) theone.get("dic"));
+                company.setICDPH((Long) theone.get("dph"));
+                company.setTelephoneNumber((String) theone.get("telephoneNumber"));
+                company.setEmail((String) theone.get("email"));
+                company.setIBAN((String) theone.get("iban"));
             }
-
         }
         return company;
     }
@@ -164,28 +161,26 @@ public class MongoCompanies implements CompaniesDao {
     @Override
     public Company searchCompanyById(ObjectId objectId) {
         Company company = new Company();
+        if (objectId != null) {
+            BasicDBObject query = new BasicDBObject("_id", objectId);
+            
+            DBCursor cursor = mongo.find(query);
 
-        BasicDBObject query = new BasicDBObject();
-        query.put("_id", objectId);
-        DBCursor cursor = mongo.find(query);
+            if (cursor.hasNext()) {
+                DBObject theone = cursor.next();
 
-        if (cursor.hasNext()) {
-            DBObject theone = cursor.next();
-            if (theone.get("_id") != null) {
-                if (theone.get("_id").equals(objectId)) {
-                    company.setIdCompany((ObjectId) theone.get("_id"));
-                    company.setCompanyName((String) theone.get("companyName"));
-                    company.setStreet((String) theone.get("street"));
-                    company.setCity((String) theone.get("city"));
-                    company.setPostalCode((int) theone.get("postalCode"));
-                    company.setCountry((String) theone.get("country"));
-                    company.setICO((Long) theone.get("ico"));
-                    company.setDIC((Long) theone.get("dic"));
-                    company.setICDPH((Long) theone.get("dph"));
-                    company.setTelephoneNumber((String) theone.get("telephoneNumber"));
-                    company.setEmail((String) theone.get("email"));
-                    company.setIBAN((String) theone.get("iban"));
-                }
+                company.setIdCompany((ObjectId) theone.get("_id"));
+                company.setCompanyName((String) theone.get("companyName"));
+                company.setStreet((String) theone.get("street"));
+                company.setCity((String) theone.get("city"));
+                company.setPostalCode((int) theone.get("postalCode"));
+                company.setCountry((String) theone.get("country"));
+                company.setICO((Long) theone.get("ico"));
+                company.setDIC((Long) theone.get("dic"));
+                company.setICDPH((Long) theone.get("dph"));
+                company.setTelephoneNumber((String) theone.get("telephoneNumber"));
+                company.setEmail((String) theone.get("email"));
+                company.setIBAN((String) theone.get("iban"));
 
             }
         }

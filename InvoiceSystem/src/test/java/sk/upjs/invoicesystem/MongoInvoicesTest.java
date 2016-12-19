@@ -55,7 +55,6 @@ public class MongoInvoicesTest {
 
     }
 
-
     @Test
     public void testDeleteInvoice() {
         Company company1 = new Company("KovalM", "Kvacianska", "Kosice", 43242, "Slovensko", 234234L, 234234L, 123456L, "343434", "asd@asd.sd", "34sfasfa");
@@ -67,7 +66,20 @@ public class MongoInvoicesTest {
         mongo.addInvoice(invoice);
         long size = mongo.size();
         mongo.deleteInvoice(invoice);
-        Assert.assertEquals(mongo.size(), size + 1);
+        Assert.assertEquals(mongo.size(), size - 1);
+    }
+
+    @Test
+    public void testGet5LastInvoices() {
+        InvoicesDao mongo = ObjectFactory.INSTANCE.getInvoicesDao();
+
+        long i = mongo.size();
+        if (i > 5) {
+            i = 5;
+        }
+        int size = (int) i;
+        List<Invoice> lastFiveInvoices = mongo.get5LastInvoices();
+        Assert.assertEquals(lastFiveInvoices.size(), size);
     }
 
 }

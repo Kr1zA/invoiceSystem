@@ -14,6 +14,9 @@ public class InvoiceSmallTableModel extends AbstractTableModel {
     @Override
     public int getRowCount() {
         int i = invoicesDao.getInvoices().size();
+        if (i > 5) {
+            return 5;
+        }
         return i;
     }
 
@@ -24,7 +27,7 @@ public class InvoiceSmallTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Invoice invoice = invoicesDao.getInvoices().get(rowIndex);
+        Invoice invoice = invoicesDao.get5LastInvoices().get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return invoice.getSupplier().getCompanyName();

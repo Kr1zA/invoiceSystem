@@ -47,7 +47,7 @@ public class MongoInvoices implements InvoicesDao {
             invoice.setNote((String) theone.get("note"));
             invoice.setDrewUpBy((String) theone.get("drewUpBy"));
             invoice.setInvoiceId((ObjectId) theone.get("_id"));
-            List<Item> stored = ObjectFactory.INSTANCE.getItemsDao().getItemsById(invoice.getInvoiceId());
+            List<Item> stored = ObjectFactory.INSTANCE.getItemsDao().getItemsByInvoiceId(invoice.getInvoiceId());
 
             invoice.setProducts(stored);
             invoices.add(invoice);
@@ -98,7 +98,38 @@ public class MongoInvoices implements InvoicesDao {
 
     @Override
     public List<Invoice> get5LastInvoices() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        DBCursor cursor = mongo.find();
+        long size = this.size();
+        if (size > 5) {
+            size = 5;
+        }
+        int size1 = (int) size;
+        cursor.sort(new BasicDBObject("exposureDate", -1)).limit(size1);
+
+        while (cursor.hasNext()) {
+            Invoice invoice = new Invoice();
+            DBObject theone = cursor.next();
+            ObjectId object = (ObjectId) theone.get("supplier");
+            invoice.setSupplier(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById(object));
+            invoice.setCustomer(ObjectFactory.INSTANCE.getCompanyDao().searchCompanyById((ObjectId) theone.get("customer")));
+            invoice.setInvoiceNumber((int) theone.get("invoiceNumber"));
+            invoice.setConstantSymbol((int) theone.get("variableSymbol"));
+            invoice.setExposureDate((Date) theone.get("exposureDate"));
+            invoice.setDeliveryDate((Date) theone.get("deliveryDate"));
+            invoice.setPaymentDueDate((Date) theone.get("paymentDueDate"));
+            invoice.setCurrency((String) theone.get("currency"));
+            invoice.setPaymentsForm((String) theone.get("paymentsForm"));
+            invoice.setNote((String) theone.get("note"));
+            invoice.setDrewUpBy((String) theone.get("drewUpBy"));
+            invoice.setInvoiceId((ObjectId) theone.get("_id"));
+            List<Item> stored = ObjectFactory.INSTANCE.getItemsDao().getItemsByInvoiceId(invoice.getInvoiceId());
+
+            invoice.setProducts(stored);
+            invoices.add(invoice);
+
+        }
+        return invoices;
     }
 
     @Override
