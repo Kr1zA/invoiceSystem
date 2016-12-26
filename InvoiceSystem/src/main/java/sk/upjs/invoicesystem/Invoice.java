@@ -12,9 +12,9 @@ public class Invoice {
     private Company supplier;
     private Company customer;
     private ObjectId objectId;
-    private int invoiceNumber;
-    private int variableSymbol;
-    private int constantSymbol;
+    private Integer invoiceNumber;
+    private Integer variableSymbol;
+    private Integer constantSymbol;
     private Date exposureDate;
     private Date deliveryDate;
     private Date paymentDueDate;
@@ -23,7 +23,6 @@ public class Invoice {
     private String note = "";
     private String drewUpBy = "";
     private List<Item> products = new ArrayList<Item>();
-    private ObjectId invoiceId;
 
     public void setProducts(List<Item> products) {
         this.products = products;
@@ -33,15 +32,15 @@ public class Invoice {
         return products;
     }
 
-    public void setInvoiceNumber(int invoiceNumber) {
+    public void setInvoiceNumber(Integer invoiceNumber) {
         this.invoiceNumber = invoiceNumber;
     }
 
-    public void setVariableSymbol(int variableSymbol) {
+    public void setVariableSymbol(Integer variableSymbol) {
         this.variableSymbol = variableSymbol;
     }
 
-    public void setConstantSymbol(int constantSymbol) {
+    public void setConstantSymbol(Integer constantSymbol) {
         this.constantSymbol = constantSymbol;
     }
 
@@ -73,15 +72,15 @@ public class Invoice {
         this.drewUpBy = drewUpBy;
     }
 
-    public int getInvoiceNumber() {
+    public Integer getInvoiceNumber() {
         return invoiceNumber;
     }
 
-    public int getVariableSymbol() {
+    public Integer getVariableSymbol() {
         return variableSymbol;
     }
 
-    public int getConstantSymbol() {
+    public Integer getConstantSymbol() {
         return constantSymbol;
     }
 
@@ -146,7 +145,7 @@ public class Invoice {
         this.objectId = objectId;
     }
 
-    public Invoice(Company supplier, Company customer, int invoiceNumber, int variableSymbol, int constantSymbol, Date exposureDate, Date deliveryDate, Date paymentDueDate, String currency, String paymentsForm, String note, String drewUpBy) {
+    public Invoice(Company supplier, Company customer, Integer invoiceNumber, Integer variableSymbol, Integer constantSymbol, Date exposureDate, Date deliveryDate, Date paymentDueDate, String currency, String paymentsForm, String note, String drewUpBy) {
         this.supplier = supplier;
         this.customer = customer;
         this.invoiceNumber = invoiceNumber;
@@ -161,7 +160,7 @@ public class Invoice {
         this.drewUpBy = drewUpBy;
     }
 
-    public void addProduct(String name, int count, double pricePerPiece, String unitOfQuantity) {
+    public void addProduct(String name, Integer count, Double pricePerPiece, String unitOfQuantity) {
         Item product = new Item(name, count, pricePerPiece, unitOfQuantity);
         products.add(product);
 

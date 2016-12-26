@@ -7,7 +7,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String description, int amount, double pricePerPiece, String unitOfQuantity) {
+    public Item(String description, Integer amount, double pricePerPiece, String unitOfQuantity) {
         this.description = description;
         this.amount = amount;
         this.pricePerPiece = pricePerPiece;
@@ -15,8 +15,8 @@ public class Item {
     }
 
     private String description;
-    private int amount;
-    private double pricePerPiece;
+    private Integer amount;
+    private Double pricePerPiece;
     private ObjectId invoiceId;
     private String unitOfAmount;
 
@@ -36,7 +36,7 @@ public class Item {
         this.description = description;
     }
 
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
@@ -44,7 +44,7 @@ public class Item {
         this.amount = amount;
     }
 
-    public double getPricePerPiece() {
+    public Double getPricePerPiece() {
         return pricePerPiece;
     }
 

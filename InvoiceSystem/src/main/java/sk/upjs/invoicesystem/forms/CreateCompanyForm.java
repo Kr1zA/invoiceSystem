@@ -1,5 +1,6 @@
 package sk.upjs.invoicesystem.forms;
 
+import java.awt.Color;
 import org.bson.types.ObjectId;
 import sk.upjs.invoicesystem.CompaniesDao;
 import sk.upjs.invoicesystem.ObjectFactory;
@@ -22,17 +23,25 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, int selectedRow) {
         super(parent, modal);
         initComponents();
-        
+
         selected = companies.getCompanies().get(selectedRow);
 
         companyNameField.setText(selected.getCompanyName());
         streetField.setText(selected.getStreet());
         cityField.setText(selected.getCity());
-        ZIPField.setText(Integer.toString(selected.getPostalCode()));
+        if (selected.getPostalCode() != null) {
+            ZIPField.setText(Integer.toString(selected.getPostalCode()));
+        }
         countryField.setText(selected.getCountry());
-        ICOField.setText(Long.toString(selected.getICO()));
-        DICField.setText(Long.toString(selected.getDIC()));
-        DPHField.setText(Long.toString(selected.getICDPH()));
+        if (selected.getICO() != null) {
+            ICOField.setText(Long.toString(selected.getICO()));
+        }
+        if (selected.getDIC() != null) {
+            DICField.setText(Long.toString(selected.getDIC()));
+        }
+        if (selected.getICDPH() != null) {
+            DPHField.setText(Long.toString(selected.getICDPH()));
+        }
         telephoneNumberField.setText(selected.getTelephoneNumber());
         emailField.setText(selected.getEmail());
         IBANField.setText(selected.getIBAN());
@@ -42,6 +51,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
     }
 
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, String whoIsCreating) {
@@ -86,6 +96,82 @@ public class CreateCompanyForm extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Create company");
+
+        companyNameField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                companyNameFieldFocusLost(evt);
+            }
+        });
+        companyNameField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                companyNameFieldMouseExited(evt);
+            }
+        });
+        companyNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                companyNameFieldActionPerformed(evt);
+            }
+        });
+
+        ZIPField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ZIPFieldFocusLost(evt);
+            }
+        });
+
+        streetField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                streetFieldFocusLost(evt);
+            }
+        });
+
+        cityField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cityFieldFocusLost(evt);
+            }
+        });
+
+        countryField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                countryFieldFocusLost(evt);
+            }
+        });
+
+        DPHField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                DPHFieldFocusLost(evt);
+            }
+        });
+
+        DICField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                DICFieldFocusLost(evt);
+            }
+        });
+
+        ICOField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ICOFieldFocusLost(evt);
+            }
+        });
+
+        IBANField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                IBANFieldFocusLost(evt);
+            }
+        });
+
+        emailField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                emailFieldFocusLost(evt);
+            }
+        });
+
+        telephoneNumberField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                telephoneNumberFieldFocusLost(evt);
+            }
+        });
 
         createCompanyButton.setText("Create!");
         createCompanyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -210,84 +296,156 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyButtonActionPerformed
-        Company newOne = new Company();
 
-        newOne.setCompanyName(companyNameField.getText());
-        newOne.setStreet(streetField.getText());
-        newOne.setCity(cityField.getText());
-        newOne.setPostalCode(Integer.parseInt(ZIPField.getText()));
-        newOne.setCountry(countryField.getText());
-        newOne.setICO(Long.parseLong(ICOField.getText()));
-        newOne.setDIC(Long.parseLong(DICField.getText()));
-        newOne.setICDPH(Long.parseLong(DPHField.getText()));
-        newOne.setTelephoneNumber(telephoneNumberField.getText());
-        newOne.setEmail(emailField.getText());
-        newOne.setIBAN(IBANField.getText());
+        if (companyNameField.getText().isEmpty() || streetField.getText().isEmpty()
+                || cityField.getText().isEmpty() || ZIPField.getText().isEmpty()
+                || countryField.getText().isEmpty()) {
+            new BadFilledForm(this, true, "First five fields can not be empty!").setVisible(true);
+        } else {
+            try {
+                Company newOne = new Company();
 
-        if (whoIsCreating != null) {
+                newOne.setCompanyName(companyNameField.getText());
+                newOne.setStreet(streetField.getText());
+                newOne.setCity(cityField.getText());
 
-            if (whoIsCreating.equals("supplier")) {
-                createInvoiceForm.setSupplier(newOne);
-                createInvoiceForm.setButtonTextChooseSupplier(newOne.getCompanyName());
-                companies.addCompany(newOne);
+                if (!ZIPField.getText().isEmpty()) {
+                    newOne.setPostalCode(Integer.parseInt(ZIPField.getText()));
+                }
+                newOne.setCountry(countryField.getText());
+                if (!ICOField.getText().isEmpty()) {
+                    newOne.setICO(Long.parseLong(ICOField.getText()));
+                }
+                if (!DICField.getText().isEmpty()) {
+                    newOne.setDIC(Long.parseLong(DICField.getText()));
+                }
+                if (!DPHField.getText().isEmpty()) {
+                    newOne.setICDPH(Long.parseLong(DPHField.getText()));
+                }
+                newOne.setTelephoneNumber(telephoneNumberField.getText());
+                newOne.setEmail(emailField.getText());
+                newOne.setIBAN(IBANField.getText());
+
+                if (whoIsCreating != null) {
+
+                    if ("supplier".equals(whoIsCreating)) {
+                        createInvoiceForm.setSupplier(newOne);
+                        createInvoiceForm.setButtonTextChooseSupplier(newOne.getCompanyName());
+                        companies.addCompany(newOne);
+
+                    }
+                    if ("customer".equals(whoIsCreating)) {
+                        createInvoiceForm.setCustomer(newOne);
+                        createInvoiceForm.setButtonTextChooseCustomer(newOne.getCompanyName());
+                        companies.addCompany(newOne);
+
+                    }
+                } else {
+
+                    if (selected != null) {
+                        newOne.setIdCompany(selected.getIdCompany());
+
+                        companies.updateCompany(newOne);
+
+                    } else {
+                        companies.addCompany(newOne);
+                    }
+                }
+                this.dispose();
+            } catch (NumberFormatException e) {
+                new BadFilledForm(this, true, "Repair all red fields").setVisible(true);
 
             }
-            if (whoIsCreating.equals("customer")) {
-                createInvoiceForm.setCustomer(newOne);
-                createInvoiceForm.setButtonTextChooseCustomer(newOne.getCompanyName());
-                companies.addCompany(newOne);
 
-            }
-        }else {
-            
-            if (selected != null) {
-                newOne.setIdCompany(selected.getIdCompany());
-                
-                companies.updateCompany(newOne);
-                
-            } else {
-                companies.addCompany(newOne);
-            }
         }
-        this.dispose();
-
     }//GEN-LAST:event_createCompanyButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateCompanyForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateCompanyForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateCompanyForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateCompanyForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void companyNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_companyNameFieldActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //new CreateCompanyForm().setVisible(true);
+    private void companyNameFieldMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_companyNameFieldMouseExited
+
+    }//GEN-LAST:event_companyNameFieldMouseExited
+
+    private void companyNameFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_companyNameFieldFocusLost
+
+     }//GEN-LAST:event_companyNameFieldFocusLost
+
+    private void streetFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_streetFieldFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_streetFieldFocusLost
+
+    private void cityFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cityFieldFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityFieldFocusLost
+
+    private void ZIPFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ZIPFieldFocusLost
+        try {
+            ZIPField.setForeground(Color.black);
+
+            if (!ZIPField.getText().isEmpty()) {
+                Integer.parseInt(ZIPField.getText());
             }
-        });
-    }
+        } catch (NumberFormatException e) {
+            ZIPField.setForeground(Color.red);
+            new BadFilledForm(this, true, "ZIP must be a number!").setVisible(true);
+        }
+    }//GEN-LAST:event_ZIPFieldFocusLost
+
+    private void countryFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_countryFieldFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_countryFieldFocusLost
+
+    private void ICOFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ICOFieldFocusLost
+        try {
+            ICOField.setForeground(Color.black);
+            if (!ICOField.getText().isEmpty()) {
+                Long.parseLong(ICOField.getText());
+            }
+        } catch (NumberFormatException e) {
+            ICOField.setForeground(Color.red);
+            new BadFilledForm(this, true, "ICO must be a number!").setVisible(true);
+        }    }//GEN-LAST:event_ICOFieldFocusLost
+
+    private void DICFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DICFieldFocusLost
+        try {
+            DICField.setForeground(Color.black);
+
+            if (!DICField.getText().isEmpty()) {
+                Long.parseLong(DICField.getText());
+            }
+        } catch (NumberFormatException e) {
+            DICField.setForeground(Color.red);
+            new BadFilledForm(this, true, "DIC must be a number!").setVisible(true);
+
+        }    }//GEN-LAST:event_DICFieldFocusLost
+
+    private void DPHFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DPHFieldFocusLost
+        try {
+            DPHField.setForeground(Color.black);
+
+            if (!DPHField.getText().isEmpty()) {
+                Long.parseLong(DPHField.getText());
+            }
+        } catch (NumberFormatException e) {
+            DPHField.setForeground(Color.red);
+            new BadFilledForm(this, true, "ICDPH must be a number!").setVisible(true);
+        }    }//GEN-LAST:event_DPHFieldFocusLost
+
+    private void telephoneNumberFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telephoneNumberFieldFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_telephoneNumberFieldFocusLost
+
+    private void emailFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFieldFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailFieldFocusLost
+
+    private void IBANFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IBANFieldFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IBANFieldFocusLost
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DICField;

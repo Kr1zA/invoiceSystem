@@ -25,7 +25,7 @@ public class Company {
     private String companyName = "";
     private String street = "";
     private String city = "";
-    private int postalCode;
+    private Integer postalCode;
     private String country = "";
     private Long ICO;
     private Long DIC;
@@ -54,7 +54,7 @@ public class Company {
         this.city = city;
     }
 
-    public int getPostalCode() {
+    public Integer getPostalCode() {
         return postalCode;
     }
 

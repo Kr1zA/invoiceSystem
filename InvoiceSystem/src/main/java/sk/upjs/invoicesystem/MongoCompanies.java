@@ -87,11 +87,19 @@ public class MongoCompanies implements CompaniesDao {
             company.setCompanyName((String) theone.get("companyName"));
             company.setStreet((String) theone.get("street"));
             company.setCity((String) theone.get("city"));
-            company.setPostalCode((int) theone.get("postalCode"));
+            if (theone.get("postalCode") != null) {
+                company.setPostalCode((Integer) theone.get("postalCode"));
+            }
             company.setCountry((String) theone.get("country"));
-            company.setICO((Long) theone.get("ico"));
-            company.setDIC((Long) theone.get("dic"));
-            company.setICDPH((Long) theone.get("dph"));
+            if (theone.get("ico") != null) {
+                company.setICO((Long) theone.get("ico"));
+            }
+            if (theone.get("dic") != null) {
+                company.setDIC((Long) theone.get("dic"));
+            }
+            if (theone.get("dph") != null) {
+                company.setICDPH((Long) theone.get("dph"));
+            }
             company.setTelephoneNumber((String) theone.get("telephoneNumber"));
             company.setEmail((String) theone.get("email"));
             company.setIBAN((String) theone.get("iban"));
@@ -163,7 +171,7 @@ public class MongoCompanies implements CompaniesDao {
         Company company = new Company();
         if (objectId != null) {
             BasicDBObject query = new BasicDBObject("_id", objectId);
-            
+
             DBCursor cursor = mongo.find(query);
 
             if (cursor.hasNext()) {

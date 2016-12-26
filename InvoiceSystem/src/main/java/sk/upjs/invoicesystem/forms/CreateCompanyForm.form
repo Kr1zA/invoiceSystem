@@ -132,26 +132,61 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="companyNameField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="companyNameFieldFocusLost"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="companyNameFieldMouseExited"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="companyNameFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="ZIPField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ZIPFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="streetField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="streetFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cityField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cityFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="countryField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="countryFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="DPHField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="DPHFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="DICField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="DICFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="ICOField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ICOFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="IBANField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="IBANFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="emailField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emailFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="telephoneNumberField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="telephoneNumberFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="createCompanyButton">
       <Properties>
