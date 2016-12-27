@@ -492,126 +492,139 @@ public class CreateInvoiceForm extends javax.swing.JDialog {
             if (customer == null) {
                 new BadFilledForm(this, true, "Choose customer!").setVisible(true);
             } else {
-                if (exposureDateJDateChooser.getDate() == null) {
-                    new BadFilledForm(this, true, "Choose Exposure ate!").setVisible(true);
+                if ("".equals(variableSymbolField.getText())) {
+                    new BadFilledForm(this, true, "Fill Variable symbol!").setVisible(true);
                 } else {
-                    if (deliveryDateJDateChooser.getDate() == null) {
-                        new BadFilledForm(this, true, "Choose Delivery date!").setVisible(true);
+                    if ("".equals(constantSymbolField.getText())) {
+                        new BadFilledForm(this, true, "Fill Constant symbol!").setVisible(true);
                     } else {
-                        if (paymentsDueDateJDateChooser.getDate() == null) {
-                            new BadFilledForm(this, true, "Choose Payments due date!").setVisible(true);
+                        if (exposureDateJDateChooser.getDate() == null) {
+                            new BadFilledForm(this, true, "Choose Exposure ate!").setVisible(true);
                         } else {
-                            try {
+                            if (deliveryDateJDateChooser.getDate() == null) {
+                                new BadFilledForm(this, true, "Choose Delivery date!").setVisible(true);
+                            } else {
+                                if (paymentsDueDateJDateChooser.getDate() == null) {
+                                    new BadFilledForm(this, true, "Choose Payments due date!").setVisible(true);
+                                } else {
 
-                                String constantSymbol = constantSymbolField.getText();
-                                String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
-                                String currency = (String) currencyComboBox1.getSelectedItem();
-                                String invoiceNumber = variableSymbolField.getText();
-                                SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
-                                String paymentDueDate = sdf.format(paymentsDueDateJDateChooser.getDate());
-                                String deliveryDate = sdf.format(deliveryDateJDateChooser.getDate());
-                                String exposureDate = sdf.format(exposureDateJDateChooser.getDate());
-                                String variableSymbol = variableSymbolField.getText();
-                                String note = noteField.getText();
-                                String drewUpBy = drewUpByField.getText();
+                                    if (newInvoice.getProducts().size() == 0) {
+                                        new BadFilledForm(this, true, "Add at least one product!").setVisible(true);
+                                    } else {
+                                        try {
 
-                                newInvoice.setConstantSymbol(Integer.parseInt(constantSymbol));
-                                newInvoice.setCurrency(currency);
-                                newInvoice.setCustomer(customer);
-                                newInvoice.setDeliveryDate(deliveryDateJDateChooser.getDate());
-                                newInvoice.setDrewUpBy(drewUpBy);
-                                newInvoice.setExposureDate(exposureDateJDateChooser.getDate());
-                                newInvoice.setInvoiceNumber(Integer.parseInt(invoiceNumber));
-                                newInvoice.setNote(note);
-                                newInvoice.setPaymentDueDate(paymentsDueDateJDateChooser.getDate());
-                                newInvoice.setPaymentsForm(paymentsForm);
-                                newInvoice.setSupplier(supplier);
-                                newInvoice.setVariableSymbol(Integer.parseInt(variableSymbol));
+                                            String constantSymbol = constantSymbolField.getText();
+                                            String paymentsForm = (String) paymentsFormComboBox.getSelectedItem();
+                                            String currency = (String) currencyComboBox1.getSelectedItem();
+                                            String invoiceNumber = variableSymbolField.getText();
+                                            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
+                                            String paymentDueDate = sdf.format(paymentsDueDateJDateChooser.getDate());
+                                            String deliveryDate = sdf.format(deliveryDateJDateChooser.getDate());
+                                            String exposureDate = sdf.format(exposureDateJDateChooser.getDate());
+                                            String variableSymbol = variableSymbolField.getText();
+                                            String note = noteField.getText();
+                                            String drewUpBy = drewUpByField.getText();
 
-                                List<Item> item = newInvoice.getProducts();
+                                            newInvoice.setConstantSymbol(Integer.parseInt(constantSymbol));
+                                            newInvoice.setCurrency(currency);
+                                            newInvoice.setCustomer(customer);
+                                            newInvoice.setDeliveryDate(deliveryDateJDateChooser.getDate());
+                                            newInvoice.setDrewUpBy(drewUpBy);
+                                            newInvoice.setExposureDate(exposureDateJDateChooser.getDate());
+                                            newInvoice.setInvoiceNumber(Integer.parseInt(invoiceNumber));
+                                            newInvoice.setNote(note);
+                                            newInvoice.setPaymentDueDate(paymentsDueDateJDateChooser.getDate());
+                                            newInvoice.setPaymentsForm(paymentsForm);
+                                            newInvoice.setSupplier(supplier);
+                                            newInvoice.setVariableSymbol(Integer.parseInt(variableSymbol));
 
-                                if (selectedInvoice == null) {//ked vytvaram invoice
-                                    ObjectId id = new ObjectId();
-                                    newInvoice.setInvoiceId(id);
-                                    invoices.addInvoice(newInvoice);
-                                    for (Item item1 : item) {
-                                        item1.setInvoiceId(id);
-                                        items.addItem(item1);
-                                    }
-                                } else {//ked upravujem invoice
-                                    ObjectId id = selectedInvoice.getInvoiceId();
-                                    newInvoice.setInvoiceId(id);
-                                    invoices.updateInvoice(newInvoice);
-                                    ObjectFactory.INSTANCE.getItemsDao().deleteItems(id);
-                                    for (Item item1 : item) {
-                                        item1.setInvoiceId(id);
-                                        items.addItem(item1);
+                                            List<Item> item = newInvoice.getProducts();
+
+                                            if (selectedInvoice == null) {//ked vytvaram invoice
+                                                ObjectId id = new ObjectId();
+                                                newInvoice.setInvoiceId(id);
+                                                invoices.addInvoice(newInvoice);
+                                                for (Item item1 : item) {
+                                                    item1.setInvoiceId(id);
+                                                    items.addItem(item1);
+                                                }
+                                            } else {//ked upravujem invoice
+                                                ObjectId id = selectedInvoice.getInvoiceId();
+                                                newInvoice.setInvoiceId(id);
+                                                invoices.updateInvoice(newInvoice);
+                                                ObjectFactory.INSTANCE.getItemsDao().deleteItems(id);
+                                                for (Item item1 : item) {
+                                                    item1.setInvoiceId(id);
+                                                    items.addItem(item1);
+                                                }
+                                            }
+
+                                            String[] itemName = {"product1", "product2", "product3", "product4", "product5", "product6", "product7", "product8", "product9", "product10", "product11", "product12", "product13", "product14", "product15", "product16", "product17", "product18", "product19", "product20", "product21", "product22", "product23", "product24"};
+                                            String[] intemNumber = {"i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i10", "i11", "i12", "i13", "i14", "i15", "i16", "i17", "i18", "i19", "i20", "i21", "i22", "i23", "i24"};
+                                            String[] unitOfAmount = {"unitOfAmount1", "unitOfAmount2", "unitOfAmount3", "unitOfAmount4", "unitOfAmount5", "unitOfAmount7", "unitOfAmount6", "unitOfAmount8", "unitOfAmount9", "unitOfAmount10", "unitOfAmount11", "unitOfAmount12", "unitOfAmount13", "unitOfAmount14", "unitOfAmount15", "unitOfAmount16", "unitOfAmount17", "unitOfAmount18", "unitOfAmount19", "unitOfAmount20", "unitOfAmount21", "unitOfAmount22", "unitOfAmount23", "unitOfAmount24"};
+                                            String[] price = {"price1", "price2", "price3", "price4", "price5", "price6", "price7", "price8", "price9", "price10", "price11", "price12", "price13", "price14", "price15", "price16", "price17", "price18", "price19", "price20", "price21", "price22", "price23", "price24"};
+                                            String[] pricePerPiece = {"pricePerPiece1", "pricePerPiece2", "pricePerPiece3", "pricePerPiece4", "pricePerPiece5", "pricePerPiece6", "pricePerPiece7", "pricePerPiece8", "pricePerPiece9", "pricePerPiece10", "pricePerPiece11", "pricePerPiece12", "pricePerPiece13", "pricePerPiece14", "pricePerPiece15", "pricePerPiece16", "pricePerPiece17", "pricePerPiece18", "pricePerPiece19", "pricePerPiece20", "pricePerPiece21", "pricePerPiece22", "pricePerPiece23", "pricePerPiece24"};
+                                            String[] countOfItem = {"count1", "count2", "count3", "count4", "count5", "count6", "count7", "count8", "count9", "count10", "count11", "count12", "count13", "count14", "count15", "count16", "count17", "count18", "count19", "count20", "count21", "count22", "count23", "count24"};
+
+                                            invoicePdfCreator.setField("paymentsForm", paymentsForm);
+                                            invoicePdfCreator.setField("currency", currency);
+                                            invoicePdfCreator.setField("invoiceNumber", invoiceNumber);
+                                            invoicePdfCreator.setField("paymentDueDate", paymentDueDate);
+                                            invoicePdfCreator.setField("deliveryDate", deliveryDate);
+                                            invoicePdfCreator.setField("exposureDate", exposureDate);
+                                            invoicePdfCreator.setField("variableSymbol", variableSymbol);
+                                            invoicePdfCreator.setField("constantSymbol", constantSymbol);
+                                            invoicePdfCreator.setField("note", note);
+                                            invoicePdfCreator.setField("drewUpBy", drewUpBy);
+
+                                            invoicePdfCreator.setField("IBAN", supplier.getIBAN());
+                                            invoicePdfCreator.setField("companyName", supplier.getCompanyName());
+                                            invoicePdfCreator.setField("street", supplier.getStreet());
+                                            invoicePdfCreator.setField("city", supplier.getCity() + " " + supplier.getPostalCode());
+                                            invoicePdfCreator.setField("country", supplier.getCountry());
+                                            invoicePdfCreator.setField("email", supplier.getEmail());
+                                            invoicePdfCreator.setField("telephoneNumber", supplier.getTelephoneNumber());
+                                            invoicePdfCreator.setField("ICO", new Long(supplier.getICO()).toString());
+                                            invoicePdfCreator.setField("DIC", new Long(supplier.getDIC()).toString());
+                                            invoicePdfCreator.setField("ICDPH", new Long(supplier.getICDPH()).toString());
+
+                                            invoicePdfCreator.setField("companyNameC", customer.getCompanyName());
+                                            invoicePdfCreator.setField("streetC", customer.getStreet());
+                                            invoicePdfCreator.setField("cityC", customer.getCity() + " " + customer.getPostalCode());
+                                            invoicePdfCreator.setField("countryC", customer.getCountry());
+                                            invoicePdfCreator.setField("emailC", customer.getEmail());
+                                            invoicePdfCreator.setField("telephoneNumberC", customer.getTelephoneNumber());
+                                            invoicePdfCreator.setField("ICOC", new Long(customer.getICO()).toString());
+                                            invoicePdfCreator.setField("DICC", new Long(customer.getDIC()).toString());
+                                            invoicePdfCreator.setField("ICDPHC", new Long(customer.getICDPH()).toString());
+
+                                            double priceSum = 0;
+                                            for (int i = 0; i < newInvoice.getProducts().size(); i++) {
+                                                invoicePdfCreator.setField(itemName[i], newInvoice.getProducts().get(i).getDescription());
+                                                invoicePdfCreator.setField(intemNumber[i], Integer.toString(i + 1));
+                                                invoicePdfCreator.setField(unitOfAmount[i], newInvoice.getProducts().get(i).getUnitOfAmount());
+                                                invoicePdfCreator.setField(pricePerPiece[i], Double.toString(round(newInvoice.getProducts().get(i).getPricePerPiece())));
+                                                invoicePdfCreator.setField(countOfItem[i], Integer.toString(newInvoice.getProducts().get(i).getAmount()));
+                                                invoicePdfCreator.setField(price[i], Double.toString(round(newInvoice.getProducts().get(i).getPricePerPiece() * newInvoice.getProducts().get(i).getAmount())));
+                                                priceSum += newInvoice.getProducts().get(i).getPricePerPiece() * newInvoice.getProducts().get(i).getAmount();
+                                            }
+
+                                            invoicePdfCreator.setField("priceWithoutDPH", Double.toString(round(priceSum)));
+                                            invoicePdfCreator.setField("priceWithDPH", Double.toString(round(priceSum * 0.2)));
+                                            invoicePdfCreator.setField("price", Double.toString(round(priceSum * 1.2)));
+                                            invoicePdfCreator.saveAndClose();
+
+                                            refreshItemsTable();
+                                            this.dispose();
+
+                                        } catch (IOException ex) {
+                                            new BadFilledForm(this, true, "Create PDF Error - contact developer").setVisible(true);
+                                        } catch (NumberFormatException e) {
+                                            new BadFilledForm(this, true, "Repair all red fields").setVisible(true);
+
+                                        }
                                     }
                                 }
-
-                                String[] itemName = {"product1", "product2", "product3", "product4", "product5", "product6", "product7", "product8", "product9", "product10", "product11", "product12", "product13", "product14", "product15", "product16", "product17", "product18", "product19", "product20", "product21", "product22", "product23", "product24"};
-                                String[] intemNumber = {"i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i10", "i11", "i12", "i13", "i14", "i15", "i16", "i17", "i18", "i19", "i20", "i21", "i22", "i23", "i24"};
-                                String[] unitOfAmount = {"unitOfAmount1", "unitOfAmount2", "unitOfAmount3", "unitOfAmount4", "unitOfAmount5", "unitOfAmount7", "unitOfAmount6", "unitOfAmount8", "unitOfAmount9", "unitOfAmount10", "unitOfAmount11", "unitOfAmount12", "unitOfAmount13", "unitOfAmount14", "unitOfAmount15", "unitOfAmount16", "unitOfAmount17", "unitOfAmount18", "unitOfAmount19", "unitOfAmount20", "unitOfAmount21", "unitOfAmount22", "unitOfAmount23", "unitOfAmount24"};
-                                String[] price = {"price1", "price2", "price3", "price4", "price5", "price6", "price7", "price8", "price9", "price10", "price11", "price12", "price13", "price14", "price15", "price16", "price17", "price18", "price19", "price20", "price21", "price22", "price23", "price24"};
-                                String[] pricePerPiece = {"pricePerPiece1", "pricePerPiece2", "pricePerPiece3", "pricePerPiece4", "pricePerPiece5", "pricePerPiece6", "pricePerPiece7", "pricePerPiece8", "pricePerPiece9", "pricePerPiece10", "pricePerPiece11", "pricePerPiece12", "pricePerPiece13", "pricePerPiece14", "pricePerPiece15", "pricePerPiece16", "pricePerPiece17", "pricePerPiece18", "pricePerPiece19", "pricePerPiece20", "pricePerPiece21", "pricePerPiece22", "pricePerPiece23", "pricePerPiece24"};
-                                String[] countOfItem = {"count1", "count2", "count3", "count4", "count5", "count6", "count7", "count8", "count9", "count10", "count11", "count12", "count13", "count14", "count15", "count16", "count17", "count18", "count19", "count20", "count21", "count22", "count23", "count24"};
-
-                                invoicePdfCreator.setField("paymentsForm", paymentsForm);
-                                invoicePdfCreator.setField("currency", currency);
-                                invoicePdfCreator.setField("invoiceNumber", invoiceNumber);
-                                invoicePdfCreator.setField("paymentDueDate", paymentDueDate);
-                                invoicePdfCreator.setField("deliveryDate", deliveryDate);
-                                invoicePdfCreator.setField("exposureDate", exposureDate);
-                                invoicePdfCreator.setField("variableSymbol", variableSymbol);
-                                invoicePdfCreator.setField("constantSymbol", constantSymbol);
-                                invoicePdfCreator.setField("note", note);
-                                invoicePdfCreator.setField("drewUpBy", drewUpBy);
-
-                                invoicePdfCreator.setField("IBAN", supplier.getIBAN());
-                                invoicePdfCreator.setField("companyName", supplier.getCompanyName());
-                                invoicePdfCreator.setField("street", supplier.getStreet());
-                                invoicePdfCreator.setField("city", supplier.getCity() + " " + supplier.getPostalCode());
-                                invoicePdfCreator.setField("country", supplier.getCountry());
-                                invoicePdfCreator.setField("email", supplier.getEmail());
-                                invoicePdfCreator.setField("telephoneNumber", supplier.getTelephoneNumber());
-                                invoicePdfCreator.setField("ICO", new Long(supplier.getICO()).toString());
-                                invoicePdfCreator.setField("DIC", new Long(supplier.getDIC()).toString());
-                                invoicePdfCreator.setField("ICDPH", new Long(supplier.getICDPH()).toString());
-
-                                invoicePdfCreator.setField("companyNameC", customer.getCompanyName());
-                                invoicePdfCreator.setField("streetC", customer.getStreet());
-                                invoicePdfCreator.setField("cityC", customer.getCity() + " " + customer.getPostalCode());
-                                invoicePdfCreator.setField("countryC", customer.getCountry());
-                                invoicePdfCreator.setField("emailC", customer.getEmail());
-                                invoicePdfCreator.setField("telephoneNumberC", customer.getTelephoneNumber());
-                                invoicePdfCreator.setField("ICOC", new Long(customer.getICO()).toString());
-                                invoicePdfCreator.setField("DICC", new Long(customer.getDIC()).toString());
-                                invoicePdfCreator.setField("ICDPHC", new Long(customer.getICDPH()).toString());
-
-                                double priceSum = 0;
-                                for (int i = 0; i < newInvoice.getProducts().size(); i++) {
-                                    invoicePdfCreator.setField(itemName[i], newInvoice.getProducts().get(i).getDescription());
-                                    invoicePdfCreator.setField(intemNumber[i], Integer.toString(i + 1));
-                                    invoicePdfCreator.setField(unitOfAmount[i], newInvoice.getProducts().get(i).getUnitOfAmount());
-                                    invoicePdfCreator.setField(pricePerPiece[i], Double.toString(round(newInvoice.getProducts().get(i).getPricePerPiece())));
-                                    invoicePdfCreator.setField(countOfItem[i], Integer.toString(newInvoice.getProducts().get(i).getAmount()));
-                                    invoicePdfCreator.setField(price[i], Double.toString(round(newInvoice.getProducts().get(i).getPricePerPiece() * newInvoice.getProducts().get(i).getAmount())));
-                                    priceSum += newInvoice.getProducts().get(i).getPricePerPiece() * newInvoice.getProducts().get(i).getAmount();
-                                }
-
-                                invoicePdfCreator.setField("priceWithoutDPH", Double.toString(round(priceSum)));
-                                invoicePdfCreator.setField("priceWithDPH", Double.toString(round(priceSum * 0.2)));
-                                invoicePdfCreator.setField("price", Double.toString(round(priceSum * 1.2)));
-                                invoicePdfCreator.saveAndClose();
-
-                                refreshItemsTable();
-                                this.dispose();
-
-                            } catch (IOException ex) {
-                                new BadFilledForm(this, true, "Create PDF Error - contact developer").setVisible(true);
-                            } catch (NumberFormatException e) {
-                                new BadFilledForm(this, true, "Repair all red fields").setVisible(true);
-
                             }
                         }
                     }

@@ -1,5 +1,6 @@
 package sk.upjs.invoicesystem;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.AbstractTableModel;
 
@@ -10,6 +11,7 @@ public class InvoiceTableModel extends AbstractTableModel {
     private static final String[] COLUMNS_NAMES = {"Supplier", "Customer", "Exposure date"};
 
     private static final int COLUMNS_COUNT = COLUMNS_NAMES.length;
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
 
     @Override
     public int getRowCount() {
@@ -35,7 +37,7 @@ public class InvoiceTableModel extends AbstractTableModel {
                 if (exposureDate == null) {
                     return "null";
                 } else {
-                    return exposureDate;
+                    return sdf.format(exposureDate);
                 }
             default:
                 return "???";
